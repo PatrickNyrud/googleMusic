@@ -2,10 +2,6 @@ from __future__ import unicode_literals
 import youtube_dl
 from gmusicapi import Musicmanager
 
-print "kek"
-
-
-
 def yt_dl():
 	ydl_opts = {
 	    'format': 'bestaudio/best',
