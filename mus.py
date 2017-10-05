@@ -1,16 +1,48 @@
-from __future__ import unicode_literals
-import youtube_dl
-import pafy
+#from __future__ import unicode_literals
+#import youtube_dl
+#import pafy
 import os
-import ast
-from gmusicapi import Musicmanager
+#import ast
+from tkinter import *
+import tkinter
+import tkFont
+#from gmusicapi import Musicmanager
+
+"""
+###TODO###
+
+- meh
+-- semi important
+--- important
+
+-- add to google_uploader, check if the file was actually uploaded.
+- add to google_uploader, remove all the errors that pop up.
+- add new class...?, a class for the utube uploader
+--- add to gui, make a gui
+"""
+
 
 class gui:
 	def main(self):
-		pass
+		print("Opening")
+		self.root = tkinter.Tk()
+		self.root.geometry("700x350")
+
+		self.text_font = tkFont.Font(family = "Helvetica", size = 25)
+
+		self.text_field = Entry(self.root, bd = 2, justify = "center", font = self.text_font, relief = "groove")
+		self.text_field.place(relx = .5, rely = .5, anchor = "center")
+
+		self.button = Button(self.root, text = "ENTER", command = self.button_func())
+		self.button.place(relx = .5, rely = .6, anchor = "center")
+
+		self.root.mainloop()
 
 	def window(self):
 		pass
+
+	def button_func(self):
+		print("Works")
 
 
 class googleUploader:
@@ -88,7 +120,9 @@ class googleUploader:
 		input(">> ")		
 
 if __name__ == "__main__":
-	st = googleUploader()
-	st.main()
+	#st = googleUploader()
+	#st.main()
+	te = gui()
+	te.main()
 
 
