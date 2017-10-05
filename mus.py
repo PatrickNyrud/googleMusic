@@ -1,12 +1,12 @@
-#from __future__ import unicode_literals
-#import youtube_dl
-#import pafy
+from __future__ import unicode_literals
+import youtube_dl
+import pafy
 import os
-#import ast
+import ast
 from tkinter import *
 import tkinter
 import tkFont
-#from gmusicapi import Musicmanager
+from gmusicapi import Musicmanager
 
 """
 ###TODO###
@@ -15,9 +15,11 @@ import tkFont
 -- semi important
 --- important
 
--- add to google_uploader, check if the file was actually uploaded.
+- add to loadtime, check to see if load time can be reduced
 - add to google_uploader, remove all the errors that pop up.
 - add new class...?, a class for the utube uploader
+-- add to yt_dl, strip any '' fro the file name
+-- add to google_uploader, check if the file was actually uploaded.
 --- add to gui, make a gui
 """
 
@@ -120,9 +122,9 @@ class googleUploader:
 		input(">> ")		
 
 if __name__ == "__main__":
-	#st = googleUploader()
-	#st.main()
-	te = gui()
-	te.main()
+	st = googleUploader()
+	st.main()
+	#te = gui()
+	#te.main()
 
 
