@@ -101,7 +101,7 @@ class googleUploader:
 
 
 if __name__ == "__main__":
-	te = gui()
-	te.main()
+	strt = gui()
+	strt.main()
 
 
