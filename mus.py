@@ -18,9 +18,7 @@ from gmusicapi import Musicmanager
 - add to loadtime, check to see if load time can be reduced
 - add to google_uploader, remove all the errors that pop up.
 - add new class...?, a class for the utube uploader
--- add to yt_dl, strip any '' fro the file name
--- add to google_uploader, check if the file was actually uploaded.
---- add to gui, make a gui
+--- add to yt_dl, strip any '' fro the file name
 """
 
 
@@ -71,8 +69,24 @@ class googleUploader:
 		self.google_upload(self.vid_name)
 
 	def google_upload(self, name):
+		self.mm = Musicmanager()
+		self.mm.login()
+		self.first_run = self.check_songs()
 		self.mm.upload(name, enable_matching=False, enable_transcoding=True, transcode_quality=u'320k')
+		self.second_run = self.check_songs()
+		if self.second_run > self.first_run:
+			print "Song uploaded!"
+		else:
+			print "Song NOT uploaded!"
 
+	def check_songs(self):
+		self.songs = self.mm.get_uploaded_songs()
+		self.num = 0
+
+		for x in self.songs:
+			self.num += 1
+
+		return self.num
 
 	# def get_songs(self):
 	# 	os.system("cls")
@@ -103,5 +117,7 @@ class googleUploader:
 if __name__ == "__main__":
 	strt = gui()
 	strt.main()
+	#te = googleUploader()
+	#te.check_songs()
 
 
