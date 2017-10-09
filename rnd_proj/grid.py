@@ -69,6 +69,7 @@ class start:
 					pygame.draw.rect(self.screen, self.color, 
 								[self.x, self.y, self.WIDTH, self.HEIGHT])
 
+			self.score_display()
 			pygame.display.flip()
 
 			self.clock.tick(60)
@@ -77,6 +78,8 @@ class start:
 	def update(self, row, column, num):
 		self.infect_zone = [[row - 1, column], [row + 1, column],
 							[row, column +1], [row, column - 1]]
+
+		#self.score_display()
 		
 		self.infect_chance = random.randint(1, 100)
 		if self.infect_chance >= 99:
@@ -87,13 +90,22 @@ class start:
 				pass
 			elif self.grid[self.direction[0]][self.direction[1]] != 0 and self.grid[self.direction[0]][self.direction[1]] != num:
 				self.grid[self.direction[0]][self.direction[1]] = num
-
+				self.score_update()
 			elif self.grid[self.direction[0]][self.direction[1]] == 0:
 				self.grid[self.direction[0]][self.direction[1]] = num
-
+				self.score_update()
 				print "Cell " + str(self.direction) + " has been conquered"
 
 	def score_display(self):
+		self.myfont = pygame.font.SysFont("monospace", 15)
+		self.green_text = self.myfont.render("Number of GREEN tiles: " + str(self.green_score), 1, self.GREEN)
+		self.red_text = self.myfont.render("Number of RED tiles: " + str(self.red_score), 1, self.RED)
+		self.screen.blit(self.green_text, (self.x + 50, 100))
+		self.screen.blit(self.red_text, (self.x + 50, 120))
+
+	def score_update(self):
+		self.green_score = 0
+		self.red_score = 0
 		for row in range(self.amout_of_boxes):
 			for column in range(self.amout_of_boxes):
 				if self.grid[row][column] == 1:
@@ -102,11 +114,6 @@ class start:
 					self.red_score += 1
 				else:
 					pass
-		self.myfont = pygame.font.SysFont("monospace", 15)
-		self.green_text = self.myfont.render("Number of GREEN tiles: " + str(self.green_score), 1, self.GREEN)
-		self.red_text = self.myfont.render("Number of RED tiles: " + str(self.red_score), 1, self.RED)
-		self.screen.blit(self.green_text, (self.x + 50, 100))
-		self.screen.blit(self.red_text, (self.x + 50, 120))
 
 if __name__ == "__main__":
 	st = start()

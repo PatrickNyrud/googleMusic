@@ -26,16 +26,16 @@ from gmusicapi import Musicmanager
 
 class gui:
 	def main(self):
-		print("Opening")
 		self.root = tkinter.Tk()
+		self.root.configure(background = "white")
 		self.root.geometry("700x350")
 
-		self.text_font = tkFont.Font(family = "Helvetica", size = 25)
+		self.text_font = tkFont.Font(family = "Helvetica", size = 20)
 
 		self.text_field = Entry(self.root, bd = 2, justify = "center", font = self.text_font, relief = "groove")
-		self.text_field.place(relx = .5, rely = .5, anchor = "center")
+		self.text_field.place(relx = .5, rely = .4, width = 600, anchor = "center")
 
-		self.button = Button(self.root, text = "ENTER", command = self.button_func())
+		self.button = Button(self.root, bg = "white", text = "ENTER", command = self.button_func)
 		self.button.place(relx = .5, rely = .6, anchor = "center")
 
 		self.root.mainloop()
@@ -44,31 +44,12 @@ class gui:
 		pass
 
 	def button_func(self):
-		print("Works")
+		self.url = self.text_field.get()
+		self.up = googleUploader()
+		self.up.yt_dl(self.url)
 
 
 class googleUploader:
-	def main(self):
-		self.isRunning = True
-
-		self.mm = Musicmanager()
-		self.mm.login()
-		while self.isRunning:
-			os.system("cls")
-			print("###########################"
-				  "\n1. Download Songs"
-				  "\n2. List of songs"
-				  "\n\n3. Exit")
-			self.usr_choice = input(">> ")
-			if self.usr_choice == 1:
-				os.system("cls")
-				self.ut_url = raw_input("Enter a youtube link: ")
-				self.yt_dl(self.ut_url)
-			elif self.usr_choice == 2:
-				self.get_songs()
-			elif self.usr_choice == 3:
-				self.isRunning = False
-
 	def yt_dl(self, url):
 		self.video = pafy.new(url)
 		self.vid_name = "dl_songs/" + self.video.title + ".mp3"
@@ -89,25 +70,28 @@ class googleUploader:
 
 		self.google_upload(self.vid_name)
 
+	def google_upload(self, name):
+		self.mm.upload(name, enable_matching=False, enable_transcoding=True, transcode_quality=u'320k')
 
-	def get_songs(self):
-		os.system("cls")
 
-		self.dict_list = []
-		self.num = 0
-		self.songs = self.mm.get_uploaded_songs()
+	# def get_songs(self):
+	# 	os.system("cls")
 
-		for x in self.songs:
-			te = ast.literal_eval(str(x))
-			self.dict_list.append(te)
-		print("#" * 100)
-		for x in self.dict_list:
-			self.num += 1
-			print "\n" + str(self.num) + ". " + x["title"]
-		print("\n" + "#" * 100)
+	# 	self.dict_list = []
+	# 	self.num = 0
+	# 	self.songs = self.mm.get_uploaded_songs()
 
-		print("\n3. Back")
-		self.usr_choice = input(">>")
+	# 	for x in self.songs:
+	# 		te = ast.literal_eval(str(x))
+	# 		self.dict_list.append(te)
+	# 	print("#" * 100)
+	# 	for x in self.dict_list:
+	# 		self.num += 1
+	# 		print "\n" + str(self.num) + ". " + x["title"]
+	# 	print("\n" + "#" * 100)
+
+	# 	print("\n3. Back")
+	# 	self.usr_choice = input(">>")
 		
 
 	#For first time run
@@ -115,16 +99,9 @@ class googleUploader:
 	# 	mm = Musicmanager()
 	#  	mm.perform_oauth()
 
-	def google_upload(self, name):
-		self.mm.upload(name, enable_matching=False, enable_transcoding=True, transcode_quality=u'320k')
-		
-		print("Song uploaded!")
-		input(">> ")		
 
 if __name__ == "__main__":
-	st = googleUploader()
-	st.main()
-	#te = gui()
-	#te.main()
+	te = gui()
+	te.main()
 
 
