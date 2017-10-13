@@ -17,7 +17,6 @@ from gmusicapi import Musicmanager
 
 - add to loadtime, check to see if load time can be reduced
 - add to google_uploader, remove all the errors that pop up.
-- add new class...?, a class for the utube uploader
 --- add to yt_dl, strip any '' fro the file name
 """
 
@@ -33,21 +32,36 @@ class gui:
 		self.text_field = Entry(self.root, bd = 2, justify = "center", font = self.text_font, relief = "groove")
 		self.text_field.place(relx = .5, rely = .4, width = 600, anchor = "center")
 
+		self.upload_status = Label(self.root, borderwidth = 0, bg = "white", width = 50, height = 1, justify = "center")
+		self.upload_status.place(relx = .5, rely = .2, anchor = "center")
+
 		self.button = Button(self.root, bg = "white", text = "ENTER", command = self.button_func)
 		self.button.place(relx = .5, rely = .6, anchor = "center")
 
 		self.root.mainloop()
 
-	def window(self):
-		pass
+	def initilize(self):
+		self.up = googleUploader()
+		self.up.login()
 
 	def button_func(self):
 		self.url = self.text_field.get()
-		self.up = googleUploader()
+		self.first_run = self.up.check_songs()
 		self.up.yt_dl(self.url)
+		self.second_run = self.up.check_songs()
+		if self.second_run > self.first_run:
+			self.upload_status.insert(END, "Song was uploaded!")
+			self.upload_status.configure(fg = "green")
+		else:
+			self.upload_status.insert(END, "Song was NOT uploaded!")
+			self.upload_status.configure(fg = "red")
 
 
 class googleUploader:
+	def login(self):
+		self.mm = Musicmanager()
+		self.mm.login()
+
 	def yt_dl(self, url):
 		self.video = pafy.new(url)
 		self.vid_name = "dl_songs/" + self.video.title + ".mp3"
@@ -68,16 +82,6 @@ class googleUploader:
 
 		self.google_upload(self.vid_name)
 
-	def google_upload(self, name):
-		self.mm = Musicmanager()
-		self.mm.login()
-		self.first_run = self.check_songs()
-		self.mm.upload(name, enable_matching=False, enable_transcoding=True, transcode_quality=u'320k')
-		self.second_run = self.check_songs()
-		if self.second_run > self.first_run:
-			print "Song uploaded!"
-		else:
-			print "Song NOT uploaded!"
 
 	def check_songs(self):
 		self.songs = self.mm.get_uploaded_songs()
@@ -88,25 +92,8 @@ class googleUploader:
 
 		return self.num
 
-	# def get_songs(self):
-	# 	os.system("cls")
-
-	# 	self.dict_list = []
-	# 	self.num = 0
-	# 	self.songs = self.mm.get_uploaded_songs()
-
-	# 	for x in self.songs:
-	# 		te = ast.literal_eval(str(x))
-	# 		self.dict_list.append(te)
-	# 	print("#" * 100)
-	# 	for x in self.dict_list:
-	# 		self.num += 1
-	# 		print "\n" + str(self.num) + ". " + x["title"]
-	# 	print("\n" + "#" * 100)
-
-	# 	print("\n3. Back")
-	# 	self.usr_choice = input(">>")
-		
+	def google_upload(self, name):
+		self.mm.upload(name, enable_matching=False, enable_transcoding=True, transcode_quality=u'320k')
 
 	#For first time run
 	# def google_strt(self):
@@ -116,6 +103,7 @@ class googleUploader:
 
 if __name__ == "__main__":
 	strt = gui()
+	strt.initilize()
 	strt.main()
 	#te = googleUploader()
 	#te.check_songs()

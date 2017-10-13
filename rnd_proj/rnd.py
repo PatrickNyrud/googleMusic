@@ -1,12 +1,24 @@
-def test():
-	var = test2()
-	print var
+import multiprocessing
+import time
 
-def test2():
-	return test3()
+done = True
 
-def test3():
-	return "y"
+def add():
+    while True:
+        print (1)
+        time.sleep(2)
 
+def sud():
+	num = 0
+	while True:
+		num += 1
+		print num
+		if num < 5:
+			done = False
+		time.sleep(2)
 
-test()
+if __name__ == '__main__':
+	p1 = multiprocessing.Process(name='p1', target=add)
+	p = multiprocessing.Process(name='p', target=sud)
+	p1.start()
+	p.start()
