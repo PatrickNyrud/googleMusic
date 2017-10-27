@@ -13,8 +13,8 @@ def sud():
 	while True:
 		num += 1
 		print num
-		if num < 5:
-			done = False
+		if num > 5:
+			p1.shutdown()
 		time.sleep(2)
 
 if __name__ == '__main__':
