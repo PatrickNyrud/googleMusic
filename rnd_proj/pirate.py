@@ -21,16 +21,14 @@ class Example(tk.Frame):
     def populate(self):
         '''Put in some fake data'''
         for row in range(100):
-            tk.Label(self.frame, text="%s" % row, width=3, borderwidth="1", 
-                     relief="solid").grid(row=row, column=0)
-            t="this is the second column for row %s" %row
-            tk.Label(self.frame, text=t).grid(row=row, column=1)
+            self.btn = tk.Button(self.frame, height = 1, width = 5, command = lambda : self.add(image_name))
+            self.btn.pack()
 
     def onFrameConfigure(self, event):
         '''Reset the scroll region to encompass the inner frame'''
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
 if __name__ == "__main__":
-    root=tk.Tk()
+    root = tk.Tk()
     Example(root).pack(side="top", fill="both", expand=True)
     root.mainloop()
