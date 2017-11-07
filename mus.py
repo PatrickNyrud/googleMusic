@@ -50,10 +50,10 @@ class gui:
 		self.up.yt_dl(self.url)
 		self.second_run = self.up.check_songs()
 		if self.second_run > self.first_run:
-			self.upload_status.insert(END, "Song was uploaded!")
+			self.upload_status.config(text = "Song was uploaded!")
 			self.upload_status.configure(fg = "green")
 		else:
-			self.upload_status.insert(END, "Song was NOT uploaded!")
+			self.upload_status.config(text = "Song was NOT uploaded!")
 			self.upload_status.configure(fg = "red")
 
 

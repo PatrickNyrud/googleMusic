@@ -5,7 +5,7 @@ import decimal
 
 x_screen = 1920
 y_screen = 1080
-screen = pygame.display.set_mode((x_screen, y_screen))
+screen = pygame.display.set_mode((x_screen, y_screen), pygame.FULLSCREEN)
 pygame.init()
 
 class start:
