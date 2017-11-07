@@ -6,6 +6,9 @@ root = tkinter.Tk()
 root.configure(background = "white")
 root.geometry("1000x1000")
 
+oFrame = Frame(root, width = 1000, height = 1000)
+oFrame.pack()
+
 dicboi = {"Atomic" : "199", "Commando" : "499", "Crossfire" : "599"}
 
 class frame:
@@ -22,8 +25,8 @@ class frame:
 
 class img_button:
 	def __init__(self, x_pos, y_pos, image_name):
-		self.btn = Button(root, height = 1, width = 5, command = lambda : self.add(image_name))
-		self.btn.place(relx = x_pos, rely = y_pos)
+		self.btn = Button(oFrame, height = 1, width = 5, command = lambda : self.add(image_name))
+		self.btn.place(relx = x_pos, rely = y_pos, anchor = "center")
 
 	def add(self, art):
 		print "added " + dicboi[art]
