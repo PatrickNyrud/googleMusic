@@ -11,8 +11,8 @@ import decimal
 #
 ##########################
 
-x_screen = 1920
-y_screen = 1080
+x_screen = 3440
+y_screen = 1440
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.init()
 
