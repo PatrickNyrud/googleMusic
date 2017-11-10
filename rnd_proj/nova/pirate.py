@@ -3,7 +3,7 @@ from PIL import ImageTk
 
 #Resize images on buttons
 
-class Example(tk.Frame):
+class Nova(tk.Frame):
 	def __init__(self, root):
 
 		tk.Frame.__init__(self, root)
@@ -63,5 +63,5 @@ class Example(tk.Frame):
 if __name__ == "__main__":
 	root = tk.Tk()
 	root.geometry("1000x1000")
-	Example(root).pack(side="top", fill="both", expand=True)
+	Nova(root).pack(side="top", fill="both", expand=True)
 	root.mainloop()
