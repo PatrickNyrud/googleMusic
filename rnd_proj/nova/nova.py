@@ -9,11 +9,16 @@ class Nova(tk.Frame):
 	def __init__(self, root):
 
 		tk.Frame.__init__(self, root)
-		self.canvas = tk.Canvas(root, borderwidth=0, background="#ffffff")
-		self.frame = tk.Frame(self.canvas, background="#ffffff")
+		self.top_frame = tk.Frame(root, bg = "yellow")
+		self.canvas = tk.Canvas(root, borderwidth=0, background="red")
+		self.frame = tk.Frame(self.canvas, background="black")
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.canvas.yview)
 		self.canvas.configure(yscrollcommand=self.vsb.set)
 
+		self.lbl = tk.Label(self.top_frame, text = "0")
+		self.lbl.pack()
+
+		self.top_frame.pack(side = "top", fill = "both")
 		self.vsb.pack(side="right", fill="both")
 		self.canvas.pack(side="left", fill="both", expand=True)
 		self.canvas.create_window((4,4), window=self.frame, anchor="nw", 
@@ -73,16 +78,39 @@ class Nova(tk.Frame):
 			self.tmp += x
 
 		print self.tmp
+		self.lbl.config(text = self.tmp)
 
 	def reset(self):
 		del self.total_sum[:]
+		del self.items[:]
+		self.lbl.config(text = "0")
 
 	def check_out(self):
 		self.main = tk.Toplevel(self)
 		self.main.geometry("300x300")
 		self.main.title("Check Out")
+
+		self.checkd_items = []
+		self.final_items_text = []
+		for x in self.items:
+			if x in self.checkd_items:
+				pass
+			else:
+				self.checkd_items.append(x)
+				self.ttsum = 0
+				for j in self.items:
+					if x == j:
+						self.ttsum += 1
+				self.final_items_text.append("\n" + x + " x" + str(self.ttsum))
+
+		for x, j in enumerate(self.final_items_text):
+			self.item_text = tk.Label(self.main, text = j)
+			self.item_text.grid(row = x, column = 1)
+
 		self.sum = tk.Label(self.main, text = str(self.tmp))
-		self.sum.place(relx = .5, rely = .5, anchor = "center")
+		self.sum.grid(row = x + 1, column = 2)
+
+		self.reset()
 
 	def onFrameConfigure(self, event):
 		'''Reset the scroll region to encompass the inner frame'''
