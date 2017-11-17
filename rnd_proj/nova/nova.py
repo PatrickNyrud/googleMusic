@@ -21,6 +21,7 @@ class Nova(tk.Frame):
 
 		self.total_sum = []
 		self.items = []
+		self.tmp_sum = 0
 
 		self.frame.bind("<Configure>", self.onFrameConfigure)
 
@@ -65,14 +66,14 @@ class Nova(tk.Frame):
 		self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
 
 	def add(self, name, price):
-		self.tmp = 0
 		print name + " " + price
 		self.total_sum.append(int(price))
 		self.items.append(name)
 		for x in self.total_sum:
-			self.tmp += x
+			self.tmp_sum += x
 
-		print self.tmp
+
+		print self.tmp_sum
 
 	def reset(self):
 		del self.total_sum[:]
@@ -81,7 +82,10 @@ class Nova(tk.Frame):
 		self.main = tk.Toplevel(self)
 		self.main.geometry("300x300")
 		self.main.title("Check Out")
-		self.sum = tk.Label(self.main, text = str(self.tmp))
+		self.tot_itmes = ""
+		for x in self.items:
+			self.tot_itmes += " " + x
+		self.sum = tk.Label(self.main, text = self.tot_itmes)
 		self.sum.place(relx = .5, rely = .5, anchor = "center")
 
 	def onFrameConfigure(self, event):
