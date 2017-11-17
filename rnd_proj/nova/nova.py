@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkFont
 from PIL import ImageTk
 
 #Resize images on buttons
@@ -15,7 +16,9 @@ class Nova(tk.Frame):
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.canvas.yview)
 		self.canvas.configure(yscrollcommand=self.vsb.set)
 
-		self.lbl = tk.Label(self.top_frame, text = "0")
+		self.display_text = tkFont.Font(family = "Helvetica", size = 20)
+
+		self.lbl = tk.Label(self.top_frame, text = "0", font = self.display_text)
 		self.lbl.pack()
 
 		self.top_frame.pack(side = "top", fill = "both")
@@ -45,7 +48,7 @@ class Nova(tk.Frame):
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
-		for row in range((len(self.inv_list) / 3) + 1):
+		for row in range((len(self.inv_list) / 3) + 1): #+1 if num of colums is odd, no +1 if its even
 			self.y_pos += 1
 			self.x_pos = 0
 			try:
@@ -77,15 +80,13 @@ class Nova(tk.Frame):
 		for x in self.total_sum:
 			self.tmp_sum += x
 
-<<<<<<< HEAD
-
 		print self.tmp_sum
-=======
-		print self.tmp
-		self.lbl.config(text = self.tmp)
->>>>>>> e747e3a12ae266554619bbe11ebe14a1eefa572f
+
+		self.lbl.config(text = self.tmp_sum)
+
 
 	def reset(self):
+		self.tmp_sum = 0
 		del self.total_sum[:]
 		del self.items[:]
 		self.lbl.config(text = "0")
@@ -94,13 +95,8 @@ class Nova(tk.Frame):
 		self.main = tk.Toplevel(self)
 		self.main.geometry("300x300")
 		self.main.title("Check Out")
-<<<<<<< HEAD
-		self.tot_itmes = ""
-		for x in self.items:
-			self.tot_itmes += " " + x
-		self.sum = tk.Label(self.main, text = self.tot_itmes)
-		self.sum.place(relx = .5, rely = .5, anchor = "center")
-=======
+
+
 
 		self.checkd_items = []
 		self.final_items_text = []
@@ -119,11 +115,10 @@ class Nova(tk.Frame):
 			self.item_text = tk.Label(self.main, text = j)
 			self.item_text.grid(row = x, column = 1)
 
-		self.sum = tk.Label(self.main, text = str(self.tmp))
+		self.sum = tk.Label(self.main, text = str(self.tmp_sum))
 		self.sum.grid(row = x + 1, column = 2)
 
 		self.reset()
->>>>>>> e747e3a12ae266554619bbe11ebe14a1eefa572f
 
 	def onFrameConfigure(self, event):
 		'''Reset the scroll region to encompass the inner frame'''
@@ -132,5 +127,6 @@ class Nova(tk.Frame):
 if __name__ == "__main__":
 	root = tk.Tk()
 	root.geometry("1000x1000")
+	#root.attributes("-fullscreen", True)
 	Nova(root).pack(side="top", fill="both", expand=True)
 	root.mainloop()
