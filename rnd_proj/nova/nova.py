@@ -2,9 +2,6 @@ import tkinter as tk
 import tkFont
 from PIL import ImageTk
 
-#Resize images on buttons
-#Check out button next to reset
-#Pop up window with every item
 
 class Nova(tk.Frame):
 	def __init__(self, root):
@@ -17,6 +14,7 @@ class Nova(tk.Frame):
 		self.canvas.configure(yscrollcommand=self.vsb.set)
 
 		self.display_text = tkFont.Font(family = "Helvetica", size = 20)
+		self.window_text = tkFont.Font(family = "Helvetica", size = 12)
 
 		self.lbl = tk.Label(self.top_frame, text = "0", font = self.display_text)
 		self.lbl.pack()
@@ -68,17 +66,16 @@ class Nova(tk.Frame):
 
 	def populate(self, name, price, x_pos, y_pos):
 		self.btn = tk.Button(self.frame, height = 1, width = 5, command = lambda : self.add(name, price))
-		self.photo = ImageTk.PhotoImage(file = name + "_liten.jpg")
+		self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
 		self.btn.config(image = self.photo, width = 150, height = 150)
 		self.btn.image = self.photo
 		self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
 
 	def add(self, name, price):
 		print name + " " + price
-		self.total_sum.append(int(price))
-		self.items.append(name)
-		for x in self.total_sum:
-			self.tmp_sum += x
+		self.items.append([name, price])
+
+		self.tmp_sum += int(price)
 
 		print self.tmp_sum
 
@@ -93,10 +90,8 @@ class Nova(tk.Frame):
 
 	def check_out(self):
 		self.main = tk.Toplevel(self)
-		self.main.geometry("300x300")
+		self.main.geometry("300x400")
 		self.main.title("Check Out")
-
-
 
 		self.checkd_items = []
 		self.final_items_text = []
@@ -109,14 +104,26 @@ class Nova(tk.Frame):
 				for j in self.items:
 					if x == j:
 						self.ttsum += 1
-				self.final_items_text.append("\n" + x + " x" + str(self.ttsum))
+				self.final_items_text.append("\n" + x[0] + " x" + str(self.ttsum) + " (" + x[1] + " kr)")
 
 		for x, j in enumerate(self.final_items_text):
-			self.item_text = tk.Label(self.main, text = j)
+			self.item_text = tk.Label(self.main, text = j, font = self.window_text)
 			self.item_text.grid(row = x, column = 1)
 
-		self.sum = tk.Label(self.main, text = str(self.tmp_sum))
-		self.sum.grid(row = x + 1, column = 2)
+		if len(self.final_items_text) >= 5:
+			self.row_place = 1
+			self.btn_place = x + 1
+		else:
+			self.row_place = x + 1
+			self.btn_place = x + 2
+
+		self.sum = tk.Label(self.main, text = str(self.tmp_sum) + " kr", font = self.window_text)
+		self.sum.grid(row = self.row_place, column = 2)
+
+		self.main.grid_rowconfigure(x + 1, minsize=80)
+
+		self.exit = tk.Button(self.main, text = "EXIT", bg = "white", height = 2, width = 10)
+		self.exit.grid(row = self.btn_place, column = 2)
 
 		self.reset()
 
