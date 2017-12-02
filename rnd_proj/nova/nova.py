@@ -10,16 +10,16 @@ class Nova(tk.Frame):
 	def __init__(self, root):
 
 		tk.Frame.__init__(self, root)
-		self.top_frame = tk.Frame(root, bg = "yellow")
-		self.canvas = tk.Canvas(root, borderwidth=0, background="red")
-		self.frame = tk.Frame(self.canvas, background="black")
+		self.top_frame = tk.Frame(root, bg = "white")
+		self.canvas = tk.Canvas(root, borderwidth=0, background="white")
+		self.frame = tk.Frame(self.canvas, background="white")
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.canvas.yview)
 		self.canvas.configure(yscrollcommand=self.vsb.set)
 
 		self.display_text = tkFont.Font(family = "Helvetica", size = 20)
 		self.window_text = tkFont.Font(family = "Helvetica", size = 12)
 
-		self.lbl = tk.Label(self.top_frame, text = "0", font = self.display_text)
+		self.lbl = tk.Label(self.top_frame, bg = "white", text = "0", font = self.display_text)
 		self.lbl.pack()
 
 		#self.nomove = tk.Button(self.canvas, text = "RESET")
@@ -64,14 +64,14 @@ class Nova(tk.Frame):
 				pass
 
 
-		self.checkout_button = tk.Button(self.frame, text = "CHECK OUT", height = 10, width = 20, command = lambda : self.check_out())
+		self.checkout_button = tk.Button(self.frame, text = "CHECK OUT", height = 10, width = 20, command = lambda : self.check_out(), bg = "white")
 		self.checkout_button.grid(row = self.y_pos + 1, column = 2, pady = 50)
 
-		self.reset_button = tk.Button(self.frame, text = "RESET", height = 10, width = 20, command = lambda : self.reset())
+		self.reset_button = tk.Button(self.frame, text = "RESET", height = 10, width = 20, command = lambda : self.reset(), bg = "white")
 		self.reset_button.grid(row = self.y_pos + 1, column = self.x_pos, pady = 50)
 
 	def populate(self, name, price, x_pos, y_pos):
-		self.btn = tk.Button(self.frame, height = 5, text = name, width = 15, command = lambda : self.add(name, price))
+		self.btn = tk.Button(self.frame, height = 5, text = name, width = 15, command = lambda : self.add(name, price), bg = "white")
 		#self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
 		#self.btn.config(image = self.photo, width = 150, height = 150)
 		#self.btn.image = self.photo
