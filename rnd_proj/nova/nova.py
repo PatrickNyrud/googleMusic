@@ -142,7 +142,7 @@ class Nova(tk.Frame):
 
 if __name__ == "__main__":
 	root = tk.Tk()
-	#root.geometry("1000x1000")
-	root.attributes("-fullscreen", True)
+	root.geometry("1000x1000")
+	#root.attributes("-fullscreen", True)
 	Nova(root).pack(side="top", fill="both", expand=True)
 	root.mainloop()
