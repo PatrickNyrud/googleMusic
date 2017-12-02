@@ -113,7 +113,7 @@ class Nova(tk.Frame):
 			self.item_text = tk.Label(self.main, text = j, font = self.window_text)
 			self.item_text.grid(row = x, column = 1)
 
-		if len(self.final_items_text) >= 5:
+		if len(self.final_items_text) >= 7:
 			self.row_place = 1
 			self.btn_place = x + 1
 		else:
@@ -136,7 +136,7 @@ class Nova(tk.Frame):
 
 if __name__ == "__main__":
 	root = tk.Tk()
-	root.geometry("1000x1000")
-	#root.attributes("-fullscreen", True)
+	#root.geometry("1000x1000")
+	root.attributes("-fullscreen", True)
 	Nova(root).pack(side="top", fill="both", expand=True)
 	root.mainloop()
