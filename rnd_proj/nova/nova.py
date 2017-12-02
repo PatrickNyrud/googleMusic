@@ -92,12 +92,12 @@ class Nova(tk.Frame):
 		self.lbl.config(text = "0")
 
 	def check_out(self):
-		self.main = tk.Toplevel(self)
+		self.main = tk.Toplevel(self, bg = "white")
 		self.main.geometry("300x400")
 		self.main.title("Check Out")
 
-		self.sumframe = tk.Frame(self.main, bg = "red")
-		self.itmframe = tk.Frame(self.main, bg = "yellow")
+		self.sumframe = tk.Frame(self.main)
+		self.itmframe = tk.Frame(self.main, bg = "white")
 
 		self.checkd_items = []
 		self.final_items_text = []
@@ -113,7 +113,7 @@ class Nova(tk.Frame):
 				self.final_items_text.append("\n" + x[0] + " x" + str(self.ttsum) + " (" + x[1] + " kr)")
 
 		for x, j in enumerate(self.final_items_text):
-			self.item_text = tk.Label(self.itmframe, text = j, font = self.window_text)
+			self.item_text = tk.Label(self.itmframe, bg = "White", text = j, font = self.window_text)
 			self.item_text.grid(row = x, column = 1)
 
 		if len(self.final_items_text) >= 5:
@@ -123,12 +123,12 @@ class Nova(tk.Frame):
 			self.row_place = x + 1
 			self.btn_place = x + 2
 
-		self.sum = tk.Label(self.sumframe, text = str(self.tmp_sum) + " kr", font = self.window_text)
+		self.sum = tk.Label(self.sumframe, bg = "white", text = str(self.tmp_sum) + " kr", font = self.window_text)
 		self.sum.grid(row = self.row_place, column = 2)
 
 		self.main.grid_rowconfigure(x + 1, minsize=80)
 
-		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10)
+		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10, command = lambda : self.window_destroy(self.main))
 		self.exit.grid(row = self.btn_place, column = 2)
 
 		self.sumframe.pack()
@@ -139,6 +139,10 @@ class Nova(tk.Frame):
 	def onFrameConfigure(self, event):
 		'''Reset the scroll region to encompass the inner frame'''
 		self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+
+	def window_destroy(self, window):
+		window.destroy()
+
 
 if __name__ == "__main__":
 	root = tk.Tk()
