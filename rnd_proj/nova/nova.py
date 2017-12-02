@@ -22,8 +22,12 @@ class Nova(tk.Frame):
 		self.lbl = tk.Label(self.top_frame, bg = "white", text = "0", font = self.display_text)
 		self.lbl.pack()
 
-		#self.nomove = tk.Button(self.canvas, text = "RESET")
-		#self.nomove.pack(padx = 35, pady = 50)
+		self.nomove_co = tk.Button(self.top_frame, text = "CHECK OUT", bg = "white")
+		self.nomove_co.place(relx = .1, rely = .5, anchor = "center")
+
+		self.nomove_r = tk.Button(self.top_frame, text = "RESET", bg = "white")
+		self.nomove_r.place(relx = .9, rely = .5, anchor = "center")
+
 
 		self.top_frame.pack(side = "top", fill = "both")
 		self.vsb.pack(side="right", fill="both")
@@ -47,8 +51,8 @@ class Nova(tk.Frame):
 		, ["Commando", "599"], ["Shocker", "599"], ["Gladiator", "599"], ["Crossfire", "599"], ["Firestorm", "599"]
 		, ["Dragonstep", "599"], ["Hellfire", "599"], ["Diablo", "599"], ["Kickass", "599"], ["Vipblackline", "599"], ["Monster", "599"]
 		, ["Eagle", "599"], ["Monsterpack", "599"], ["Nighthawk", "599"], ["Strobe", "599"], ["Thunderbolt", "599"]
-		, ["Topflight", "599"], ["Partymix", "599"], ["Smatt", "599"], ["Stjerneskudd", "599"], ["Stjerneskuddmini", "599"]
-		, ["Stormlighter", "599"], ["Tikroner", "599"], ["Lyxfontene", "599"], ["Handfakkel", "599"], ["Fargefontene", "599"]]
+		, ["Topflight", "599"], ["Partymix", "599"], ["Stormlighter", "599"], ["Stjerneskudd", "599"], ["Stjerneskuddmini", "599"]
+		, ["Tjuefemkroner", "599"], ["Tikroner", "599"], ["Lyxfontene", "599"], ["Handfakkel", "599"], ["Fargefontene", "599"]]
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
