@@ -2,7 +2,6 @@ try:
         import tkinter as tk
 except:
         import Tkinter as tk
-
 import tkFont
 from PIL import ImageTk
 
@@ -70,9 +69,9 @@ class Nova(tk.Frame):
 
 	def populate(self, name, price, x_pos, y_pos):
 		self.btn = tk.Button(self.frame, height = 1, width = 5, command = lambda : self.add(name, price))
-		self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
-		self.btn.config(image = self.photo, width = 150, height = 150)
-		self.btn.image = self.photo
+		#self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
+		#self.btn.config(image = self.photo, width = 150, height = 150)
+		#self.btn.image = self.photo
 		self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
 
 	def add(self, name, price):
