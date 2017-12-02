@@ -22,10 +22,10 @@ class Nova(tk.Frame):
 		self.lbl = tk.Label(self.top_frame, bg = "white", text = "0", font = self.display_text)
 		self.lbl.pack()
 
-		self.nomove_co = tk.Button(self.top_frame, text = "CHECK OUT", bg = "white")
+		self.nomove_co = tk.Button(self.top_frame, text = "CHECK OUT", bg = "white", command = lambda : self.check_out())
 		self.nomove_co.place(relx = .1, rely = .5, anchor = "center")
 
-		self.nomove_r = tk.Button(self.top_frame, text = "RESET", bg = "white")
+		self.nomove_r = tk.Button(self.top_frame, text = "RESET", bg = "white", command = lambda : self.reset())
 		self.nomove_r.place(relx = .9, rely = .5, anchor = "center")
 
 
