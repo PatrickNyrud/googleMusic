@@ -68,7 +68,7 @@ class Nova(tk.Frame):
 		self.reset_button.grid(row = self.y_pos + 1, column = self.x_pos, pady = 50)
 
 	def populate(self, name, price, x_pos, y_pos):
-		self.btn = tk.Button(self.frame, height = 1, width = 5, command = lambda : self.add(name, price))
+		self.btn = tk.Button(self.frame, height = 1, text = name, width = 5, command = lambda : self.add(name, price))
 		#self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
 		#self.btn.config(image = self.photo, width = 150, height = 150)
 		#self.btn.image = self.photo
