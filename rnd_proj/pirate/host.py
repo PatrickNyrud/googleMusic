@@ -14,41 +14,24 @@ class main:
 	def __init__(self):
 		isRunning = True
 		while isRunning == True:
-			os.system("cls")
-			print((" " * 15) + "Main Menu\n"
-				"----------------------------------------\n\n"
-				"1. Check movies\n\n"
-				"2. Exit\n"
-				"\n----------------------------------------")
-			usr = input(">> ")
-			if usr == 1:
-				self.idle_run()
-			elif usr == 2:
+			now = time.strftime("%H:%M")
+			date = time.strftime("%d %b %Y")
+			if now == "18:00" or now == "20:00" or now == "22:00":
+				self.check_site(file_dest, config, keywords, now, date)
+				time.sleep(60)
+			elif now == "20:30":
+				self.check_release(file_dest, upcoming)
+				time.sleep(60)
+			else:
 				os.system("cls")
-				isRunning = False
-				sys.exit(0)
+				print now
+				time.sleep(30)
 
-	def idle_run(self):
-		while 1:
-			try:
-				now = time.strftime("%H:%M")
-				if now == now or now == "15:30" or now == "15:30":
-					self.check_site(file_dest, config, keywords)
-					time.sleep(60)
-				elif now == "15:23" or now == "15:30" or now == "16:30":
-					self.check_release(upcoming)
-					time.sleep(60)
-				else:
-					os.system("cls")
-					print now
-					time.sleep(30)
-			except KeyboardInterrupt:
-				main()
-
-	def check_site(self, dirr, file_m, file_k):
+	def check_site(self, dirr, file_m, file_k, time, day):
 		#OPENS THE FILES
 		movie_list = []
 		keyword_list = []
+		log_write = open("logs\\search_log.txt", "a")
 		with open(dirr + file_m, "r") as movie_file, open(dirr + file_k, "r") as key_file:
 			for x in movie_file:
 				movie_list.append(x.strip())
@@ -59,15 +42,15 @@ class main:
 		for x in movie_list:
 			x = x.replace(" ", "+")
 			url_link = "http://1337x.to/search/" + x + "/1/" #.rstrip("\n") is for removing the new line so the link properly works
-			print "\n" + url_link 
+			log_write.write("\n\n" + time + " " + day + "\n" + url_link)
 			film_req = urllib2.Request(url_link, headers={'User-Agent' : "Magic Browser"}) 
-			film_read =urllib2.urlopen(film_req).read()
+			film_read = urllib2.urlopen(film_req).read()
 			for k in keyword_list: #Check every keywords in the list again the movie
 				final_check = re.findall(k, film_read) 
 				if len(final_check) > 1:
 					#Checks if a msg has been sendt
-					if os.path.isfile(x + "-" + k + ".txt"): 
-						print("File exists\n")
+					if os.path.isfile("logs\\" + x + "-" + k + ".txt"): 
+						log_write.write("\nFile exists")
 					else:
 						#msg hasnt been sendt, creats a file and calls send_mail
 						with open("logs\\" + x + "-" + k + ".txt", "w") as f:
@@ -75,30 +58,29 @@ class main:
 						f.close()
 						self.send_mail("pirate", x, k)
 				else:
-					print("Didnt find stuff for " + k)
+					log_write.write("\nDidnt find stuff for " + k)
 		url_link = "http://www.tv2.no/" #Decoy.....
 		film_check = urllib2.urlopen(url_link).close()
 
-	def check_release(self, file_m):
-		client = dropbox.client.DropboxClient(auth_key)
-		#Opens the movie list config
+	def check_release(self, dirr, file_m):
 		upcoming_list = []
-		u_li = client.get_file("/python/" + file_m)
-		for x in u_li:
-			upcoming_list.append(x.strip())
+		log_write = open("logs\\search_log.txt", "a")
+		with open(dirr + file_m, "r") as movie_file:
+			for x in movie_file:
+				upcoming_list.append(x.strip())
 
 		now = time.strftime("%d-%m-%Y")
 		for x in upcoming_list:
 			x = x.split(",") #Splits the lines by ,
 			if x[1].strip() == now: #Strips every whitespace
-				print x[0] + " has been released!"
-				self.send_mail("release", x[0], " ")
+				log_write.write("\n\n" + x[0] + " has been released!")
+				self.send_mail("\n\n" + "release", x[0], " ")
 			else:
-				print x[0] + " has NOT been released!"
+				log_write.write("\n\n" + x[0] + " has NOT been released!")
 
 	def send_mail(self, msg_type, movie_name, movie_keyword):
-		fromaddr = 'xxxx1996'
-		toaddrs  = 'xxxx96'
+		fromaddr = 'xx'
+		toaddrs  = 'xx'
 		if msg_type == "pirate":
 			msg = "Found %s rip, (%s) Go check it out!" % (movie_name, movie_keyword)
 			subject = "Found %s rip, (%s)" % (movie_name, movie_keyword)
@@ -107,7 +89,7 @@ class main:
 			subject = "%s released...!" % (movie_name)
 		else:
 			pass
-		username = 'xxxx1996'
+		username = 'xx'
 		password = 'xx'
 
 		message = 'Subject: {}\n\n{}'.format(subject, msg)
@@ -118,14 +100,6 @@ class main:
 		server.login(username, password)
 		server.sendmail(fromaddr, toaddrs, message)
 		server.quit()
-
-
-def test():
-	#check = urllib2.urlopen("http://1337x.to/search/Star+Wars+The+Last+Jedi/1/")
-	#print check
-	req = urllib2.Request("http://1337x.to/search/Star+Wars+The+Last+Jedi/1/", headers={'User-Agent' : "Magic Browser"}) 
-	con = urllib2.urlopen( req )
-	print con.read()
 
 
 if __name__ == "__main__":
