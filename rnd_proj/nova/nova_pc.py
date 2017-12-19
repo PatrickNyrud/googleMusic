@@ -56,7 +56,7 @@ class Nova(tk.Frame):
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
-		for row in range((len(self.inv_list) / 6) + 1): #+1 if num of colums is odd, no +1 if its even
+		for row in range((len(self.inv_list) / 6) + 1): #+1 if the len(self.inv_list) / 6 is not a whole number (6.83)
 			self.y_pos += 1
 			self.x_pos = 0
 			try:
