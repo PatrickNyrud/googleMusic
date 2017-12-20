@@ -45,14 +45,14 @@ class Nova(tk.Frame):
 
 
 	def add_imgs(self):
-		self.inv_list = [["Atomic", "199"], ["Superti", "329"], ["Magnum", "499"], ["xtrem", "1599"], ["Flashlight", "599"]
-		, ["Phoenix", "599"], ["Bolero", "599"], ["Circus", "599"], ["Bizarre", "599"], ["Goldfish", "599"]
-		, ["Orion", "599"], ["Trapez", "599"], ["Passion", "599"], ["Tnt", "599"], ["Tbird", "599"]
-		, ["Commando", "599"], ["Shocker", "599"], ["Gladiator", "599"], ["Crossfire", "599"], ["Firestorm", "599"]
-		, ["Dragonstep", "599"], ["Hellfire", "599"], ["Diablo", "599"], ["Kickass", "599"], ["Vipblackline", "599"], ["Monster", "599"]
-		, ["Eagle", "599"], ["Monsterpack", "599"], ["Nighthawk", "599"], ["Strobe", "599"], ["Thunderbolt", "599"]
-		, ["Topflight", "599"], ["Partymix", "599"], ["Stormlighter", "599"], ["Stjerneskudd", "599"], ["Stjerneskuddmini", "599"]
-		, ["Tjuefemkroner", "599"], ["Tikroner", "599"], ["Lyxfontene", "599"], ["Handfakkel", "599"], ["Fargefontene", "599"]]
+		self.inv_list = [["Atomic", "199"], ["Superti", "349"], ["Magnum", "449"], ["xtrem", "1499"], ["Flashlight", "749"]
+		, ["Phoenix", "1199"], ["Bolero", "399"], ["Circus", "199"], ["Bizarre", "199"], ["Goldfish", "329"], ["Orion", "279"]
+		, ["Trapez", "549"], ["Passion", "349"], ["Tnt", "99"], ["Tbird", "399"], ["Commando", "499"], ["Shocker", "599"], ["Kamikaze", "399"]
+		, ["Gladiator", "799"], ["Crossfire", "599"], ["Blackspider", "749"], ["Firestorm", "599"], ["Hellfire", "999"], ["Aceshigh", "2499"]
+		, ["Kickass", "1199"], ["Supernova", "1499"], ["Vipblackline", "1999"], ["Monster", "199"], ["Eagle", "249"], ["Monsterpack", "479"]
+		, ["Nighthawk", "239"], ["Strobe", "599"], ["Thunderbolt", "399"], ["Nitrobag", "549"], ["Bigbag", "999"], ["Topflight", "999"]
+		, ["Partymix", "199"], ["Stormlighter", "29"], ["Stjerneskudd", "49"], ["Stjerneskuddmini", "20"], ["Tjuefemkroner", "25"]
+		, ["Tikroner", "10"], ["Glowstick", "5"], ["Lyxfontene", "69"], ["Handfakkel", "49"], ["Fargefontene", "99"]]
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
