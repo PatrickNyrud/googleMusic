@@ -45,7 +45,7 @@ class Nova(tk.Frame):
 
 
 	def add_imgs(self):
-		self.inv_list = [["Atomic", "199"], ["Superti", "349"], ["Magnum", "449"], ["xtrem", "1499"], ["Flashlight", "749"]
+		self.inv_list = [["Atomic", "99"], ["Atomic", "199"], ["Superti", "349"], ["Magnum", "449"], ["xtrem", "1499"], ["Flashlight", "749"]
 		, ["Phoenix", "1199"], ["Bolero", "399"], ["Circus", "199"], ["Bizarre", "199"], ["Goldfish", "329"], ["Orion", "279"]
 		, ["Trapez", "549"], ["Passion", "349"], ["Tnt", "99"], ["Tbird", "399"], ["Commando", "499"], ["Shocker", "599"], ["Kamikaze", "399"]
 		, ["Gladiator", "799"], ["Crossfire", "599"], ["Blackspider", "749"], ["Firestorm", "599"], ["Hellfire", "999"], ["Aceshigh", "2499"]
