@@ -69,10 +69,29 @@ class Nova(tk.Frame):
 
 
 		self.checkout_button = tk.Button(self.frame, text = "CHECK OUT", height = 10, width = 20, command = lambda : self.check_out(), bg = "white")
-		self.checkout_button.grid(row = self.y_pos + 1, column = 2, pady = 50)
+		self.checkout_button.grid(row = self.y_pos + 1, column = 1, pady = 50)
+
+		self.five_off = tk.Button(self.frame, text = "5% OFF", height = 10, width = 20, command = lambda : self.rabatt(1.05, "5%"), bg = "white")
+		self.five_off.grid(row = self.y_pos + 1, column = 2, pady = 50)
+
+		self.ten_off = tk.Button(self.frame, text = "10% OFF", height = 10, width = 20, command = lambda : self.rabatt(1.10, "10%"), bg = "white")
+		self.ten_off.grid(row = self.y_pos + 1, column = 3, pady = 50)
+
+		self.fifteen_off = tk.Button(self.frame, text = "15% OFF", height = 10, width = 20, command = lambda : self.rabatt(1.15, "15%"), bg = "white")
+		self.fifteen_off.grid(row = self.y_pos + 1, column = 4, pady = 50)
+
+		self.twenty_off = tk.Button(self.frame, text = "20% OFF", height = 10, width = 20, command = lambda : self.rabatt(1.20, "20%"), bg = "white")
+		self.twenty_off.grid(row = self.y_pos + 1, column = 5, pady = 50)
 
 		self.reset_button = tk.Button(self.frame, text = "RESET", height = 10, width = 20, command = lambda : self.reset(), bg = "white")
-		self.reset_button.grid(row = self.y_pos + 1, column = 4, pady = 50)
+		self.reset_button.grid(row = self.y_pos + 1, column = 6, pady = 50)
+
+	def rabatt(self, precent, name):
+		self.tmp_sum = self.tmp_sum / precent
+
+		self.items.append([name, "0"])
+
+		self.lbl.config(text = self.tmp_sum)
 
 	def populate(self, name, price, x_pos, y_pos):
 		self.btn = tk.Button(self.frame, height = 5, width = 15, command = lambda : self.add(name, price), bg = "white")
