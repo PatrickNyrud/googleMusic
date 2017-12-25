@@ -119,7 +119,7 @@ class Nova(tk.Frame):
 
 	def check_out(self):
 		self.main = tk.Toplevel(self, bg = "white")
-		self.main.geometry("300x400")
+		self.main.geometry("300x700")
 		self.main.title("Check Out")
 
 		self.sumframe = tk.Frame(self.main)
@@ -142,25 +142,40 @@ class Nova(tk.Frame):
 			self.item_text = tk.Label(self.itmframe, bg = "White", text = j, font = self.window_text)
 			self.item_text.grid(row = x, column = 1)
 
-		if len(self.final_items_text) >= 7:
-			self.row_place = 1
-			self.btn_place = x + 1
-		else:
-			self.row_place = x + 1
-			self.btn_place = x + 2
+		self.row_place = 1
+		self.btn_place = x + 2
 
 		self.sum = tk.Label(self.sumframe, bg = "white", text = str(self.tmp_sum) + " kr", font = self.window_text)
 		self.sum.grid(row = self.row_place, column = 2)
 
 		self.main.grid_rowconfigure(x + 1, minsize=80)
 
+		self.give_back_sum = tk.Label(self.itmframe, bg = "white")
+		self.give_back_sum.grid(row = self.btn_place - 1, column = 1, pady = (50, 0))
+
+		self.return_entry = tk.Entry(self.itmframe, bg = "white", text = "Test")
+		self.return_entry.grid(row = self.btn_place, column = 1)
+		self.return_entry.delete(0, "end")
+
+		self.get_return_button = tk.Button(self.itmframe, bg = "white", text = "Enter", height = 1, width = 10, command = lambda : self.return_sum(self.return_entry.get()))
+		self.get_return_button.grid(row = self.btn_place, column = 2)
+
 		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10, command = lambda : self.window_destroy(self.main))
-		self.exit.grid(row = self.btn_place, column = 2)
+		self.exit.grid(row = self.btn_place + 2, column = 1)
+
+
 
 		self.sumframe.pack()
 		self.itmframe.pack()
 
+		self.pot_return_sum = self.tmp_sum
+
 		self.reset()
+
+	def return_sum(self, numbr):
+		self.back_sum = (int(numbr) - self.pot_return_sum)
+		self.give_back_sum.configure(text = str(self.back_sum) + " kr tilbake")
+
 
 	def onFrameConfigure(self, event):
 		'''Reset the scroll region to encompass the inner frame'''
