@@ -119,7 +119,7 @@ class Nova(tk.Frame):
 
 	def check_out(self):
 		self.main = tk.Toplevel(self, bg = "white")
-		self.main.geometry("300x700")
+		self.main.geometry("350x700")
 		self.main.title("Check Out")
 
 		self.sumframe = tk.Frame(self.main)
@@ -150,18 +150,18 @@ class Nova(tk.Frame):
 
 		self.main.grid_rowconfigure(x + 1, minsize=80)
 
-		self.give_back_sum = tk.Label(self.itmframe, bg = "white")
+		self.give_back_sum = tk.Label(self.itmframe, bg = "white", font = self.window_text)
 		self.give_back_sum.grid(row = self.btn_place - 1, column = 1, pady = (50, 0))
 
-		self.return_entry = tk.Entry(self.itmframe, bg = "white", text = "Test")
-		self.return_entry.grid(row = self.btn_place, column = 1)
+		self.return_entry = tk.Entry(self.itmframe, bg = "white", text = "Test", justify = "center", font = self.window_text)
+		self.return_entry.grid(row = self.btn_place, column = 1, padx = (0, 10), ipady = 5)
 		self.return_entry.delete(0, "end")
 
-		self.get_return_button = tk.Button(self.itmframe, bg = "white", text = "Enter", height = 1, width = 10, command = lambda : self.return_sum(self.return_entry.get()))
+		self.get_return_button = tk.Button(self.itmframe, bg = "white", text = "Enter", height = 1, font = self.window_text, width = 10, command = lambda : self.return_sum(self.return_entry.get()))
 		self.get_return_button.grid(row = self.btn_place, column = 2)
 
-		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10, command = lambda : self.window_destroy(self.main))
-		self.exit.grid(row = self.btn_place + 2, column = 1)
+		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10, font = self.window_text, command = lambda : self.window_destroy(self.main))
+		self.exit.grid(row = self.btn_place + 2, column = 1, pady = (20, 0))
 
 
 
