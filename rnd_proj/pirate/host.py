@@ -5,6 +5,26 @@ import re
 import smtplib
 import sys
 
+"""
+Atomic, 20
+Super 10, 10
+Magnum, 5
+Extrem Thunder, 2
+Flashlight, 10
+Phoenix, 2
+Bolero, 5
+Circus, 10
+Bizarre, 10
+Goldfish, 10
+Orion, 5
+Trapez, 5
+Passion, 10
+Tnt, 20
+Thunderbird, 5
+Commando, 10
+Shocker, 2
+"""
+
 file_dest = "config\\"
 config = "config.txt"
 keywords = "keywords.txt"

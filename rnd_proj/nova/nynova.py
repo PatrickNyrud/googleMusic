@@ -6,6 +6,13 @@ import tkFont
 import time
 from PIL import ImageTk
 
+"""
+CLEAN UP PROGRAM, such as open file in init, make a seperate program for it
+Bigger text in check out
+Add splitt screen, check out left of items in main window
+self.inv_liste to a file, like in nova_lager.py
+Add milestone for 5000kr, 10000kr osv
+"""
 
 class Nova(tk.Frame):
 	def __init__(self, root):
@@ -26,7 +33,14 @@ class Nova(tk.Frame):
 		self.nomove_co = tk.Button(self.top_frame, text = "CHECK OUT", height = 3, width = 15, bg = "white", command = lambda : self.check_out())
 		self.nomove_co.place(relx = .1, rely = .5, anchor = "center")
 
-		self.nomove_r = tk.Button(self.top_frame, text = "RESET", height = 3, width = 15, bg = "white", command = lambda : self.reset())
+		with open("logs//total_salg_sum.txt", "r") as f:
+			self.sofar_totsum = f.read()
+		f.close()
+
+		self.nomove_tot_sum = tk.Label(self.top_frame, text = "(" + self.sofar_totsum + ")", bg = "white")
+		self.nomove_tot_sum.place(relx = .8, rely = .5, anchor = "center")
+
+		self.nomove_r = tk.Button(self.top_frame, text = "RESET", height = 3, width = 15, bg = "white", command = lambda : self.reset(False))
 		self.nomove_r.place(relx = .9, rely = .5, anchor = "center")
 
 
@@ -53,7 +67,7 @@ class Nova(tk.Frame):
 		, ["Kickass", "1199"], ["Supernova", "1499"], ["Vipblackline", "1999"], ["Monster", "199"], ["Eagle", "249"], ["Monsterpack", "479"]
 		, ["Nighthawk", "239"], ["Strobe", "599"], ["Thunderbolt", "399"], ["Nitrobag", "549"], ["Bigbag", "999"], ["Topflight", "999"]
 		, ["Partymix", "199"], ["Stormlighter", "29"], ["Stjerneskudd", "49"], ["Stjerneskuddmini", "20"], ["Tjuefemkroner", "25"]
-		, ["Tikroner", "10"], ["Glowstick", "5"], ["Lyxfontene", "69"], ["Handfakkel", "49"], ["Fargefontene", "99"]]
+		, ["Tikroner", "10"], ["Glowstick", "5"], ["Lyxfontene", "69"], ["Handfakkel", "59"], ["Fargefontene", "99"]]
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
@@ -84,7 +98,7 @@ class Nova(tk.Frame):
 		self.twenty_off = tk.Button(self.frame, text = "20% OFF", height = 10, width = 20, command = lambda : self.rabatt(1.20, "20%"), bg = "white")
 		self.twenty_off.grid(row = self.y_pos + 1, column = 5, pady = 50)
 
-		self.reset_button = tk.Button(self.frame, text = "RESET", height = 10, width = 20, command = lambda : self.reset(), bg = "white")
+		self.reset_button = tk.Button(self.frame, text = "RESET", height = 10, width = 20, command = lambda : self.reset(False), bg = "white")
 		self.reset_button.grid(row = self.y_pos + 1, column = 6, pady = 50)
 
 	def rabatt(self, precent, name):
@@ -112,11 +126,12 @@ class Nova(tk.Frame):
 		self.lbl.config(text = self.tmp_sum)
 
 
-	def reset(self):
-		now = time.strftime("%H:%M")
-		with open("logs//salgs_log.txt", "a") as f:
-			f.write("\n\nSalg kl " + now + "\n" + str(self.items) + ": " + str(self.tmp_sum) + " kr")
-		f.close()
+	def reset(self, write):
+		if write:
+			now = time.strftime("%H:%M %d %b %Y")
+			with open("logs//salgs_log.txt", "a") as f:
+				f.write("\n\nSalg kl " + now + "\n" + str(self.items) + ": " + str(self.tmp_sum) + " kr")
+			f.close()
 		self.tmp_sum = 0
 		del self.total_sum[:]
 		del self.items[:]
@@ -165,8 +180,11 @@ class Nova(tk.Frame):
 		self.get_return_button = tk.Button(self.itmframe, bg = "white", text = "Enter", height = 1, font = self.window_text, width = 10, command = lambda : self.return_sum(self.return_entry.get()))
 		self.get_return_button.grid(row = self.btn_place, column = 2)
 
-		self.exit = tk.Button(self.itmframe, text = "EXIT", bg = "white", height = 2, width = 10, font = self.window_text, command = lambda : self.window_destroy(self.main))
-		self.exit.grid(row = self.btn_place + 2, column = 1, pady = (20, 0))
+		self.done = tk.Button(self.itmframe, text = "DONE", bg = "white", height = 2, width = 10, font = self.window_text, command = lambda : [self.window_destroy(self.main), self.total_sale(self.tmp_sum), self.reset(True)])
+		self.done.grid(row = self.btn_place + 2, column = 1, pady = (30, 0))
+
+		self.tilbake = tk.Button(self.itmframe, text = "BACK", bg = "white", height = 2, width = 10, font = self.window_text, command = lambda : self.window_destroy(self.main))
+		self.tilbake.grid(row = self.btn_place + 2, column = 2, pady = (30, 0))
 
 
 
@@ -175,7 +193,17 @@ class Nova(tk.Frame):
 
 		self.pot_return_sum = self.tmp_sum
 
-		self.reset()
+	def total_sale(self, fin_sum):
+		with open("logs//total_salg_sum.txt", "r") as f:
+			self.read_sum = f.read()
+			print self.read_sum
+		f.close()
+		with open("logs//total_salg_sum.txt", "w") as f:
+			self.read_sum = int(self.read_sum)
+			self.read_sum += int(fin_sum)
+			self.nomove_tot_sum.config(text = "(" + str(self.read_sum) + ")")
+			f.write(str(self.read_sum))
+		f.close()
 
 	def return_sum(self, numbr):
 		self.back_sum = (int(numbr) - self.pot_return_sum)
