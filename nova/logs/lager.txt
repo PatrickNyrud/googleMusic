@@ -15,3 +15,31 @@ Tnt, 20
 Thunderbird, 5
 Commando, 10
 Shocker, 2
+Kamikaze, 5
+Gladiator, 5
+Crossfire, 5
+Black spider, 5
+Firestorm, 5
+Hellfire, 5
+Aces High, 2
+Kick ass, 5
+Super nova, 5
+Vip blacline, 5
+Monster, 5
+Eagle, 5
+Monster Pack, 5
+Nighthawk, 5
+Strobe, 5
+Thunderbolt, 5
+Nitro Bag, 5
+Big Bag, 5
+Top flight, 5
+Party mix, 5
+Stjerneskudd, 100
+Stjerneskudd mini, 50
+Tjuefem, 50
+Tikroner, 50
+Glowsticks, 50
+Lyx, 50
+Fakler, 10
+Fontene, 10

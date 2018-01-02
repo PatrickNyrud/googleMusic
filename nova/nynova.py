@@ -33,12 +33,23 @@ class Nova(tk.Frame):
 		self.nomove_co = tk.Button(self.top_frame, text = "CHECK OUT", height = 3, width = 15, bg = "white", command = lambda : self.check_out())
 		self.nomove_co.place(relx = .1, rely = .5, anchor = "center")
 
-		with open("logs//total_salg_sum.txt", "r") as f:
-			self.sofar_totsum = f.read()
+		self.log_folder = "logs//"
+		self.pic_folder = "rz//"
+		self.prices = "priser.txt"
+		self.salgs_log = "salgs_log.txt"
+		self.tot_salg_sum = "total_salg_sum.txt"
+		self.tot_salg_sum_dag = "total_salg_sum_dag.txt"
+
+		with open("logs//total_salg_sum_dag.txt", "r") as f, open("logs//total_salg_sum.txt", "r") as f_two:
+			self.dag_totsum = f.read()
+			self.tot_sum = f_two.read()
 		f.close()
 
-		self.nomove_tot_sum = tk.Label(self.top_frame, text = "(" + self.sofar_totsum + ")", bg = "white")
-		self.nomove_tot_sum.place(relx = .8, rely = .5, anchor = "center")
+		self.nomove_tot_sum_dag = tk.Label(self.top_frame, text = "(" + self.dag_totsum + " kr idag)", bg = "white")
+		self.nomove_tot_sum_dag.place(relx = .8, rely = .2, anchor = "center")
+
+		self.nomove_tot_sum_total = tk.Label(self.top_frame, text = "(" + self.tot_sum + " kr totalt)", bg = "white")
+		self.nomove_tot_sum_total.place(relx = .8, rely = .6, anchor = "center")
 
 		self.nomove_r = tk.Button(self.top_frame, text = "RESET", height = 3, width = 15, bg = "white", command = lambda : self.reset(False))
 		self.nomove_r.place(relx = .9, rely = .5, anchor = "center")
@@ -58,27 +69,29 @@ class Nova(tk.Frame):
 
 		self.add_imgs()
 
+	def open_file(self, dirr, file):
+		self.inv_list = []
+		with open(dirr + file, "r") as f:
+			for x in f:
+				self.tmp_var = x.split(",")
+				self.inv_list.append(self.tmp_var)
+
+		return self.inv_list
+
 
 	def add_imgs(self):
-		self.inv_list = [["Atomic99", "99"], ["Atomic", "199"], ["Superti", "349"], ["Magnum", "449"], ["xtrem", "1499"], ["Flashlight", "749"]
-		, ["Phoenix", "1199"], ["Bolero", "399"], ["Circus", "199"], ["Bizarre", "199"], ["Goldfish", "329"], ["Orion", "279"]
-		, ["Trapez", "549"], ["Passion", "349"], ["Tnt", "99"], ["Tbird", "399"], ["Commando", "499"], ["Shocker", "599"], ["Kamikaze", "399"]
-		, ["Gladiator", "799"], ["Crossfire", "599"], ["Blackspider", "749"], ["Firestorm", "599"], ["Hellfire", "999"], ["Aceshigh", "2499"]
-		, ["Kickass", "1199"], ["Supernova", "1499"], ["Vipblackline", "1999"], ["Monster", "199"], ["Eagle", "249"], ["Monsterpack", "479"]
-		, ["Nighthawk", "239"], ["Strobe", "599"], ["Thunderbolt", "399"], ["Nitrobag", "549"], ["Bigbag", "999"], ["Topflight", "999"]
-		, ["Partymix", "199"], ["Stormlighter", "29"], ["Stjerneskudd", "49"], ["Stjerneskuddmini", "20"], ["Tjuefemkroner", "25"]
-		, ["Tikroner", "10"], ["Glowstick", "5"], ["Lyxfontene", "69"], ["Handfakkel", "59"], ["Fargefontene", "99"]]
+		self.inventory_list = self.open_file(self.log_folder, self.prices)
 		self.func_list = []
 		self.y_pos = 0
 		self.img_pos = -1
-		for row in range((len(self.inv_list) / 6) + 1): #+1 if the len(self.inv_list) / 6 is not a whole number (6.83)
+		for row in range((len(self.inventory_list) / 6) + 1): #+1 if the len(self.inventory_list) / 6 is not a whole number (6.83)
 			self.y_pos += 1
 			self.x_pos = 0
 			try:
 				for colums in range(6):
 					self.img_pos += 1
 					self.x_pos += 1
-					self.func_list.append(self.populate(self.inv_list[self.img_pos][0], self.inv_list[self.img_pos][1], self.x_pos, self.y_pos))
+					self.func_list.append(self.populate(self.inventory_list[self.img_pos][0], self.inventory_list[self.img_pos][1], self.x_pos, self.y_pos))
 			except:
 				pass
 
@@ -156,7 +169,7 @@ class Nova(tk.Frame):
 				for j in self.items:
 					if x == j:
 						self.ttsum += 1
-				self.final_items_text.append("\n" + x[0] + " x" + str(self.ttsum) + " (" + x[1] + " kr)")
+				self.final_items_text.append("\n" + x[0] + " x" + str(self.ttsum) + " (" + x[1].strip() + " kr)")
 
 		for x, j in enumerate(self.final_items_text):
 			self.item_text = tk.Label(self.itmframe, bg = "White", text = j, font = self.window_text)
@@ -201,7 +214,7 @@ class Nova(tk.Frame):
 		with open("logs//total_salg_sum.txt", "w") as f:
 			self.read_sum = int(self.read_sum)
 			self.read_sum += int(fin_sum)
-			self.nomove_tot_sum.config(text = "(" + str(self.read_sum) + ")")
+			self.nomove_tot_sum_dag.config(text = "(" + str(self.read_sum) + ")")
 			f.write(str(self.read_sum))
 		f.close()
 
@@ -220,7 +233,7 @@ class Nova(tk.Frame):
 
 if __name__ == "__main__":
 	root = tk.Tk()
-	#root.geometry("1000x1000")
-	root.attributes("-fullscreen", True)
+	root.geometry("1920x1080")
+	#root.attributes("-fullscreen", True)
 	Nova(root).pack(side="top", fill="both", expand=True)
 	root.mainloop()
