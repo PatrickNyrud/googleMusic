@@ -69,7 +69,7 @@ class Nova(tk.Frame):
 
 		self.add_imgs()
 
-	def open_file(self, dirr, file):
+	def pic_price_file(self, dirr, file):
 		self.inv_list = []
 		with open(dirr + file, "r") as f:
 			for x in f:
@@ -80,15 +80,16 @@ class Nova(tk.Frame):
 
 
 	def add_imgs(self):
-		self.inventory_list = self.open_file(self.log_folder, self.prices)
+		self.inventory_list = self.pic_price_file(self.log_folder, self.prices)
 		self.func_list = []
+		self.num_of_columns = 6
 		self.y_pos = 0
 		self.img_pos = -1
-		for row in range((len(self.inventory_list) / 6) + 1): #+1 if the len(self.inventory_list) / 6 is not a whole number (6.83)
+		for row in range((len(self.inventory_list) / self.num_of_columns) + 1): #+1 if the len(self.inventory_list) / self.num_of_columns is not a whole number (self.num_of_columns.83)
 			self.y_pos += 1
 			self.x_pos = 0
 			try:
-				for colums in range(6):
+				for colums in range(self.num_of_columns):
 					self.img_pos += 1
 					self.x_pos += 1
 					self.func_list.append(self.populate(self.inventory_list[self.img_pos][0], self.inventory_list[self.img_pos][1], self.x_pos, self.y_pos))
