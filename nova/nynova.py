@@ -19,8 +19,8 @@ class Nova(tk.Frame):
 
 		tk.Frame.__init__(self, root)
 		self.top_frame = tk.Frame(root, bg = "white")
-		self.canvas = tk.Canvas(root, borderwidth=0, background="white")
-		self.frame = tk.Frame(self.canvas, background="white")
+		self.canvas = tk.Canvas(root, borderwidth=0, background="red")
+		self.frame = tk.Frame(self.canvas, background="yellow")
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.canvas.yview)
 		self.canvas.configure(yscrollcommand=self.vsb.set)
 
