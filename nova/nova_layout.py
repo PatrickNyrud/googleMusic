@@ -5,6 +5,7 @@ except:
 import tkFont
 import time
 
+#Clean up things, the nova class
 
 class Nova():
 	def __init__(self):
@@ -22,12 +23,7 @@ class Nova():
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.main_canvas.yview)
 		self.main_canvas.configure(yscrollcommand=self.vsb.set)
 
-		#--------------------------------------------------SCROLLBAR--------------------------------------------------#
-
-
-
-		#--------------------------------------------------SCROLLBAR--------------------------------------------------#
-
+		#-----------------------------TEMP STUFF-----------------------------#
 
 		self.top = tk.Label(self.top_frame, text = "TOP")
 		self.top.place(relx = .5, rely = .5, anchor = "center")
@@ -38,9 +34,7 @@ class Nova():
 		self.main = tk.Label(self.main_frame, text = "MAIN")
 		self.main.place(relx = .5, rely = .5, anchor = "center")
 
-		#self.top_frame.grid(row = 0, column = 0, columnspan = 2)
-		#self.check_out.grid(row = 1, column = 0, sticky = "wens")
-		#elf.main_frame.grid(row = 1, column = 1, sticky = "ens")
+		#-----------------------------TEMP STUFF-----------------------------#
 
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", expand = False) 
@@ -48,18 +42,17 @@ class Nova():
 
 		self.vsb.pack(side="right", fill="both")
 		self.main_canvas.pack(side="left", fill="both", expand=True)
-		self.main_canvas.create_window((4,4), window=self.main_frame, anchor="nw", 
-									tags="self.main_frame")
+		self.main_canvas.create_window((4,4), window=self.main_frame, anchor="nw", tags="self.main_frame")
+
+		self.main_frame.bind("<Configure>", self.onFrameConfigure)
 
 		self.display_text = tkFont.Font(family = "Helvetica", size = 35)
 		self.window_text = tkFont.Font(family = "Helvetica", size = 12)
 
-		self.inv_list = [["Atomic", "199"], ["Superti", "349"], ["Magnum", "449"], ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"]
-		, ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"]
-		, ["Phoenix", "1199"], ["Phoenix", "1199"], ["Phoenix", "1199"]]
+		self.inv_list = [["Atomic", "199"], ["Super 10", "349"], ["Magnum", "449"], ["Bolero", "1199"], ["Circus", "1199"], ["Bizarre", "1199"]
+		, ["Goldfish", "1199"], ["Orion", "1199"], ["Trapez", "1199"], ["Passion", "1199"], ["Tnt", "1199"], ["Thunderbird", "1199"]
+		, ["Commando", "1199"], ["Shocker", "1199"], ["Kamikaze", "1199"]]
 	
-
-		self.main_frame.bind("<Configure>", self.onFrameConfigure)
 
 		self.place_frame()
 		#self.place_text()
@@ -76,6 +69,7 @@ class Nova():
 		self.add_button_func = []
 		self.minus_button_func = []
 		self.label_list = []
+		self.lager_list = []
 
 		self.row = 2
 		self.column = 3
@@ -111,10 +105,52 @@ class Nova():
 							pass
 						elif x == 4:
 							#The inv num
-							pass
+							self.lager_list.append(self.place_label(self.item_name, self.frame_position))
 					self.frame_position += 1
 			except:
 				pass
+
+	def place_label(self, name, frame_pos):
+		self.label_text = self.lager(name, False)
+		self.label_var = tk.Label(self.frame_list[frame_pos], text = self.label_text)
+		self.label_var.place(relx = .5, rely = .8, anchor = "center")
+
+	def lager(self, name, remove):
+		self.inv_list = []
+		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
+		with open("logs//lager.txt", "r") as f:
+			for x in f:
+				self.tmp_var = x.split(",")
+				self.inv_list.append(self.tmp_var)
+		f.close()
+
+		#Remove one from the list, Atomic 2 to Atomic 1
+		#X is the number, and J is the name in the list
+		for x, j in enumerate(self.inv_list):
+			#print "J0 = " + j[0] + " : Name is " + name
+			#added name == J[0] + "," because some items in the list have a , added at the end
+			if j[0] == name or name == j[0] + ",":
+				if remove:
+					self.new_value = int(j[1])
+					self.new_value -= 1
+					self.inv_list[x][0] = j[0] + ", "
+					self.inv_list[x][1] = str(self.new_value) + "\n"
+				else:
+					#print self.inv_list[x]
+					self.inv_list[x][0] = j[0] + ","
+					print self.inv_list[x][0]
+					self.return_inv_num = self.inv_list[x][1]
+			else:
+				self.inv_list[x][0] = j[0] + ","
+
+			with open("logs//lager.txt", "w+") as f:
+				for x in self.inv_list:
+					for j in x:
+						f.write(j)
+		if not remove:
+			#print self.return_inv_num
+			return self.return_inv_num
+
 
 	def place_button_add(self, name, price, frame_pos):
 		# self.btn = tk.Button(self.frame, height = 5, width = 15, command = lambda : self.add(name, price), bg = "white")

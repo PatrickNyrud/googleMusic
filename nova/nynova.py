@@ -69,6 +69,7 @@ class Nova(tk.Frame):
 
 		self.add_imgs()
 
+#------------------------------------------------------------------#
 	def pic_price_file(self, dirr, file):
 		self.inv_list = []
 		with open(dirr + file, "r") as f:
@@ -77,7 +78,7 @@ class Nova(tk.Frame):
 				self.inv_list.append(self.tmp_var)
 
 		return self.inv_list
-
+#------------------------------------------------------------------#
 
 	def add_imgs(self):
 		self.inventory_list = self.pic_price_file(self.log_folder, self.prices)

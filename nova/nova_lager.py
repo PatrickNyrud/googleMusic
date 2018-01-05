@@ -1,5 +1,5 @@
 class lager:
-	def __init__(self, remove):
+	def lager(self):
 		self.inv_list = []
 		with open("logs//lager.txt", "r") as f:
 			for x in f:
