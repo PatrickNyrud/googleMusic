@@ -94,6 +94,7 @@ class Nova(tk.Frame):
 					self.img_pos += 1
 					self.x_pos += 1
 					self.func_list.append(self.populate(self.inventory_list[self.img_pos][0], self.inventory_list[self.img_pos][1], self.x_pos, self.y_pos))
+					print self.func_list
 			except:
 				pass
 

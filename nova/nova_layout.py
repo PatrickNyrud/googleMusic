@@ -6,11 +6,13 @@ import tkFont
 import time
 
 #Clean up things, the nova class
+#Figure a way to update the storage list
+
 
 class Nova():
 	def __init__(self):
-		self.x = 1000
-		self.y = 1000
+		self.x = 1200
+		self.y = 800
 		self.check_out_width = 200 #Tune this when change geo size
 		self.top_frame_height = 20 #Tune this when change geo size
 		root = tk.Tk()
@@ -69,7 +71,8 @@ class Nova():
 		self.add_button_func = []
 		self.minus_button_func = []
 		self.label_list = []
-		self.lager_list = []
+		self.amount_list = []
+		#self.lager_list = []
 
 		self.row = 2
 		self.column = 3
@@ -99,23 +102,40 @@ class Nova():
 						elif x == 2:
 							#The - button
 							self.minus_button_func.append(self.place_button_minus(self.item_name, self.item_price, self.frame_position))
-							pass
+							#print self.minus_button_func
 						elif x == 3:
 							#The amount of items
-							pass
+							self.place_amount_label(self.item_name, self.frame_position)
+							#self.amount_list.append(self.place_amount_label(self.item_name, self.frame_position))
+							#print self.amount_list
 						elif x == 4:
 							#The inv num
-							self.lager_list.append(self.place_label(self.item_name, self.frame_position))
+							self.place_lager_label(self.item_name, self.frame_position)
+							#self.lager_list.append(self.place_lager_label(self.item_name, self.frame_position))
+							#print self.lager_list
 					self.frame_position += 1
 			except:
 				pass
 
-	def place_label(self, name, frame_pos):
-		self.label_text = self.lager(name, False)
-		self.label_var = tk.Label(self.frame_list[frame_pos], text = self.label_text)
-		self.label_var.place(relx = .5, rely = .8, anchor = "center")
+	def place_amount_label(self, name, frame_pos):
+		self.label_var = tk.Label(self.frame_list[frame_pos], text = "x2")
+		self.label_var.place(relx = .8, rely = .7, anchor = "center")
 
-	def lager(self, name, remove):
+		self.amount_list.append(self.label_var)
+
+	def change_amount(self, name, frame_pos):
+		self.change_var = self.amount_list[frame_pos]
+		self.change_var.config(text = "hgi")
+
+	def place_lager_label(self, name, frame_pos):
+		self.lager_list = []
+		self.label_text = self.lager(name, False, frame_pos).strip()
+		self.lager_var = tk.Label(self.frame_list[frame_pos], text = self.label_text)
+		self.lager_var.place(relx = .5, rely = .9, anchor = "center")
+
+		self.lager_list.append(self.lager_var)
+
+	def lager(self, name, remove, frame_pos):
 		self.inv_list = []
 		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
 		with open("logs//lager.txt", "r") as f:
@@ -128,7 +148,7 @@ class Nova():
 		#X is the number, and J is the name in the list
 		for x, j in enumerate(self.inv_list):
 			#print "J0 = " + j[0] + " : Name is " + name
-			#added name == J[0] + "," because some items in the list have a , added at the end
+			#added name == J[0] + "," because some items in the list have a , added at the end of its name
 			if j[0] == name or name == j[0] + ",":
 				if remove:
 					self.new_value = int(j[1])
@@ -138,7 +158,6 @@ class Nova():
 				else:
 					#print self.inv_list[x]
 					self.inv_list[x][0] = j[0] + ","
-					print self.inv_list[x][0]
 					self.return_inv_num = self.inv_list[x][1]
 			else:
 				self.inv_list[x][0] = j[0] + ","
@@ -147,8 +166,10 @@ class Nova():
 				for x in self.inv_list:
 					for j in x:
 						f.write(j)
-		if not remove:
-			#print self.return_inv_num
+		if remove:
+			#self.place_lager_label()
+			pass
+		else:
 			return self.return_inv_num
 
 
@@ -158,12 +179,12 @@ class Nova():
 		# self.btn.config(image = self.photo, width = 150, height = 150)
 		# self.btn.image = self.photo
 		# self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : self.add_sum(name, price))
+		self.button_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.add_sum(name, price), self.change_amount(name, frame_pos)])
 		self.button_place.place(relx = .5, rely = .5, anchor = "center")
 		#self.text.grid(row = 0, column = 0)
 
 	def place_button_minus(self, name, price, frame_pos):
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : self.minus_sum(name, price))
+		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : self.lager(name, True, frame_pos))
 		self.button_place.place(relx = .5, rely = .7, anchor = "center")
 
 
