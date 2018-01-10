@@ -76,6 +76,8 @@ class Nova():
 		self.lager_list = []
 		self.amount_list = []
 
+		self.item_check_out = []
+
 		self.row = 2
 		self.column = 5
 		self.item_in_frame = 5
@@ -179,24 +181,23 @@ class Nova():
 
 		self.amount_list.append(self.amount_var)
 
-	#If it goes back to x0, remove it all
 	def change_amount(self, name, frame_pos, add):
 		self.change_var = self.amount_list[frame_pos]
 		self.change_text = self.change_var.cget("text")
-		if len(self.change_text) < 2:
-			self.change_var.config(text = "x1")
-		else:
-			if add:
+		if add:
+			if len(self.change_text) < 2:
+				self.change_var.config(text = "x1")
+			else:
 				self.change_text_int = int(self.change_text.strip("x"))
 				self.change_text_int += 1
 				self.change_var.config(text = "x" + str(self.change_text_int))
+		else:
+			if self.change_text == "x1" or self.change_text == "":
+				self.change_var.config(text = "")
 			else:
-				if self.change_text == "x1":
-					self.change_var.config(text = "")
-				else:
-					self.change_text_int = int(self.change_text.strip("x"))
-					self.change_text_int -= 1
-					self.change_var.config(text = "x" + str(self.change_text_int))
+				self.change_text_int = int(self.change_text.strip("x"))
+				self.change_text_int -= 1
+				self.change_var.config(text = "x" + str(self.change_text_int))
 
 
 	def place_button_add(self, name, price, frame_pos):
@@ -218,7 +219,14 @@ class Nova():
 		print name + " " + price
 
 	def add_to_checkout(self, name, price, frame_pos):
-		self.check_out_label.config(text = name + " " + price)
+		self.tmp_text_var = name + " (" + price + ")"
+		self.item_check_out.append(self.tmp_text_var)
+		print self.item_check_out
+		#self.check_out_label.config(text = name + " " + price)
+		for j, x in enumerate(self.item_check_out):
+			self.tmp_text_label = tk.Label(self.check_out, text = x)
+			self.tmp_text_label.grid(row = j, column = 0, padx = 50)
+			
 
 	def minus_sum(self, name, price):
 		print name + " " + price
