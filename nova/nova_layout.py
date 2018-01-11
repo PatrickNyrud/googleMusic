@@ -24,6 +24,7 @@ class Nova():
 
 		self.top_frame = tk.Frame(root, bg = "black", height = self.top_frame_height, width = self.y)
 		self.check_out = tk.Frame(root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
+		self.check_out.grid_propagate(False)
 		self.main_canvas = tk.Canvas(root, background="yellow")
 		self.main_frame = tk.Frame(self.main_canvas, bg = "red")
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.main_canvas.yview)
@@ -40,7 +41,7 @@ class Nova():
 		self.check_out_label.place(relx = .5, rely = .5, anchor = "center")
 
 		self.top_frame.pack(side = "top", fill = "both")	
-		self.check_out.pack(side = "left", expand = False) 
+		self.check_out.pack(side = "left", fill = "both") 
 		self.main_frame.pack(side = "right", fill = "both", expand = True)
 
 		self.vsb.pack(side="right", fill="both")
@@ -77,6 +78,7 @@ class Nova():
 		self.amount_list = []
 
 		self.item_check_out = []
+		#self.check_out_grid_list = []
 
 		self.row = 2
 		self.column = 5
@@ -211,28 +213,42 @@ class Nova():
 		#self.text.grid(row = 0, column = 0)
 
 	def place_button_minus(self, name, price, frame_pos):
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.minus_sum(name, price), self.change_amount(name, frame_pos, False)])
+		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.minus_sum(name, price), self.change_amount(name, frame_pos, False), self.remove_from_checkout(name, price, frame_pos)])
 		self.button_place.place(relx = .5, rely = .7, anchor = "center")
 
 
 	def add_sum(self, name, price):
-		print name + " " + price
+		#print "added"
+		pass
 
 	def add_to_checkout(self, name, price, frame_pos):
+		self.check_out_grid_list = []
+
 		self.tmp_text_var = name + " (" + price + ")"
 		self.item_check_out.append(self.tmp_text_var)
-		print self.item_check_out
 		#self.check_out_label.config(text = name + " " + price)
 		for j, x in enumerate(self.item_check_out):
 			self.tmp_text_label = tk.Label(self.check_out, text = x)
-			self.tmp_text_label.grid(row = j, column = 0, padx = 50)
-			
+			self.tmp_text_label.grid(row = j, column = 0)
+
+			self.check_out_grid_list.append(self.tmp_text_label)
 
 	def minus_sum(self, name, price):
-		print name + " " + price
+		#print "removed"
+		pass
 
 	def remove_from_checkout(self, name, price, frame_pos):
-		pass
+		for j, widget in enumerate(self.check_out.winfo_children()):
+			widget.destroy()
+			if j == frame_pos:
+				del self.check_out_grid_list[j]
+				del self.item_check_out[j]
+
+		#Works
+	def draw_over(self):
+		for x in range(len(self.item_check_out)):
+			self.tmptxt = tk.Label(self.check_out, text = "                 ")
+			self.tmptxt.grid(row = x, column = 0, padx = 50)
 
 if __name__ == "__main__":
 	strt = Nova()
