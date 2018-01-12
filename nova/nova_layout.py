@@ -22,6 +22,13 @@ class Nova():
 		root.geometry(str(self.x) + "x" + str(self.y))
 		#root.attributes("-fullscreen", True)
 
+		self.log_folder = "logs//"
+		self.pic_folder = "rz//"
+		self.prices = "priser.txt"
+		self.salgs_log = "salgs_log.txt"
+		self.tot_salg_sum = "total_salg_sum.txt"
+		self.tot_salg_sum_dag = "total_salg_sum_dag.txt"
+
 		self.top_frame = tk.Frame(root, bg = "black", height = self.top_frame_height, width = self.y)
 		self.check_out = tk.Frame(root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
 		self.check_out.grid_propagate(False)
@@ -38,7 +45,7 @@ class Nova():
 		#-----------------------------TEMP STUFF-----------------------------#
 
 		self.check_out_label = tk.Label(self.check_out, text = "")
-		self.check_out_label.place(relx = .5, rely = .5, anchor = "center")
+		self.check_out_label.place(relx = .1, rely = .5, anchor = "center")
 
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
@@ -53,10 +60,7 @@ class Nova():
 		self.display_text = tkFont.Font(family = "Helvetica", size = 35)
 		self.window_text = tkFont.Font(family = "Helvetica", size = 12)
 
-		self.inventory_price_list = [["Atomic", "199"], ["Super 10", "349"], ["Magnum", "449"], ["Bolero", "1199"], ["Circus", "1199"], ["Bizarre", "1199"]
-		, ["Goldfish", "1199"], ["Orion", "1199"], ["Trapez", "1199"], ["Passion", "1199"], ["Tnt", "1199"], ["Thunderbird", "1199"]
-		, ["Commando", "1199"], ["Shocker", "1199"], ["Kamikaze", "1199"], ["Gladiator", "1199"]
-		, ["Crossfire", "1199"], ["Black Spider", "1199"], ["Firestorm", "1199"], ["Hellfire", "1199"]]
+		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
 	
 
 		self.place_frame()
@@ -67,6 +71,15 @@ class Nova():
 	def onFrameConfigure(self, event):
 		'''Reset the scroll region to encompass the inner frame'''
 		self.main_canvas.configure(scrollregion=self.main_canvas.bbox("all"))
+
+	def pic_price_file(self, dirr, file):
+		self.inv_list = []
+		with open(dirr + file, "r") as f:
+			for x in f:
+				self.tmp_var = x.split(",")
+				self.inv_list.append(self.tmp_var)
+
+		return self.inv_list
 
 
 	def place_frame(self):
@@ -80,8 +93,9 @@ class Nova():
 		self.item_check_out = []
 		#self.check_out_grid_list = []
 
-		self.row = 2
-		self.column = 5
+		self.total_sum = 0
+
+		self.column = 3
 		self.item_in_frame = 5
 
 		self.item_pos = 0
@@ -218,13 +232,14 @@ class Nova():
 
 
 	def add_sum(self, name, price):
-		#print "added"
-		pass
+		print "Added " + name + " " + price
+		self.total_sum += int(price)
+		#print self.total_sum
 
 	def add_to_checkout(self, name, price, frame_pos):
 		self.check_out_grid_list = []
 
-		self.tmp_text_var = name + " (" + price + ")"
+		self.tmp_text_var = name + " (" + price.strip() + ")"
 		self.item_check_out.append(self.tmp_text_var)
 		#self.check_out_label.config(text = name + " " + price)
 		for j, x in enumerate(self.item_check_out):
@@ -234,17 +249,24 @@ class Nova():
 			self.check_out_grid_list.append(self.tmp_text_label)
 
 	def minus_sum(self, name, price):
-		#print "removed"
-		pass
+		#print "Removed " + name + " " + price
+		self.total_sum -= int(price)
+		#print self.total_sum
 
 	def remove_from_checkout(self, name, price, frame_pos):
+		self.items_removed = []
+
 		for j, widget in enumerate(self.check_out.winfo_children()):
 			widget.destroy()
 
 		for j, x in enumerate(self.item_check_out):
-			if name in x:
-				del self.item_check_out[j]
-				del self.check_out_grid_list[j]
+			if name not in self.items_removed:
+				if name in x:
+					del self.item_check_out[j]
+					del self.check_out_grid_list[j]
+					self.items_removed.append(name)
+			else:
+				print "already removed"
 
 		for j, x in enumerate(self.item_check_out):
 			self.tmp_text_label = tk.Label(self.check_out, text = x)
@@ -253,10 +275,6 @@ class Nova():
 			self.check_out_grid_list.append(self.tmp_text_label)
 
 		#Works
-	def draw_over(self):
-		for x in range(len(self.item_check_out)):
-			self.tmptxt = tk.Label(self.check_out, text = "                 ")
-			self.tmptxt.grid(row = x, column = 0, padx = 50)
 
 if __name__ == "__main__":
 	strt = Nova()
