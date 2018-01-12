@@ -45,7 +45,7 @@ class Nova():
 		#-----------------------------TEMP STUFF-----------------------------#
 
 		self.check_out_label = tk.Label(self.check_out, text = "")
-		self.check_out_label.place(relx = .1, rely = .5, anchor = "center")
+		self.check_out_label.grid(row = 0, column = 0, pady = (0, 50))
 
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
@@ -170,7 +170,7 @@ class Nova():
 				else:
 					#print self.inventory_num_list[x]
 					self.inventory_num_list[x][0] = j[0] + ","
-					#print self.inventory_num_list[x][0]
+					#print self.inventory_num_list[x<][0]
 					self.return_inv_num = self.inventory_num_list[x][1]
 			else:
 				self.inventory_num_list[x][0] = j[0] + ","
@@ -234,6 +234,7 @@ class Nova():
 	def add_sum(self, name, price):
 		print "Added " + name + " " + price
 		self.total_sum += int(price)
+		self.check_out_label.config(text = str(self.total_sum))
 		#print self.total_sum
 
 	def add_to_checkout(self, name, price, frame_pos):
@@ -244,7 +245,7 @@ class Nova():
 		#self.check_out_label.config(text = name + " " + price)
 		for j, x in enumerate(self.item_check_out):
 			self.tmp_text_label = tk.Label(self.check_out, text = x)
-			self.tmp_text_label.grid(row = j, column = 0)
+			self.tmp_text_label.grid(row = j+1, column = 0)
 
 			self.check_out_grid_list.append(self.tmp_text_label)
 
@@ -268,9 +269,12 @@ class Nova():
 			else:
 				print "already removed"
 
+		test = tk.Label(self.check_out, text = self.total_sum)
+		test.grid(row = 0, column = 0, pady = (0, 50))
+
 		for j, x in enumerate(self.item_check_out):
 			self.tmp_text_label = tk.Label(self.check_out, text = x)
-			self.tmp_text_label.grid(row = j, column = 0)
+			self.tmp_text_label.grid(row = j+1, column = 0)
 
 			self.check_out_grid_list.append(self.tmp_text_label)
 
