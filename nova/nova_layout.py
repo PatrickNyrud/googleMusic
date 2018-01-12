@@ -240,9 +240,17 @@ class Nova():
 	def remove_from_checkout(self, name, price, frame_pos):
 		for j, widget in enumerate(self.check_out.winfo_children()):
 			widget.destroy()
-			if j == frame_pos:
-				del self.check_out_grid_list[j]
+
+		for j, x in enumerate(self.item_check_out):
+			if name in x:
 				del self.item_check_out[j]
+				del self.check_out_grid_list[j]
+
+		for j, x in enumerate(self.item_check_out):
+			self.tmp_text_label = tk.Label(self.check_out, text = x)
+			self.tmp_text_label.grid(row = j, column = 0)
+
+			self.check_out_grid_list.append(self.tmp_text_label)
 
 		#Works
 	def draw_over(self):
