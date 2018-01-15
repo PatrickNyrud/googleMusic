@@ -22,6 +22,8 @@ class Nova():
 		root.geometry(str(self.x) + "x" + str(self.y))
 		#root.attributes("-fullscreen", True)
 
+		self.label_width = 30
+
 		self.log_folder = "logs//"
 		self.pic_folder = "rz//"
 		self.prices = "priser.txt"
@@ -44,7 +46,7 @@ class Nova():
 
 		#-----------------------------TEMP STUFF-----------------------------#
 
-		self.check_out_label = tk.Label(self.check_out, text = "")
+		self.check_out_label = tk.Label(self.check_out, text = "", width = 30)
 		self.check_out_label.grid(row = 0, column = 0, pady = (0, 50))
 
 		self.top_frame.pack(side = "top", fill = "both")	
@@ -244,7 +246,7 @@ class Nova():
 		self.item_check_out.append(self.tmp_text_var)
 		#self.check_out_label.config(text = name + " " + price)
 		for j, x in enumerate(self.item_check_out):
-			self.tmp_text_label = tk.Label(self.check_out, text = x)
+			self.tmp_text_label = tk.Label(self.check_out, text = x, width = self.label_width)
 			self.tmp_text_label.grid(row = j+1, column = 0)
 
 			self.check_out_grid_list.append(self.tmp_text_label)
@@ -269,11 +271,11 @@ class Nova():
 			else:
 				print "already removed"
 
-		test = tk.Label(self.check_out, text = self.total_sum)
-		test.grid(row = 0, column = 0, pady = (0, 50))
+		self.check_out_label = tk.Label(self.check_out, text = self.total_sum, width = self.label_width)
+		self.check_out_label.grid(row = 0, column = 0, pady = (0, 50))
 
 		for j, x in enumerate(self.item_check_out):
-			self.tmp_text_label = tk.Label(self.check_out, text = x)
+			self.tmp_text_label = tk.Label(self.check_out, text = x, width = self.label_width)
 			self.tmp_text_label.grid(row = j+1, column = 0)
 
 			self.check_out_grid_list.append(self.tmp_text_label)
