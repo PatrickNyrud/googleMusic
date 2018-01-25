@@ -31,15 +31,15 @@ Monster Pack, 5
 Nighthawk, 5
 Strobe, 5
 Thunderbolt, 5
-Nitro Bag 5
-,,Big Bag 5
-,Top flight 5
-,Party mix 5
-,Stjerneskudd 100
-,Stjerneskudd mini 50
-,Tjuefem 50
-,Tikroner 50
-,Glowsticks 50
-,Lyx 50
-,Fakler 10
-,Fontene 10
+Nitro Bag, 5
+Big Bag, 5
+Top flight, 5
+Party mix, 5
+Stjerneskudd, 100
+Stjerneskuddmini, 50
+Tjuefemkroner, 50
+Tikroner, 50
+Glowsticks, 50
+Lyx fontene, 50
+Handfakkel, 10
+Farge fontene, 10

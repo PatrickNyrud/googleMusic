@@ -49,6 +49,9 @@ class Nova():
 		self.check_out_label = tk.Label(self.check_out, text = "", width = 30)
 		self.check_out_label.grid(row = 0, column = 0, pady = (0, 50))
 
+		self.check_out_button = tk.Button(self.check_out, text = "DONE")
+		self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
+
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
 		self.main_frame.pack(side = "right", fill = "both", expand = True)
@@ -161,7 +164,6 @@ class Nova():
 		#Remove one from the list, Atomic 2 to Atomic 1
 		#X is the number, and J is the name in the list
 		for x, j in enumerate(self.inventory_num_list):
-			#print "J0 = " + j[0] + " : Name is " + name
 			#added name == J[0] + "," because some items in the list have a , added at the end
 			if j[0] == name or name == j[0] + ",":
 				if remove:
@@ -170,9 +172,7 @@ class Nova():
 					self.inventory_num_list[x][0] = j[0] + ", "
 					self.inventory_num_list[x][1] = str(self.new_value) + "\n"
 				else:
-					#print self.inventory_num_list[x]
 					self.inventory_num_list[x][0] = j[0] + ","
-					#print self.inventory_num_list[x<][0]
 					self.return_inv_num = self.inventory_num_list[x][1]
 			else:
 				self.inventory_num_list[x][0] = j[0] + ","
@@ -182,7 +182,6 @@ class Nova():
 					for j in x:
 						f.write(j)
 		if not remove:
-			#print self.return_inv_num
 			return self.return_inv_num
 
 	def place_label_lager(self, name, frame_pos):
@@ -251,10 +250,12 @@ class Nova():
 
 			self.check_out_grid_list.append(self.tmp_text_label)
 
+		self.check_out_button.grid_configure(row = j + 2)
+
 	def minus_sum(self, name, price):
 		#print "Removed " + name + " " + price
-		self.total_sum -= int(price)
 		#print self.total_sum
+		pass
 
 	def remove_from_checkout(self, name, price, frame_pos):
 		self.items_removed = []
@@ -265,6 +266,7 @@ class Nova():
 		for j, x in enumerate(self.item_check_out):
 			if name not in self.items_removed:
 				if name in x:
+					self.total_sum -= int(price)
 					del self.item_check_out[j]
 					del self.check_out_grid_list[j]
 					self.items_removed.append(name)
