@@ -47,7 +47,7 @@ class Nova():
 
 		#-----------------------------TEMP STUFF-----------------------------#
 
-		self.top = tk.Label(self.top_frame, text = "TOP")
+		self.top = tk.Label(self.top_frame, text = "TIME HERE")
 		self.top.place(relx = .5, rely = .5, anchor = "center")
 
 		#-----------------------------TEMP STUFF-----------------------------#
@@ -67,7 +67,7 @@ class Nova():
 		self.total_salg_label = tk.Label(self.top_frame, text = "")
 		self.total_salg_dag_label = tk.Label(self.top_frame, text = "")
 
-		self.total_salg_label.place(relx = .5, rely = .5, anchor = "center")
+		self.total_salg_label.place(relx = .8, rely = .5, anchor = "center")
 		self.total_salg_dag_label.place(relx = .2, rely = .5, anchor = "center")
 		#-----------------------------TOP STUFF-----------------------------#
 
@@ -115,6 +115,8 @@ class Nova():
 		self.label_list = []
 		self.lager_list = []
 		self.amount_list = []
+
+		self.frame_pos_list = []
 
 		self.item_check_out = []
 		#self.check_out_grid_list = []
@@ -244,20 +246,21 @@ class Nova():
 		# self.btn.config(image = self.photo, width = 150, height = 150)
 		# self.btn.image = self.photo
 		# self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price)])
+		self.button_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price, frame_pos)])
 		self.button_place.place(relx = .5, rely = .5, anchor = "center")
 
 	def place_button_minus(self, name, price, frame_pos):
 		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, False), self.remove_from_checkout(name, price)])
 		self.button_place.place(relx = .5, rely = .7, anchor = "center")
 
-	def add_to_checkout(self, name, price):
+	def add_to_checkout(self, name, price, frame_pos):
 		self.check_out_grid_list = []
+		self.frame_pos_list.append(frame_pos)
 		if len(self.item_check_out) < 1:
 			self.check_out_label = tk.Label(self.check_out, text = "", width = self.label_width)
 			self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
 
-			self.check_out_button = tk.Button(self.check_out, text = "DONE")
+			self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum))
 			self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
 
 			self.reset_button = tk.Button(self.check_out, text = "RESET")
@@ -309,11 +312,38 @@ class Nova():
 
 			self.check_out_grid_list.append(self.tmp_text_label)
 
-		self.check_out_button = tk.Button(self.check_out, text = "DONE")
+		self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum))
 		self.check_out_button.grid(row = j + 2, column = 0, pady = (20, 0))
 
 		self.reset_button = tk.Button(self.check_out, text = "RESET")
 		self.reset_button.grid(row = j + 2, column = 1, pady = (20, 0))
+
+	def check_out_done(self, tot_sum):
+		self.item_check_out = []
+		self.check_out_grid_list = []
+
+		self.total_sum = 0
+
+		for widget in self.check_out.winfo_children():
+			widget.destroy()
+
+		for x in self.frame_pos_list:
+			self.change_amount_text = self.amount_list[int(x)]
+			self.change_amount_text.config(text = "")
+
+		self.change_file(self.log_folder, self.total_salg_sum, tot_sum)
+		self.change_file(self.log_folder, self.total_salg_sum_dag, tot_sum)
+
+		self.display_total_sold()
+
+	def change_file(self, dest, file, tot_sum):
+		with open(dest + file, "r+") as f:
+			self.current_sum = f.read()
+			self.new_sum = tot_sum + int(self.current_sum)
+			f.seek(0)
+			f.write(str(self.new_sum))
+		f.close()
+
 
 	def display_total_sold(self):
 		if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):
