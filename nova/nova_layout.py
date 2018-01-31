@@ -13,8 +13,16 @@ import os
 #Edit self.check_out_width
 #Edit self.top_frame_height
 #Edit self.label_width
+#Edit all the place relx rely in the frames where buttons are
+
+#Move all variables and lists from place_frame to a init func or somthing
+
 #Add sold log, name salg_log_self.date_now.txt
+#Add time to salg log and date
 #Add time to top (how to time tkinter)
+#Remove from storage when click on done
+#Clean up the code
+#Get error when remvoe all items via minus button, fix that
 
 class Nova():
 	def __init__(self):
@@ -45,32 +53,16 @@ class Nova():
 		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.main_canvas.yview)
 		self.main_canvas.configure(yscrollcommand=self.vsb.set)
 
-		#-----------------------------TEMP STUFF-----------------------------#
-
-		self.top = tk.Label(self.top_frame, text = "TIME HERE")
-		self.top.place(relx = .5, rely = .5, anchor = "center")
-
-		#-----------------------------TEMP STUFF-----------------------------#
-
-		#-----------------------------CHECK OUT STUFF-----------------------------#
-		# self.check_out_label = tk.Label(self.check_out, text = "", width = 30)
-		# self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
-
-		# self.check_out_button = tk.Button(self.check_out, text = "DONE")
-		# self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
-
-		# self.reset_button = tk.Button(self.check_out, text = "RESET")
-		# self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
-		#-----------------------------CHECK OUT STUFF-----------------------------#
-
 		#-----------------------------TOP STUFF-----------------------------#
 		self.total_salg_label = tk.Label(self.top_frame, text = "")
 		self.total_salg_dag_label = tk.Label(self.top_frame, text = "")
 
+		self.top = tk.Label(self.top_frame, text = "TIME HERE")
+		self.top.place(relx = .5, rely = .5, anchor = "center")
+
 		self.total_salg_label.place(relx = .8, rely = .5, anchor = "center")
 		self.total_salg_dag_label.place(relx = .2, rely = .5, anchor = "center")
 		#-----------------------------TOP STUFF-----------------------------#
-
 
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
@@ -88,14 +80,11 @@ class Nova():
 		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
 	
 		self.display_total_sold()
-
 		self.place_frame()
-		#self.place_text()
 
 		root.mainloop()
 
 	def onFrameConfigure(self, event):
-		'''Reset the scroll region to encompass the inner frame'''
 		self.main_canvas.configure(scrollregion=self.main_canvas.bbox("all"))
 
 	def pic_price_file(self, dirr, file):
@@ -145,70 +134,32 @@ class Nova():
 					for x in range(self.item_in_frame):
 						if x == 0:
 							#Text of the item
-							self.tmp_label = tk.Label(self.frame_list[self.frame_position], text = self.item_name)
-							self.tmp_label.place(relx = .5, rely = .2, anchor = "center")
-							self.label_list.append(self.tmp_label)
-							pass
+							self.place_labe_name(self.item_name, self.frame_position)
 						elif x == 1:
 							#THe add button
-							
-							#-----------------------------Change this to like place amount and place label-----------------------------#
-							self.add_button_func.append(self.place_button_add(self.item_name, self.item_price, self.frame_position))
-							#-----------------------------Change this to like place amount and place label-----------------------------#
-						
+							self.place_button_add(self.item_name, self.item_price, self.frame_position)
 						elif x == 2:
 							#The - button
-
-							#-----------------------------Change this to like place amount and place label-----------------------------#
-							self.minus_button_func.append(self.place_button_minus(self.item_name, self.item_price, self.frame_position))
-							#-----------------------------Change this to like place amount and place label-----------------------------#
-							
+							self.place_button_minus(self.item_name, self.item_price, self.frame_position)
 						elif x == 3:
 							#The amount of items
 							self.place_amount_label(self.item_name, self.frame_position)
-							#self.amount_list.append(self.place_amount_label(self.item_name, self.frame_position))
 						elif x == 4:
 							#The inv num
 							self.place_label_lager(self.item_name, self.frame_position)
-							#self.lager_list.append(self.place_label(self.item_name, self.frame_position))
 					self.frame_position += 1
 			except:
 				pass
 
-	def inventory(self, name, remove):
-		self.inventory_num_list = []
-		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
-		with open("logs//lager.txt", "r") as f:
-			for x in f:
-				self.tmp_var = x.split(",")
-				self.inventory_num_list.append(self.tmp_var)
-		f.close()
-
-		#Remove one from the list, Atomic 2 to Atomic 1
-		#X is the number, and J is the name in the list
-		for x, j in enumerate(self.inventory_num_list):
-			#added name == J[0] + "," because some items in the list have a , added at the end
-			if j[0] == name or name == j[0] + ",":
-				if remove:
-					self.new_value = int(j[1])
-					self.new_value -= 1
-					self.inventory_num_list[x][0] = j[0] + ", "
-					self.inventory_num_list[x][1] = str(self.new_value) + "\n"
-				else:
-					self.inventory_num_list[x][0] = j[0] + ","
-					self.return_inv_num = self.inventory_num_list[x][1]
-			else:
-				self.inventory_num_list[x][0] = j[0] + ","
-
-			with open("logs//lager.txt", "w+") as f:
-				for x in self.inventory_num_list:
-					for j in x:
-						f.write(j)
-		if not remove:
-			return self.return_inv_num
+	def place_labe_name(self, name, frame_pos):
+		self.tmp_label = tk.Label(self.frame_list[self.frame_position], text = self.item_name)
+		self.tmp_label.place(relx = .5, rely = .2, anchor = "center")
+		
+		self.label_list.append(self.tmp_label)
 
 	def place_label_lager(self, name, frame_pos):
 		self.label_text = self.inventory(name, False).strip()
+
 		self.label_var = tk.Label(self.frame_list[frame_pos], text = self.label_text)
 		self.label_var.place(relx = .5, rely = .9, anchor = "center")
 
@@ -246,12 +197,48 @@ class Nova():
 		# self.btn.config(image = self.photo, width = 150, height = 150)
 		# self.btn.image = self.photo
 		# self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price, frame_pos)])
-		self.button_place.place(relx = .5, rely = .5, anchor = "center")
+		self.button_add_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price, frame_pos)])
+		self.button_add_place.place(relx = .5, rely = .5, anchor = "center")
+
+		self.add_button_func.append(self.button_add_place)
 
 	def place_button_minus(self, name, price, frame_pos):
-		self.button_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, False), self.remove_from_checkout(name, price)])
-		self.button_place.place(relx = .5, rely = .7, anchor = "center")
+		self.button_minus_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, False), self.remove_from_checkout(name, price)])
+		self.button_minus_place.place(relx = .5, rely = .7, anchor = "center")
+
+		self.minus_button_func.append(self.button_minus_place)
+
+	def inventory(self, name, remove):
+		self.inventory_num_list = []
+		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
+		with open("logs//lager.txt", "r") as f:
+			for x in f:
+				self.tmp_var = x.split(",")
+				self.inventory_num_list.append(self.tmp_var)
+		f.close()
+
+		#Remove one from the list, Atomic 2 to Atomic 1
+		#X is the number, and J is the name in the list
+		for x, j in enumerate(self.inventory_num_list):
+			#added name == J[0] + "," because some items in the list have a , added at the end
+			if j[0] == name or name == j[0] + ",":
+				if remove:
+					self.new_value = int(j[1])
+					self.new_value -= 1
+					self.inventory_num_list[x][0] = j[0] + ", "
+					self.inventory_num_list[x][1] = str(self.new_value) + "\n"
+				else:
+					self.inventory_num_list[x][0] = j[0] + ","
+					self.return_inv_num = self.inventory_num_list[x][1]
+			else:
+				self.inventory_num_list[x][0] = j[0] + ","
+
+			with open("logs//lager.txt", "w+") as f:
+				for x in self.inventory_num_list:
+					for j in x:
+						f.write(j)
+		if not remove:
+			return self.return_inv_num
 
 	def add_to_checkout(self, name, price, frame_pos):
 		self.check_out_grid_list = []
@@ -260,7 +247,7 @@ class Nova():
 			self.check_out_label = tk.Label(self.check_out, text = "", width = self.label_width)
 			self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
 
-			self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum))
+			self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.item_check_out))
 			self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
 
 			self.reset_button = tk.Button(self.check_out, text = "RESET")
@@ -298,7 +285,7 @@ class Nova():
 					del self.check_out_grid_list[j]
 					self.items_removed.append(name)
 			else:
-				print "already removed"
+				pass
 
 		self.re_draw()
 
@@ -312,13 +299,13 @@ class Nova():
 
 			self.check_out_grid_list.append(self.tmp_text_label)
 
-		self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum))
+		self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.item_check_out))
 		self.check_out_button.grid(row = j + 2, column = 0, pady = (20, 0))
 
 		self.reset_button = tk.Button(self.check_out, text = "RESET")
 		self.reset_button.grid(row = j + 2, column = 1, pady = (20, 0))
 
-	def check_out_done(self, tot_sum):
+	def check_out_done(self, final_price, items):
 		self.item_check_out = []
 		self.check_out_grid_list = []
 
@@ -331,33 +318,38 @@ class Nova():
 			self.change_amount_text = self.amount_list[int(x)]
 			self.change_amount_text.config(text = "")
 
-		self.change_file(self.log_folder, self.total_salg_sum, tot_sum)
-		self.change_file(self.log_folder, self.total_salg_sum_dag, tot_sum)
+		self.change_file(self.log_folder, self.total_salg_sum, final_price)
+		self.change_file(self.log_folder, self.total_salg_sum_dag, final_price)
+
+		self.log_sale(items, self.log_folder, self.salgs_log, final_price)
 
 		self.display_total_sold()
 
-	def change_file(self, dest, file, tot_sum):
+	def change_file(self, dest, file, final_price):
 		with open(dest + file, "r+") as f:
 			self.current_sum = f.read()
-			self.new_sum = tot_sum + int(self.current_sum)
+			self.new_sum = final_price + int(self.current_sum)
 			f.seek(0)
 			f.write(str(self.new_sum))
+		f.close()
+
+	def log_sale(self, items, dest, file, final_price):
+		with open(dest + file, "a") as f:
+			f.write(str(items) + " " + str(final_price) + " kr\n\n")
 		f.close()
 
 
 	def display_total_sold(self):
 		if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):
 			with open(self.log_folder + self.total_salg_sum_dag, "w") as f:
-				f.close()
+				f.write("0")
+			f.close()
 		else:
 			with open(self.log_folder + self.total_salg_sum_dag, "r+") as salg_dag, open(self.log_folder + self.total_salg_sum, "r") as salg_total:
 				self.total_salg_label.config(text = salg_total.read())
 				self.total_salg_dag_label.config(text = salg_dag.read())
 			salg_dag.close()
 			salg_total.close()
-		#Display Total sold
-		#Display Total sold day
-		#Reset Total sold day after day end
 
 
 if __name__ == "__main__":
