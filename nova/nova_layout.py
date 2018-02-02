@@ -17,9 +17,6 @@ import os
 
 #Move all variables and lists from place_frame to a init func or somthing
 
-#Add sold log, name salg_log_self.date_now.txt
-#Add time to salg log and date
-#Add time to top (how to time tkinter)
 #Remove from storage when click on done
 #Clean up the code
 #Get error when remvoe all items via minus button, fix that
@@ -30,27 +27,27 @@ class Nova():
 		self.y = 1000
 		self.check_out_width = 250 #Tune this when change geo size
 		self.top_frame_height = 20 #Tune this when change geo size
-		root = tk.Tk()
-		root.geometry(str(self.x) + "x" + str(self.y))
-		#root.attributes("-fullscreen", True)
+		self.root = tk.Tk()
+		self.root.geometry(str(self.x) + "x" + str(self.y))
+		#self.root.attributes("-fullscreen", True)
 
 		self.label_width = 30
 
-		self.now = time.strftime("%d_%b_%Y")
+		self.now_date = time.strftime("%d_%b_%Y")
 
 		self.log_folder = "logs//"
 		self.pic_folder = "rz//"
 		self.prices = "priser.txt"
 		self.salgs_log = "salgs_log.txt"
 		self.total_salg_sum = "total_salg_sum.txt"
-		self.total_salg_sum_dag = "total_salg_sum_" + self.now + ".txt"
+		self.total_salg_sum_dag = "total_salg_sum_" + self.now_date + ".txt"
 
-		self.top_frame = tk.Frame(root, bg = "black", height = self.top_frame_height, width = self.y)
-		self.check_out = tk.Frame(root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
+		self.top_frame = tk.Frame(self.root, bg = "black", height = self.top_frame_height, width = self.y)
+		self.check_out = tk.Frame(self.root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
 		self.check_out.grid_propagate(False)
-		self.main_canvas = tk.Canvas(root, background="yellow")
+		self.main_canvas = tk.Canvas(self.root, background="yellow")
 		self.main_frame = tk.Frame(self.main_canvas, bg = "red")
-		self.vsb = tk.Scrollbar(root, orient="vertical", command=self.main_canvas.yview)
+		self.vsb = tk.Scrollbar(self.root, orient="vertical", command=self.main_canvas.yview)
 		self.main_canvas.configure(yscrollcommand=self.vsb.set)
 
 		#-----------------------------TOP STUFF-----------------------------#
@@ -79,13 +76,19 @@ class Nova():
 
 		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
 	
+		self.update_time()
 		self.display_total_sold()
 		self.place_frame()
 
-		root.mainloop()
+		self.root.mainloop()
 
 	def onFrameConfigure(self, event):
 		self.main_canvas.configure(scrollregion=self.main_canvas.bbox("all"))
+
+	def update_time(self):
+		self.now_time = time.strftime("%H:%M:%S")
+		self.top.config(text = self.now_time)
+		self.root.after(1000, self.update_time)
 
 	def pic_price_file(self, dirr, file):
 		self.inv_list = []
@@ -322,6 +325,10 @@ class Nova():
 		self.change_file(self.log_folder, self.total_salg_sum_dag, final_price)
 
 		self.log_sale(items, self.log_folder, self.salgs_log, final_price)
+		for x in items:
+			print x
+			self.inventory(x, True)
+		#self.re_draw()
 
 		self.display_total_sold()
 
@@ -335,7 +342,7 @@ class Nova():
 
 	def log_sale(self, items, dest, file, final_price):
 		with open(dest + file, "a") as f:
-			f.write(str(items) + " " + str(final_price) + " kr\n\n")
+			f.write(str(time.strftime("%d %b %Y %H:%M")) + "\n" +str(items) + " " + str(final_price) + " kr\n\n")
 		f.close()
 
 

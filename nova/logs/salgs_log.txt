@@ -2,3 +2,31 @@
 
 ['Atomic (199)', 'Atomic (199)', 'Super 10 (349)', 'Super 10 (349)', 'Flashlight (749)', 'Flashlight (749)'] 2594 kr
 
+['Super 10 (349)', 'Super 10 (349)', 'Atomic (199)', 'Atomic (199)'] 1096 kr
+
+['Atomic (199)', 'Atomic (199)', 'Atomic (199)'] 597 kr
+
+09:27:04
+['Atomic (199)', 'Atomic (199)'] 398 kr
+
+02 Feb 2018 09:30
+['Atomic (199)', 'Atomic (199)', 'Atomic (199)'] 597 kr
+
+02 Feb 2018 09:40
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+02 Feb 2018 09:44
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+02 Feb 2018 09:45
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+02 Feb 2018 09:46
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+02 Feb 2018 09:48
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+02 Feb 2018 09:48
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
