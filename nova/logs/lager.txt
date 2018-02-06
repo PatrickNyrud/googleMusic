@@ -40,13 +40,9 @@ Stjerneskuddmini, 50
 Tjuefemkroner, 50
 Tikroner, 50
 Glowsticks, 50
-<<<<<<< HEAD
-,,Lyx 50
+Lyx, 50
 Fakler, 10
 Fontene, 10
-=======
-,,Lyx fontene 50
+Lyx fontene, 50
 Handfakkel, 10
 Farge fontene, 10
->>>>>>> 9bc0bf3e105ec8bb3ea954f51e6dc146715dd75d
-,,
