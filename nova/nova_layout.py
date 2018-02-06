@@ -15,11 +15,9 @@ import os
 #Edit self.label_width
 #Edit all the place relx rely in the frames where buttons are
 
-#Move all variables and lists from place_frame to a init func or somthing
-
 #Remove from storage when click on done
-#Clean up the code
 #Get error when remvoe all items via minus button, fix that
+#Fuck it rewrite the inventory code
 
 class Nova():
 	def __init__(self):
@@ -41,6 +39,17 @@ class Nova():
 		self.salgs_log = "salgs_log.txt"
 		self.total_salg_sum = "total_salg_sum.txt"
 		self.total_salg_sum_dag = "total_salg_sum_" + self.now_date + ".txt"
+
+		self.frame_list = []
+		self.add_button_func = []
+		self.minus_button_func = []
+		self.label_list = []
+		self.lager_list = []
+		self.amount_list = []
+		self.frame_pos_list = []
+
+		self.item_check_out = []
+		self.total_sum = 0
 
 		self.top_frame = tk.Frame(self.root, bg = "black", height = self.top_frame_height, width = self.y)
 		self.check_out = tk.Frame(self.root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
@@ -101,20 +110,6 @@ class Nova():
 
 
 	def place_frame(self):
-		self.frame_list = []
-		self.add_button_func = []
-		self.minus_button_func = []
-		self.label_list = []
-		self.lager_list = []
-		self.amount_list = []
-
-		self.frame_pos_list = []
-
-		self.item_check_out = []
-		#self.check_out_grid_list = []
-
-		self.total_sum = 0
-
 		self.column = 3
 		self.item_in_frame = 5
 
@@ -123,13 +118,11 @@ class Nova():
 		for row in range((len(self.inventory_price_list) / self.column) + 1):
 			try: #for loop is longer than list, therefore we need a try to escape the error
 				for column in range(self.column):
-
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
 					self.frame = tk.Canvas(self.main_frame, bg = "black", height = 200, width = 200)
 					self.frame.grid(row = row, column = column, padx = (57, 0), pady = (50, 0))
 					self.frame_list.append(self.frame)
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
-
 					self.item_name = self.inventory_price_list[self.item_pos][0]
 					self.item_price = self.inventory_price_list[self.item_pos][1]
 
@@ -224,7 +217,7 @@ class Nova():
 		#X is the number, and J is the name in the list
 		for x, j in enumerate(self.inventory_num_list):
 			#added name == J[0] + "," because some items in the list have a , added at the end
-			if j[0] == name or name == j[0] + ",":
+			if j[0] == name or name == j[0] + "," or name == "Super 10 (349)":
 				if remove:
 					self.new_value = int(j[1])
 					self.new_value -= 1
