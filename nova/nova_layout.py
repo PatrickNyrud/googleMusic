@@ -15,6 +15,7 @@ import os
 #Edit self.label_width
 #Edit all the place relx rely in the frames where buttons are
 
+#Inventory remove adds alot of unused spaces in lager.txt, fix it
 #Remove from storage when click on done
 #Get error when remvoe all items via minus button, fix that
 #Fuck it rewrite the inventory code
@@ -213,28 +214,24 @@ class Nova():
 				self.inventory_num_list.append(self.tmp_var)
 		f.close()
 
-		#Remove one from the list, Atomic 2 to Atomic 1
-		#X is the number, and J is the name in the list
-		for x, j in enumerate(self.inventory_num_list):
-			#added name == J[0] + "," because some items in the list have a , added at the end
-			if j[0] == name or name == j[0] + "," or name == "Super 10 (349)":
-				if remove:
-					self.new_value = int(j[1])
-					self.new_value -= 1
-					self.inventory_num_list[x][0] = j[0] + ", "
-					self.inventory_num_list[x][1] = str(self.new_value) + "\n"
-				else:
-					self.inventory_num_list[x][0] = j[0] + ","
-					self.return_inv_num = self.inventory_num_list[x][1]
-			else:
-				self.inventory_num_list[x][0] = j[0] + ","
-
-			with open("logs//lager.txt", "w+") as f:
-				for x in self.inventory_num_list:
-					for j in x:
-						f.write(j)
-		if not remove:
-			return self.return_inv_num
+		if remove:
+			self.ch_remove = "'[]"
+			for j, x in enumerate(self.inventory_num_list):
+				if x[0] in name:
+					self.remove_inv_sum = self.inventory_num_list[j][1]
+					self.new_sum = int(self.remove_inv_sum) - 1
+					self.inventory_num_list[j][1] = str(self.new_sum) + "\n"
+					with open("logs//lager.txt", "w") as f:
+						for x in self.inventory_num_list:
+							x[1] = x[1].strip(" ")
+							self.final_string = str(x)
+							for c in self.ch_remove:
+								self.final_string = self.final_string.replace(c, "")
+							f.write(self.final_string.replace("\\n", "\n"))
+		else:
+			for x in self.inventory_num_list:
+				if x[0] == name:
+					return x[1]
 
 	def add_to_checkout(self, name, price, frame_pos):
 		self.check_out_grid_list = []
@@ -319,7 +316,6 @@ class Nova():
 
 		self.log_sale(items, self.log_folder, self.salgs_log, final_price)
 		for x in items:
-			print x
 			self.inventory(x, True)
 		#self.re_draw()
 
