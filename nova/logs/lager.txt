@@ -1,14 +1,14 @@
-Atomic, 15
-Super 10, 10
+Atomic, 12
+Super 10, 8
 Magnum, 2
-Extrem Thunder, 2
+Extreme thunder, 2
 Flashlight, 3
 Phoenix, 5
 Bolero, 5
 Circus, 10
 Bizarre, 10
 Goldfish, 10
-Orion, 5
+Orion, 95
 Trapez, 5
 Passion, 10
 Tnt, 20
@@ -24,25 +24,23 @@ Hellfire, 5
 Aces High, 2
 Kick ass, 5
 Super nova, 5
-Vip blacline, 5
+Vip blackline, 5
 Monster, 5
 Eagle, 5
-Monster Pack, 5
+Monster pack, 5
 Nighthawk, 5
 Strobe, 5
 Thunderbolt, 5
 Nitro Bag, 5
 Big Bag, 5
 Top flight, 5
-Party mix, 5
+Partymix, 5
+Stormlighter, 30
 Stjerneskudd, 100
 Stjerneskuddmini, 50
 Tjuefemkroner, 50
 Tikroner, 50
 Glowsticks, 50
-Lyx, 50
-Fakler, 10
-Fontene, 10
 Lyx fontene, 50
 Handfakkel, 10
 Farge fontene, 10
