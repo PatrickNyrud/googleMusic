@@ -75,3 +75,39 @@
 09 Feb 2018 13:53
 ['Super 10 (349)', 'Atomic (199)'] 548 kr
 
+09 Feb 2018 14:07
+['Atomic (199)', 'Atomic (199)'] 398 kr
+
+09 Feb 2018 14:10
+['Atomic (199)'] 199 kr
+
+09 Feb 2018 14:10
+['Super 10 (349)', 'Atomic (199)'] 548 kr
+
+09 Feb 2018 14:10
+['Super 10 (349)'] 349 kr
+
+09 Feb 2018 14:10
+['Super 10 (349)'] 349 kr
+
+09 Feb 2018 14:10
+['Atomic (199)'] 199 kr
+
+09 Feb 2018 14:10
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+09 Feb 2018 14:10
+['Atomic (199)', 'Super 10 (349)'] 548 kr
+
+09 Feb 2018 14:10
+['Atomic (199)', 'Atomic (199)'] 398 kr
+
+09 Feb 2018 14:11
+['Atomic (199)', 'Atomic (199)', 'Super 10 (349)'] 747 kr
+
+09 Feb 2018 14:11
+['Atomic (199)', 'Super 10 (349)', 'Super 10 (349)'] 897 kr
+
+09 Feb 2018 14:11
+['Atomic (199)'] 199 kr
+

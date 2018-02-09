@@ -15,7 +15,7 @@ import os
 #Edit self.label_width
 #Edit all the place relx rely in the frames where buttons are
 
-#Inventory remove adds alot of unused spaces in lager.txt, fix it
+#Redo add to checkout so if two items, x2
 #Remove from storage when click on done
 #Get error when remvoe all items via minus button, fix that
 #Fuck it rewrite the inventory code
@@ -48,6 +48,10 @@ class Nova():
 		self.lager_list = []
 		self.amount_list = []
 		self.frame_pos_list = []
+
+		self.items_single = []
+		self.chckout_grid = []
+		self.checkout_var = []
 
 		self.item_check_out = []
 		self.total_sum = 0
@@ -88,7 +92,7 @@ class Nova():
 	
 		self.update_time()
 		self.display_total_sold()
-		self.place_frame()
+		self.place_frame(self.inventory_price_list)
 
 		self.root.mainloop()
 
@@ -110,13 +114,13 @@ class Nova():
 		return self.inv_list
 
 
-	def place_frame(self):
+	def place_frame(self, price_list):
 		self.column = 3
 		self.item_in_frame = 5
 
 		self.item_pos = 0
 		self.frame_position = 0
-		for row in range((len(self.inventory_price_list) / self.column) + 1):
+		for row in range((len(price_list) / self.column) + 1):
 			try: #for loop is longer than list, therefore we need a try to escape the error
 				for column in range(self.column):
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
@@ -124,8 +128,8 @@ class Nova():
 					self.frame.grid(row = row, column = column, padx = (57, 0), pady = (50, 0))
 					self.frame_list.append(self.frame)
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
-					self.item_name = self.inventory_price_list[self.item_pos][0]
-					self.item_price = self.inventory_price_list[self.item_pos][1]
+					self.item_name = price_list[self.item_pos][0]
+					self.item_price = price_list[self.item_pos][1]
 
 					self.item_pos += 1
 					for x in range(self.item_in_frame):
@@ -220,6 +224,7 @@ class Nova():
 				if x[0] in name:
 					self.remove_inv_sum = self.inventory_num_list[j][1]
 					self.new_sum = int(self.remove_inv_sum) - 1
+					self.lager_list[j].config(text = str(self.new_sum))
 					self.inventory_num_list[j][1] = str(self.new_sum) + "\n"
 					with open("logs//lager.txt", "w") as f:
 						for x in self.inventory_num_list:
@@ -234,34 +239,37 @@ class Nova():
 					return x[1]
 
 	def add_to_checkout(self, name, price, frame_pos):
-		self.check_out_grid_list = []
-		self.frame_pos_list.append(frame_pos)
-		if len(self.item_check_out) < 1:
-			self.check_out_label = tk.Label(self.check_out, text = "", width = self.label_width)
-			self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
+		# self.check_out_grid_list = []
+		# self.items_single.append(name)
+		# self.frame_pos_list.append(frame_pos)
+		# if len(self.item_check_out) < 1:
+		# 	self.check_out_label = tk.Label(self.check_out, text = "", width = self.label_width)
+		# 	self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
 
-			self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.item_check_out))
-			self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
+		# 	self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.item_check_out))
+		# 	self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
 
-			self.reset_button = tk.Button(self.check_out, text = "RESET")
-			self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
+		# 	self.reset_button = tk.Button(self.check_out, text = "RESET")
+		# 	self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
 
-		self.tmp_text_var = name + " (" + price.strip() + ")"
-		self.item_check_out.append(self.tmp_text_var)
-		#self.check_out_label.config(text = name + " " + price)
-		for j, x in enumerate(self.item_check_out):
-			self.tmp_text_label = tk.Label(self.check_out, text = x, width = self.label_width)
-			self.tmp_text_label.grid(row = j+1, column = 0, columnspan = 2)
+		# self.tmp_text_var = name + " (" + price.strip() + ")"
+		# self.item_check_out.append(self.tmp_text_var)
+		# #self.check_out_label.config(text = name + " " + price)
+		# for j, x in enumerate(self.item_check_out):
+		# 	self.tmp_text_label = tk.Label(self.check_out, text = x, width = self.label_width)
+		# 	self.tmp_text_label.grid(row = j+1, column = 0, columnspan = 2)
 
-			self.check_out_grid_list.append(self.tmp_text_label)
+		# 	self.check_out_grid_list.append(self.tmp_text_label)
 
-		print "Added " + name + " " + price
-		self.total_sum += int(price)
-		self.check_out_label.config(text = str(self.total_sum))
-		print self.total_sum
+		# self.total_sum += int(price)
+		# self.check_out_label.config(text = str(self.total_sum))
 
-		self.check_out_button.grid_configure(row = j + 2)
-		self.reset_button.grid_configure(row = j + 2)
+		# self.check_out_button.grid_configure(row = j + 2)
+		# self.reset_button.grid_configure(row = j + 2)
+		pass
+
+
+
 
 
 	def remove_from_checkout(self, name, price):
