@@ -111,3 +111,12 @@
 09 Feb 2018 14:11
 ['Atomic (199)'] 199 kr
 
+12 Feb 2018 15:07
+['Atomic'] 199 kr
+
+12 Feb 2018 15:07
+['Atomic', 'Atomic', 'Super 10', 'Super 10'] 1096 kr
+
+12 Feb 2018 15:08
+['Atomic', 'Atomic'] 398 kr
+
