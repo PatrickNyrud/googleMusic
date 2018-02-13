@@ -1,33 +1,38 @@
-try:
-        import tkinter as tk
-except:
-        import Tkinter as tk
+import Tkinter as tk
+from tkinter import ttk
 import tkFont
 import time
 import os
+from PIL import ImageTk
 
 #--------------------------FUCKING IMPORTANT--------------------------#
 #The green area needs to be as close to the scrollbar for it to scroll
 #--------------------------FUCKING IMPORTANT--------------------------#
 
 #Have a overveiw on second monitor
+#Have a second page for edit of inv and prices
 
 #Edit self.check_out_width
 #Edit self.top_frame_height
 #Edit self.label_width
 #Edit all the place relx rely in the frames where buttons are
 
-#Remove from storage when click on done
 
 class Nova():
 	def __init__(self):
-		self.x = 1000
+		self.x = 1200
 		self.y = 1000
-		self.check_out_width = 250 #Tune this when change geo size
-		self.top_frame_height = 20 #Tune this when change geo size
+		self.check_out_width = 250 #Tune this when change geometry size
+		self.top_frame_height = 20 #Tune this when change geometry size
 		self.root = tk.Tk()
 		self.root.geometry(str(self.x) + "x" + str(self.y))
 		#self.root.attributes("-fullscreen", True)
+
+		note = ttk.Notebook(self.root)
+
+		tab1 = tk.Frame(note)
+		tab2 = tk.Frame(note)
+		
 
 		self.label_width = 30
 
@@ -35,6 +40,7 @@ class Nova():
 
 		self.log_folder = "logs//"
 		self.pic_folder = "rz//"
+		self.lager_file = "lager.txt"
 		self.prices = "priser.txt"
 		self.salgs_log = "salgs_log.txt"
 		self.total_salg_sum = "total_salg_sum.txt"
@@ -51,19 +57,19 @@ class Nova():
 		self.items_check_out = []
 		self.total_sum = 0
 
-		self.top_frame = tk.Frame(self.root, bg = "black", height = self.top_frame_height, width = self.y)
-		self.check_out = tk.Frame(self.root, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
+		self.top_frame = tk.Frame(tab1, bg = "black", height = self.top_frame_height, width = self.y)
+		self.check_out = tk.Frame(tab1, background="green", width = self.check_out_width, height = self.x - self.top_frame_height)
 		self.check_out.grid_propagate(False)
-		self.main_canvas = tk.Canvas(self.root, background="yellow")
+		self.main_canvas = tk.Canvas(tab1, background="yellow", width = self.x)
 		self.main_frame = tk.Frame(self.main_canvas, bg = "red")
-		self.vsb = tk.Scrollbar(self.root, orient="vertical", command=self.main_canvas.yview)
+		self.vsb = tk.Scrollbar(tab1, orient="vertical", command=self.main_canvas.yview)
 		self.main_canvas.configure(yscrollcommand=self.vsb.set)
 
 		#-----------------------------TOP STUFF-----------------------------#
 		self.total_salg_label = tk.Label(self.top_frame, text = "")
 		self.total_salg_dag_label = tk.Label(self.top_frame, text = "")
 
-		self.top = tk.Label(self.top_frame, text = "TIME HERE")
+		self.top = tk.Label(self.top_frame, text = "")
 		self.top.place(relx = .5, rely = .5, anchor = "center")
 
 		self.total_salg_label.place(relx = .8, rely = .5, anchor = "center")
@@ -77,10 +83,13 @@ class Nova():
 		self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
 		self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
 
-		self.reset_button = tk.Button(self.check_out, text = "RESET")
+		self.reset_button = tk.Button(self.check_out, text = "RESET",  command = lambda : self.reset())
 		self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
 		#-----------------------------CHECK OUT STUFF-----------------------------#
 
+		note.add(tab1, text = "Tab One")
+		note.add(tab2, text = "Tab Two")
+		note.pack()
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
 		self.main_frame.pack(side = "right", fill = "both", expand = True)
@@ -91,8 +100,8 @@ class Nova():
 
 		self.main_frame.bind("<Configure>", self.onFrameConfigure)
 
-		self.display_text = tkFont.Font(family = "Helvetica", size = 35)
-		self.window_text = tkFont.Font(family = "Helvetica", size = 12)
+		#self.display_text = tkFont.Font(family = "Helvetica", size = 35)
+		#self.window_text = tkFont.Font(family = "Helvetica", size = 12)
 
 		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
 	
@@ -199,12 +208,10 @@ class Nova():
 
 
 	def place_button_add(self, name, price, frame_pos):
-		# self.btn = tk.Button(self.frame, height = 5, width = 15, command = lambda : self.add(name, price), bg = "white")
-		# self.photo = ImageTk.PhotoImage(file = "rz/" + name + "_liten.png")
-		# self.btn.config(image = self.photo, width = 150, height = 150)
-		# self.btn.image = self.photo
-		# self.btn.grid(row = y_pos, column = x_pos, padx = 50, pady = 50)
 		self.button_add_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price, frame_pos)])
+		self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + "_liten.png")
+		self.button_add_place.config(image = self.photo, width = 150, height = 150)
+		self.button_add_place.image = self.photo
 		self.button_add_place.place(relx = .5, rely = .5, anchor = "center")
 
 		self.add_button_func.append(self.button_add_place)
@@ -218,7 +225,7 @@ class Nova():
 	def inventory(self, name, remove):
 		self.inventory_num_list = []
 		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
-		with open("logs//lager.txt", "r") as f:
+		with open(self.log_folder + self.lager_file, "r") as f:
 			for x in f:
 				self.tmp_var = x.split(",")
 				self.inventory_num_list.append(self.tmp_var)
@@ -232,13 +239,13 @@ class Nova():
 					self.new_sum = int(self.remove_inv_sum) - 1
 					self.lager_list[j].config(text = str(self.new_sum))
 					self.inventory_num_list[j][1] = str(self.new_sum) + "\n"
-					with open("logs//lager.txt", "w") as f:
+					with open(self.log_folder + self.lager_file, "w") as f:
 						for x in self.inventory_num_list:
 							x[1] = x[1].strip(" ")
-							self.final_string = str(x)
+							self.final_inv_string = str(x)
 							for c in self.ch_remove:
-								self.final_string = self.final_string.replace(c, "")
-							f.write(self.final_string.replace("\\n", "\n"))
+								self.final_inv_string = self.final_inv_string.replace(c, "")
+							f.write(self.final_inv_string.replace("\\n", "\n"))
 		else:
 			for x in self.inventory_num_list:
 				if x[0] == name:
@@ -293,7 +300,7 @@ class Nova():
 					else:
 						del self.final_string[j]
 				else: 
-					print "Nothing"
+					pass
 		else:
 			pass
 
@@ -313,12 +320,13 @@ class Nova():
 		self.check_out_button = tk.Button(self.check_out, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
 		self.check_out_button.grid(row = j + 2, column = 0, pady = (20, 0))
 
-		self.reset_button = tk.Button(self.check_out, text = "RESET")
+		self.reset_button = tk.Button(self.check_out, text = "RESET",  command = lambda : self.reset())
 		self.reset_button.grid(row = j + 2, column = 1, pady = (20, 0))
 
 	def check_out_done(self, final_price, items):
 		self.items_check_out = []
 		self.check_out_grid_list = []
+		self.final_string = []
 
 		self.total_sum = 0
 
@@ -335,12 +343,27 @@ class Nova():
 		self.log_sale(items, self.log_folder, self.salgs_log, final_price)
 		for x in items:
 			self.inventory(x, True)
-		#self.re_draw()
+
+		self.re_draw()
 
 		self.display_total_sold()
 
 	def reset(self):
-		pass
+		for widget in self.check_out.winfo_children():
+			widget.destroy()
+
+		for x in self.frame_pos_list:
+			self.amount_list[int(x)].config(text = "")
+
+		self.frame_pos_list = []
+		self.items_checked = []
+		self.items_check_out = []
+		self.check_out_grid_list = []
+		self.final_string = []
+
+		self.total_sum = 0
+
+		self.re_draw()
 
 	def change_file(self, dest, file, final_price):
 		with open(dest + file, "r+") as f:
