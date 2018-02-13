@@ -1,12 +1,12 @@
-Atomic, 15
-Super 10, 18
-Magnum, 2
-Extreme thunder, 2
-Flashlight, 3
-Phoenix, 5
+Atomic, -13
+Super 10, 2
+Magnum, -5
+Extreme thunder, 8
+Flashlight, -3
+Phoenix, 3
 Bolero, 5
-Circus, 10
-Bizarre, 10
+Circus, 9
+Bizarre, 9
 Goldfish, 10
 Orion, 95
 Trapez, 5
@@ -35,12 +35,12 @@ Nitro Bag, 5
 Big Bag, 5
 Top flight, 5
 Partymix, 5
-Stormlighter, 30
+Stormlighter, 23
 Stjerneskudd, 100
 Stjerneskuddmini, 50
 Tjuefemkroner, 50
-Tikroner, 50
-Glowsticks, 50
-Lyx fontene, 50
+Tikroner, 41
+Glowsticks, 39
+Lyx fontene, 40
 Handfakkel, 10
 Farge fontene, 10

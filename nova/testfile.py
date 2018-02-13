@@ -1,17 +1,12 @@
-liste = ["Ato", "Super", "Ato", "Magnum"]
-check = []
+from Tkinter import *
+from ttk import *
 
-final = []
+root = Tk()
+note = Notebook(root)
 
-for x in liste:
-	if x in check:
-		pass
-	else:
-		check.append(x)
-		tt = 0
-		for j in liste:
-			if x == j:
-				tt += 1
-		final.append(x + " x" + str(tt))
-		
-print final
+tab1 = Frame(note)
+
+note.add(tab1, text = "Tab One")
+note.pack()
+root.mainloop()
+exit()
