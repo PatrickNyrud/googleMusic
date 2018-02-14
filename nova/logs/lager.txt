@@ -1,6 +1,6 @@
-Atomic, -13
-Super 10, 0
-Magnum, -11
+Atomic, -15
+Super 10, -10
+Magnum, -15
 Extreme thunder, 0
 Flashlight, -3
 Phoenix, -1

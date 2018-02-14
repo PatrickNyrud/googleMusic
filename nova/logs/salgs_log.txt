@@ -225,3 +225,12 @@
 14 Feb 2018 09:46
 ['Extreme thunder', 'Magnum', 'Super 10', 'Phoenix', 'Crossfire', 'Stjerneskuddmini'] 3040 kr
 
+14 Feb 2018 17:34
+['Magnum', 'Magnum'] 898 kr
+
+14 Feb 2018 17:37
+['Super 10', 'Super 10'] 698 kr
+
+14 Feb 2018 17:37
+['Super 10', 'Super 10'] 698 kr
+
