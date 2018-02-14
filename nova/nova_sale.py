@@ -3,6 +3,7 @@ from tkinter import ttk
 import tkFont
 import time
 import os
+import nova_config
 from PIL import ImageTk
 
 #--------------------------FUCKING IMPORTANT--------------------------#
@@ -85,9 +86,9 @@ class Nova():
 		self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
 		#-----------------------------CHECK OUT STUFF-----------------------------#
 
-		note.add(tab1, text = "Tab One")
+		note.add(tab1, text = "Sale")
 		#note.add(tab2, text = "Tab Two")
-		new = tabTwo(note)
+		new = nova_config.tabTwo(note)
 		note.pack()
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
@@ -390,12 +391,7 @@ class Nova():
 			salg_dag.close()
 			salg_total.close()
 
-class tabTwo:
-	def __init__(self, frame):
-		tab2 = tk.Frame(frame)
-		frame.add(tab2, text = "Tab 2")
-		#lbl = tk.Label(tb2, text = "cunt")
-		#lbl.place(relx = .5, rely = .5, anchor = "center")
+
 
 
 if __name__ == "__main__":
