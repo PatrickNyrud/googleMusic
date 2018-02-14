@@ -1,9 +1,9 @@
 Atomic, -13
-Super 10, 2
-Magnum, -5
-Extreme thunder, 8
+Super 10, 0
+Magnum, -11
+Extreme thunder, 0
 Flashlight, -3
-Phoenix, 3
+Phoenix, -1
 Bolero, 5
 Circus, 9
 Bizarre, 9
@@ -17,7 +17,7 @@ Commando, 10
 Shocker, 2
 Kamikaze, 5
 Gladiator, 5
-Crossfire, 5
+Crossfire, 4
 Black spider, 5
 Firestorm, 5
 Hellfire, 5
@@ -36,8 +36,8 @@ Big Bag, 5
 Top flight, 5
 Partymix, 5
 Stormlighter, 23
-Stjerneskudd, 100
-Stjerneskuddmini, 50
+Stjerneskudd, 99
+Stjerneskuddmini, 49
 Tjuefemkroner, 50
 Tikroner, 41
 Glowsticks, 39

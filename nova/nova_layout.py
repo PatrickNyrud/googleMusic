@@ -31,8 +31,6 @@ class Nova():
 		note = ttk.Notebook(self.root)
 
 		tab1 = tk.Frame(note)
-		tab2 = tk.Frame(note)
-		
 
 		self.label_width = 30
 
@@ -88,7 +86,8 @@ class Nova():
 		#-----------------------------CHECK OUT STUFF-----------------------------#
 
 		note.add(tab1, text = "Tab One")
-		note.add(tab2, text = "Tab Two")
+		#note.add(tab2, text = "Tab Two")
+		new = tabTwo(note)
 		note.pack()
 		self.top_frame.pack(side = "top", fill = "both")	
 		self.check_out.pack(side = "left", fill = "both") 
@@ -130,7 +129,7 @@ class Nova():
 
 
 	def place_frame(self, price_list):
-		self.column = 3
+		self.column = 4
 		self.item_in_frame = 5
 
 		self.item_pos = 0
@@ -169,7 +168,7 @@ class Nova():
 
 	def place_labe_name(self, name, frame_pos):
 		self.tmp_label = tk.Label(self.frame_list[self.frame_position], text = self.item_name)
-		self.tmp_label.place(relx = .5, rely = .2, anchor = "center")
+		self.tmp_label.place(relx = .5, rely = .05, anchor = "center")
 		
 		self.label_list.append(self.tmp_label)
 
@@ -390,6 +389,13 @@ class Nova():
 				self.total_salg_dag_label.config(text = salg_dag.read())
 			salg_dag.close()
 			salg_total.close()
+
+class tabTwo:
+	def __init__(self, frame):
+		tab2 = tk.Frame(frame)
+		frame.add(tab2, text = "Tab 2")
+		#lbl = tk.Label(tb2, text = "cunt")
+		#lbl.place(relx = .5, rely = .5, anchor = "center")
 
 
 if __name__ == "__main__":
