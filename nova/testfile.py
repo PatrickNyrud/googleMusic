@@ -3,40 +3,150 @@ from tkinter import ttk
 import tkFont
 import time
 import os
+from PIL import ImageTk
+
+#--------------------------FUCKING IMPORTANT--------------------------#
+#The green area needs to be as close to the scrollbar for it to scroll
+#--------------------------FUCKING IMPORTANT--------------------------#
 
 class main_frame:
 	def __init__(self):
 		self.x = 1300
-		self.y = 1000
+		self.y = 800
 
 		self.root = tk.Tk()
 		self.root.geometry(str(self.x) + "x" + str(self.y))
 
+		self.note = ttk.Notebook(self.root)
 
-		self.main_frame = tk.Frame(self.root, bg = "black")
+		self.tab_sale = tk.Frame(self.note)
+		self.tab_config = tk.Frame(self.note)
+
+		self.note.add(self.tab_sale, text = "Sale")
+		self.note.add(self.tab_config, text = "Config")
+	
+		self.note.pack()
+
+		self.main_frame = tk.Frame(self.tab_sale, bg = "black")
 		self.main_frame.pack(fill = "both", expand = True)
 		
-		self.test = top_frame(self.main_frame)
-		self.test1 = checkout_frame(self.main_frame)
-		self.test2 = items_frame(self.main_frame)
+		self.top_class = top_frame()
+		self.checkout_class = checkout_frame()
+		self.items_class = items_frame()
+
+		self.top_class.initialize(self.main_frame)
+		self.checkout_class.initialize(self.main_frame, self.items_class)
+		self.items_class.initialize(self.main_frame, self.checkout_class)
 
 		self.root.mainloop()
 
 class top_frame:
-	def __init__(self, frame):
+	def initialize(self, frame):
 		self.frame = frame
-		self.top_frame = tk.Frame(self.frame, bg = "red", height = 100)
+		self.top_frame = tk.Frame(self.frame, bg = "red", height = 50)
 		self.top_frame.pack(side = "top", fill = "x")
 
 class checkout_frame:
-	def __init__(self, frame):
+	def initialize(self, frame, items_object):
 		self.frame = frame
-		self.item_frame = tk.Frame(self.frame, bg = "yellow", width = 200)
+		self.items_object = items_object
+
+		self.items_check_out = []
+		self.frame_pos_list = []
+
+		self.total_sum = 0
+
+		self.label_width = 30
+
+		self.item_frame = tk.Frame(self.frame, bg = "yellow", width = 200, height = 1000 - 100) #self.y - topframe height
+
+		self.check_out_label = tk.Label(self.item_frame, text = "0", width = self.label_width)
+		self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
+
+		self.check_out_button = tk.Button(self.item_frame, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
+		self.check_out_button.grid(row = 1, column = 0, pady = (20, 0))
+
+		self.reset_button = tk.Button(self.item_frame, text = "RESET",  command = lambda : self.reset())
+		self.reset_button.grid(row = 1, column = 1, pady = (20, 0))
+
+		self.item_frame.grid_propagate(False)
 		self.item_frame.pack(side = "left", fill = "y")
 
+	def add_to_checkout(self, name, price, frame_pos):
+		self.items_check_out.append(name)
+		self.frame_pos_list.append(frame_pos)
+		self.items_checked = []
+		self.final_string = []
+		self.check_out_grid_list = []
+
+		self.total_sum += int(price)
+
+		for x in self.items_check_out:
+			if x in self.items_checked:
+				pass
+			else:
+				self.items_checked.append(x)
+				self.x_amount = 0
+				for j in self.items_check_out:
+					if x == j:
+						self.x_amount += 1
+				self.final_string.append(x + " x" + str(self.x_amount))
+
+
+		for j, x in enumerate(self.final_string):
+			self.tmp_lbl = tk.Label(self.item_frame, text = x, width = self.label_width)
+			self.tmp_lbl.grid(row = j + 1, column = 0, columnspan = 2)
+
+			self.check_out_grid_list.append(self.tmp_lbl)
+
+		self.check_out_label.config(text = str(self.total_sum))
+
+		self.check_out_button.grid_configure(row = j + 2)
+		self.reset_button.grid_configure(row = j + 2)
+
+	def remove_from_checkout(self, name, price):
+		for widget in self.item_frame.winfo_children():
+			widget.destroy()
+
+		if len(self.items_check_out) > 0:
+			#self.total_sum -= int(price)
+			for j, x in enumerate(self.final_string):
+				if name in x:
+					self.total_sum -= int(price)
+					del self.items_check_out[j]
+					self.change_string = list(self.final_string[j])
+					self.change_string[len(self.change_string) - 1] = str(int(self.change_string[len(self.change_string) - 1]) - 1)
+					if self.change_string[-1] > "0":
+						self.new_string = "".join(self.change_string)
+						self.final_string[j] = self.new_string
+					else:
+						del self.final_string[j]
+				else: 
+					pass
+		else:
+			pass
+
+		self.re_draw()
+
+	def re_draw(self):
+		j = 0
+		self.check_out_label = tk.Label(self.item_frame, text = self.total_sum, width = self.label_width)
+		self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (0, 50))
+
+		for j, x in enumerate(self.final_string):
+			self.tmp_text_label = tk.Label(self.item_frame, text = x, width = self.label_width)
+			self.tmp_text_label.grid(row = j + 1, column = 0, columnspan = 2)
+
+			self.check_out_grid_list.append(self.tmp_text_label)
+
+		self.check_out_button = tk.Button(self.item_frame, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
+		self.check_out_button.grid(row = j + 2, column = 0, pady = (20, 0))
+
+		self.reset_button = tk.Button(self.item_frame, text = "RESET",  command = lambda : self.reset())
+		self.reset_button.grid(row = j + 2, column = 1, pady = (20, 0))
 
 class items_frame():
-	def __init__(self, frame):
+	def initialize(self, frame, checkout_object):
 		self.frame = frame
 		self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1200)
 		self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "green", height = 1000 - 100) #self.y - topframe height
@@ -45,6 +155,10 @@ class items_frame():
 		self.pic_folder = "rz//"
 		self.lager_file = "lager.txt"
 		self.prices = "priser.txt"
+
+		self.checkout_object = checkout_object
+
+		self.btn_font = tkFont.Font(family = "Helvetica", size = 25)
 
 		self.frame_list = []
 		self.label_list = []
@@ -91,7 +205,7 @@ class items_frame():
 			try: #for loop is longer than list, therefore we need a try to escape the error
 				for column in range(self.column):
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
-					self.item_frame = tk.Canvas(self.checkout_frame, bg = "black", height = 200, width = 200)
+					self.item_frame = tk.Canvas(self.checkout_frame, bg = "white", height = 250, width = 250, highlightthickness = 5, highlightbackground = "black")
 					self.item_frame.grid(row = row, column = column, padx = (57, 0), pady = (50, 0))
 					self.frame_list.append(self.item_frame)
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
@@ -121,7 +235,7 @@ class items_frame():
 
 	def place_labe_name(self, name, frame_pos):
 		self.tmp_label = tk.Label(self.frame_list[self.frame_position], text = self.item_name)
-		self.tmp_label.place(relx = .5, rely = .05, anchor = "center")
+		self.tmp_label.place(relx = .5, rely = .1, anchor = "center")
 		
 		self.label_list.append(self.tmp_label)
 
@@ -136,22 +250,40 @@ class items_frame():
 
 	def place_amount_label(self, name, frame_pos):
 		self.amount_var = tk.Label(self.frame_list[frame_pos], text = "")
-		self.amount_var.place(relx = .8, rely = .7, anchor = "center")
+		self.amount_var.place(relx = .8, rely = .45, anchor = "center")
 
 		self.amount_list.append(self.amount_var)
 
+	def change_amount(self, name, frame_pos, add):
+		self.change_var = self.amount_list[frame_pos]
+		self.change_text = self.change_var.cget("text")
+		if add:
+			if len(self.change_text) < 2:
+				self.change_var.config(text = "x1")
+			else:
+				self.change_text_int = int(self.change_text.strip("x"))
+				self.change_text_int += 1
+				self.change_var.config(text = "x" + str(self.change_text_int))
+		else:
+			if self.change_text == "x1" or self.change_text == "":
+				self.change_var.config(text = "")
+			else:
+				self.change_text_int = int(self.change_text.strip("x"))
+				self.change_text_int -= 1
+				self.change_var.config(text = "x" + str(self.change_text_int))
+
 	def place_button_add(self, name, price, frame_pos):
-		self.button_add_place = tk.Button(self.frame_list[frame_pos], text = "ADD", bg = "red")#,  command = lambda : [self.change_amount(name, frame_pos, True), self.add_to_checkout(name, price, frame_pos)])
-		#self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + "_liten.png")
-		#self.button_add_place.config(image = self.photo, width = 150, height = 150)
-		#self.button_add_place.image = self.photo
-		self.button_add_place.place(relx = .5, rely = .5, anchor = "center")
+		self.button_add_place = tk.Button(self.frame_list[frame_pos], text = "ADD", borderwidth = 2, command = lambda : [self.change_amount(name, frame_pos, True), self.checkout_object.add_to_checkout(name, price, frame_pos)])
+		self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + "_liten.png")
+		self.button_add_place.config(image = self.photo, width = 150, height = 150)
+		self.button_add_place.image = self.photo
+		self.button_add_place.place(relx = .35, rely = .5, anchor = "center")
 
 		self.add_button_func.append(self.button_add_place)
 
 	def place_button_minus(self, name, price, frame_pos):
-		self.button_minus_place = tk.Button(self.frame_list[frame_pos], text = "MINUS", bg = "red",  command = lambda : [self.change_amount(name, frame_pos, False), self.remove_from_checkout(name, price)])
-		self.button_minus_place.place(relx = .5, rely = .7, anchor = "center")
+		self.button_minus_place = tk.Button(self.frame_list[frame_pos], text = "-", width = 3, font = self.btn_font, bg = "white",  command = lambda : [self.change_amount(name, frame_pos, False), self.checkout_object.remove_from_checkout(name, price)])
+		self.button_minus_place.place(relx = .8, rely = .67, anchor = "center")
 
 		self.minus_button_func.append(self.button_minus_place)
 
