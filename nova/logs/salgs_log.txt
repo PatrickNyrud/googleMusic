@@ -234,3 +234,108 @@
 14 Feb 2018 17:37
 ['Super 10', 'Super 10'] 698 kr
 
+19 Feb 2018 18:13
+['Magnum', 'Magnum', 'Super 10', 'Super 10'] 1596 kr
+
+19 Feb 2018 18:14
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:14
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:14
+['Super 10', 'Super 10'] 698 kr
+
+19 Feb 2018 18:14
+['Extreme thunder', 'Extreme thunder'] 2998 kr
+
+19 Feb 2018 18:14
+['Atomic', 'Atomic'] 398 kr
+
+19 Feb 2018 18:14
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:15
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:15
+['Super 10', 'Super 10', 'Magnum', 'Magnum'] 1596 kr
+
+19 Feb 2018 18:25
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:25
+['Super 10', 'Super 10'] 698 kr
+
+19 Feb 2018 18:25
+['Extreme thunder', 'Extreme thunder'] 2998 kr
+
+19 Feb 2018 18:25
+['Atomic', 'Atomic', 'Atomic', 'Atomic'] 796 kr
+
+19 Feb 2018 18:25
+['Extreme thunder', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder'] 11992 kr
+
+19 Feb 2018 18:25
+['Magnum', 'Magnum', 'Super 10', 'Super 10'] 1596 kr
+
+19 Feb 2018 18:55
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:56
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:56
+['Magnum', 'Magnum'] 898 kr
+
+19 Feb 2018 18:56
+['Super 10', 'Super 10'] 698 kr
+
+19 Feb 2018 19:02
+['Tnt', 'Tnt'] 198 kr
+
+19 Feb 2018 19:13
+['Super 10', 'Super 10', 'Atomic', 'Atomic'] 1096 kr
+
+19 Feb 2018 19:13
+['Magnum', 'Magnum', 'Magnum', 'Super 10', 'Super 10', 'Phoenix', 'Phoenix'] 2283 kr
+
+19 Feb 2018 19:13
+['Atomic', 'Atomic', 'Super 10', 'Super 10', 'Super 10'] 1445 kr
+
+19 Feb 2018 19:13
+['Atomic', 'Atomic', 'Super 10', 'Super 10'] 1096 kr
+
+19 Feb 2018 20:20
+['Magnum', 'Magnum', 'Super 10', 'Super 10', 'Super 10'] 1945 kr
+
+19 Feb 2018 22:01
+['Super 10', 'Super 10'] 698 kr
+
+19 Feb 2018 22:33
+['Super 10'] 349 kr
+
+19 Feb 2018 22:33
+['Atomic', 'Atomic'] 398 kr
+
+19 Feb 2018 22:34
+['Atomic', 'Atomic'] 398 kr
+
+19 Feb 2018 22:34
+['Atomic', 'Atomic'] 398 kr
+
+19 Feb 2018 23:21
+['Atomic', 'Atomic', 'Atomic', 'Super 10', 'Super 10', 'Super 10', 'Phoenix', 'Phoenix', 'Phoenix', 'Hellfire', 'Hellfire', 'Hellfire', 'Gladiator', 'Gladiator', 'Firestorm', 'Firestorm'] 7794 kr
+
+19 Feb 2018 23:21
+['Hellfire', 'Hellfire'] 1998 kr
+
+19 Feb 2018 23:21
+['Hellfire', 'Hellfire', 'Hellfire'] 2997 kr
+
+20 Feb 2018 00:01
+['Atomic', 'Atomic'] 398 kr
+
+20 Feb 2018 00:05
+['Phoenix', 'Phoenix', 'Phoenix', 'Phoenix', 'Phoenix'] 5950 kr
+

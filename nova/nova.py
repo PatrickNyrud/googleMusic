@@ -3,6 +3,10 @@ from tkinter import ttk
 import tkFont
 import time
 import os
+try:
+	from nova_config import nova_config
+except Exception as e:
+	pass
 from PIL import ImageTk
 
 #--------------------------FUCKING IMPORTANT--------------------------#
@@ -12,6 +16,9 @@ from PIL import ImageTk
 #Change items_frame width when change sizes
 
 #Redo all the images, make em look better
+#Add miletones, such as 10000kr 20000kr osv.
+#Log when sold out
+#Add monster single
 
 #See if can fix click minus button too fast checkout bugs out
 
@@ -36,6 +43,8 @@ class main_frame:
 		self.main_frame = tk.Frame(self.tab_sale, bg = "black")
 		self.main_frame.pack(fill = "both", expand = True)
 		
+		self.tab_config_start = nova_config(self.tab_config)
+
 		self.top_class = top_frame()
 		self.checkout_class = checkout_frame()
 		self.items_class = items_frame()
@@ -59,8 +68,8 @@ class top_frame:
 		self.total_salg_sum = "total_salg_sum.txt"
 		self.total_salg_sum_dag = "total_salg_sum_" + self.now_date + ".txt"
 
-		self.total_salg_label = tk.Label(self.top_frame, text = "2")
-		self.total_salg_dag_label = tk.Label(self.top_frame, text = "2")
+		self.total_salg_label = tk.Label(self.top_frame, text = "")
+		self.total_salg_dag_label = tk.Label(self.top_frame, text = "")
 
 		self.time = tk.Label(self.top_frame, text = "")
 		self.time.place(relx = .5, rely = .5, anchor = "center")
@@ -92,8 +101,8 @@ class top_frame:
 
 
 	def display_total_sold(self):#self.log_folder + self.total_salg_sum
-		if not os.path.isfile(self.log_folder + self.total_salg_sum):
-			with open(dest + file, "w") as f:
+		if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):
+			with open(self.log_folder + self.total_salg_sum_dag, "w") as f:
 				f.write("0")
 			f.close()
 		else:
@@ -244,7 +253,7 @@ class items_frame():
 		self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "green", height = 1000 - 100) #self.y - topframe height
 
 		self.log_folder = "logs//"
-		self.pic_folder = "rz//"
+		self.pic_folder = "pics//"
 		self.lager_file = "lager.txt"
 		self.prices = "priser.txt"
 
@@ -335,7 +344,7 @@ class items_frame():
 	def place_label_lager(self, name, frame_pos):
 		self.label_text = self.inventory(name, False).strip()
 
-		self.label_var = tk.Label(self.frame_list[frame_pos], bg = "white", text = self.label_text)
+		self.label_var = tk.Label(self.frame_list[frame_pos], bg = "white", text = "P" + "\xc3\xa5".decode("utf-8") +" lager (" + self.label_text + ")")
 		self.label_var.place(relx = .5, rely = .9, anchor = "center")
 
 		self.lager_list.append(self.label_var)
@@ -387,7 +396,7 @@ class items_frame():
 	def inventory(self, name, remove):
 		self.inventory_num_list = []
 		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
-		with open(self.log_folder + self.lager_file, "r") as f:
+		with open("logs//lager.txt", "r") as f:#self.log_folder + self.lager_file
 			for x in f:
 				self.tmp_var = x.split(",")
 				self.inventory_num_list.append(self.tmp_var)
@@ -411,8 +420,7 @@ class items_frame():
 		else:
 			for x in self.inventory_num_list:
 				if x[0] == name:
-					return "P" + "\xc3\xa5".decode("utf-8") +" lager (" + x[1].strip() + ")"
-
+					return x[1].strip()
 
 if __name__ == "__main__":
 	strt = main_frame()
