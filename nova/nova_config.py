@@ -10,7 +10,11 @@ from nova import items_frame
 class nova_config:
 	def __init__(self, frame):
 		self.frame = frame
+		self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1700)
 		self.main_frame = tk.Frame(self.frame, bg = "red", width = 50, height = 50)
+
+		self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
+		self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
 
 		self.place_list = []
 		self.frame_list = []
@@ -21,7 +25,17 @@ class nova_config:
 
 		self.main_frame.pack(fill = "both", expand = True)
 
+		self.vsb.pack(side="right", fill="both")
+
+		self.scrollbar_canvas.pack(side = "right", fill = "y")
+		self.scrollbar_canvas.create_window((4,4), window = self.main_frame, anchor="nw", tags="self.main_frame")
+
+		self.main_frame.bind("<Configure>", self.onFrameConfigure)
+
 		self.place_frames()
+
+	def onFrameConfigure(self, event):
+		self.scrollbar_canvas.configure(scrollregion=self.scrollbar_canvas.bbox("all"))
 
 	def place_frames(self):
 		self.items_object = items_frame()
@@ -40,7 +54,7 @@ class nova_config:
 					
 					self.item_frame.grid_propagate(False)
 
-					self.item_frame.grid(row = row, column = column, padx = (57, 0), pady = (50, 0))
+					self.item_frame.grid(row = row, column = column, padx = (57, 0), pady = (20, 0))
 					self.frame_list.append(self.item_frame)
 					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
 					# self.item_name = price_list[self.item_pos][0]
@@ -62,7 +76,7 @@ class nova_config:
 	def place_label(self, list_type, frame_pos, lbl_text, clmn):
 		self.lbl_list_type = list_type
 
-		self.lbl = tk.Label(self.frame_list[frame_pos], text = lbl_text)
+		self.lbl = tk.Label(self.frame_list[frame_pos], text = lbl_text, bg = "white")
 		self.lbl.grid(row = 1, column = clmn, pady = (20, 0), padx = (30, 30))
 
 		self.lbl_list_type.append(self.lbl)
