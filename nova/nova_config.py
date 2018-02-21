@@ -8,6 +8,8 @@ from nova import items_frame
 #Maybe add update button to nova.py to update evnt new prices 
 
 #Set focus somewhere else when click into config, blue highlight text annyoing
+#Add green text to button when u have updated
+#Add button to refresh page, feks when removd item from sale, then over to config, make it update to new inv num
 
 #Add pictures to buttons?=
 
@@ -77,7 +79,7 @@ class nova_config:
 							self.label_text = self.items_object.inventory(self.inv_list[self.frame_position][0], False)
 							self.place_entry(self.inventory_list, self.frame_position, self.label_text, 2, 2, 0, 10)
 						elif x == 5:
-							self.place_button(self.button_list, self.frame_position, 3)
+							self.place_button(self.button_list, self.frame_position, self.inv_list[self.frame_position][0])
 					self.frame_position += 1
 			except:
 				pass
@@ -107,15 +109,41 @@ class nova_config:
 
 		self.entry_list_type.append(self.entry)
 
-	def place_button(self, list_type, frame_pos, rw):
+	def place_button(self, list_type, frame_pos, name):
 		self.btn_list_type = list_type
 
-		self.btn = tk.Button(self.frame_list[frame_pos], font = self.text_font, text = "UPDATE", bg = "white", command = lambda : self.get_inv_num(frame_pos))
+		self.btn = tk.Button(self.frame_list[frame_pos], font = self.text_font, text = "UPDATE", bg = "white", command = lambda : self.get_nums(frame_pos, name))
 		self.btn.place(relx = .5, rely = .8, anchor = "center")
 
 		self.btn_list_type.append(self.btn)
 
-	def get_inv_num(self, pos):
-		tt = self.inventory_list[pos]
-		kk = self.price_list[pos]
-		print "Price: " + str(kk.get()) + ", Inv: " + str(tt.get())
+	def get_nums(self, pos, name):
+		self.inv_get = self.inventory_list[pos]
+		self.price_get = self.price_list[pos]
+		
+		self.change_num_file(name, int(self.price_get.get()), "priser.txt")
+		self.change_num_file(name, int(self.inv_get.get()), "lager.txt")
+
+	def change_num_file(self, name, change_sum, file):
+		self.inventory_num_list = []
+		self.change_sum = change_sum
+		#Appends [["Atomic", 2], ["Superti", 2]] and so on to the list
+		with open("logs//" + file, "r") as f:#self.log_folder + self.lager_file
+			for x in f:
+				self.tmp_var = x.split(",")
+				self.inventory_num_list.append(self.tmp_var)
+		f.close()
+
+		self.ch_remove = "'[]"
+		for j, x in enumerate(self.inventory_num_list):
+			if x[0] in name:
+				self.remove_inv_sum = self.inventory_num_list[j][1]
+				self.new_sum = self.change_sum
+				self.inventory_num_list[j][1] = str(self.new_sum) + "\n"
+				with open("logs//" + file, "w") as f:
+					for x in self.inventory_num_list:
+						x[1] = x[1].strip(" ")
+						self.final_inv_string = str(x)
+						for c in self.ch_remove:
+							self.final_inv_string = self.final_inv_string.replace(c, "")
+						f.write(self.final_inv_string.replace("\\n", "\n"))
