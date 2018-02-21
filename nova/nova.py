@@ -19,6 +19,7 @@ from PIL import ImageTk
 #Add miletones, such as 10000kr 20000kr osv.
 #Log when sold out
 #Add monster single
+#Add pictures to buttons?=
 
 #See if can fix click minus button too fast checkout bugs out
 

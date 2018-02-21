@@ -1,10 +1,10 @@
-Atomic, 4
-Super 10, -2
-Magnum, 13
+Atomic, -2
+Super 10, -10
+Magnum, 11
 Extreme thunder, 12
-Flashlight, 35
-Phoenix, 0
-Bolero, 5
+Flashlight, 33
+Phoenix, -6
+Bolero, 1
 Circus, 9
 Bizarre, 9
 Goldfish, 10
@@ -40,7 +40,7 @@ Stjerneskudd, 99
 Stjerneskuddmini, 49
 Tjuefemkroner, 50
 Tikroner, 41
-Glowsticks, 39
+Glowsticks, 29
 Lyx fontene, 40
 Handfakkel, 10
 Farge fontene, 10

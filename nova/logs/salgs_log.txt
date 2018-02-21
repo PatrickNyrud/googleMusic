@@ -339,3 +339,21 @@
 20 Feb 2018 00:05
 ['Phoenix', 'Phoenix', 'Phoenix', 'Phoenix', 'Phoenix'] 5950 kr
 
+20 Feb 2018 22:40
+['Atomic', 'Atomic', 'Atomic', 'Atomic', 'Super 10', 'Super 10', 'Super 10', 'Super 10', 'Phoenix', 'Phoenix', 'Phoenix', 'Phoenix'] 6952 kr
+
+21 Feb 2018 01:28
+['Super 10', 'Super 10', 'Magnum', 'Magnum'] 1596 kr
+
+21 Feb 2018 01:28
+['Phoenix', 'Phoenix', 'Bolero', 'Bolero'] 3178 kr
+
+21 Feb 2018 01:28
+['Atomic', 'Atomic', 'Super 10', 'Super 10', 'Flashlight', 'Flashlight'] 2594 kr
+
+21 Feb 2018 01:28
+['Bolero', 'Bolero'] 798 kr
+
+21 Feb 2018 01:29
+['Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks', 'Glowsticks'] 50 kr
+
