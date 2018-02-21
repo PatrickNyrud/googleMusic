@@ -1,39 +1,39 @@
-Atomic, -2
-Super 10, -10
-Magnum, 11
-Extreme thunder, 12
-Flashlight, 33
-Phoenix, -6
-Bolero, 1
-Circus, 9
-Bizarre, 9
+Atomic, 21
+Super 10, 6
+Magnum, 3
+Extreme thunder, 3
+Flashlight, 50
+Phoenix, 40
+Bolero, 10
+Circus, 90
+Bizarre, 90
 Goldfish, 10
 Orion, 95
-Trapez, 5
+Trapez, 50
 Passion, 10
 Tnt, 18
-Thunderbird, 5
+Thunderbird, 50
 Commando, 10
-Shocker, 2
-Kamikaze, 5
-Gladiator, 3
-Crossfire, 4
-Black spider, 5
-Firestorm, 3
-Hellfire, -3
-Aces High, 2
-Kick ass, 5
-Super nova, 5
-Vip blackline, 5
-Monster, 5
-Eagle, 5
-Monster pack, 5
-Nighthawk, 5
-Strobe, 5
-Thunderbolt, 5
-Nitro Bag, 5
-Big Bag, 5
-Top flight, 5
+Shocker, 20
+Kamikaze, 50
+Gladiator, 30
+Crossfire, 40
+Black spider, 50
+Firestorm, 30
+Hellfire, 68
+Aces High, 32
+Kick ass, 50
+Super nova, 50
+Vip blackline, 50
+Monster, 50
+Eagle, 50
+Monster pack, 50
+Nighthawk, 12
+Strobe, 43
+Thunderbolt, 32
+Nitro Bag, 64
+Big Bag, 54
+Top flight, 23
 Partymix, 5
 Stormlighter, 23
 Stjerneskudd, 99
@@ -42,5 +42,5 @@ Tjuefemkroner, 50
 Tikroner, 41
 Glowsticks, 29
 Lyx fontene, 40
-Handfakkel, 10
+Handfakkel, 8
 Farge fontene, 10
