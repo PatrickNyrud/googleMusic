@@ -7,6 +7,7 @@ from nova import items_frame
 #Button for update, or func like time func for update inventory
 #Maybe add update button to nova.py to update evnt new prices 
 
+#Set focus somewhere else when click into config, blue highlight text annyoing
 #Add green text to button when u have updated
 #Add button to refresh page, feks when removd item from sale, then over to config, make it update to new inv num
 
@@ -29,8 +30,6 @@ class nova_config:
 		self.inventory_list = []
 		self.inv_name_list = []
 		self.button_list = []
-
-		self.main_frame.focus_set()
 
 		self.text_font = tkFont.Font(family = "Helvetica", size = 12)
 

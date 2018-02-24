@@ -22,6 +22,7 @@ from PIL import ImageTk
 #Add nova for 12, 99kr
 #Add pictures to buttons?=
 
+#Redo the change amount func
 #See if can fix click minus button too fast checkout bugs out
 
 class main_frame:
@@ -335,7 +336,8 @@ class items_frame():
 							self.place_label_lager(self.item_name, self.frame_position)
 					self.frame_position += 1
 			except:
-				pass
+				self.t = tk.Button(self.frame_list[self.frame_position], text = "REFRESH")
+				self.t.place(relx = .5, rely = .5, anchor = "center")
 
 	def place_labe_name(self, name, frame_pos):
 		self.tmp_label = tk.Label(self.frame_list[self.frame_position], font = self.text_font, bg = "white", text = self.item_name.upper())
