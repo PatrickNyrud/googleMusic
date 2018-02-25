@@ -1,10 +1,10 @@
-Atomic, 9
-Super 10, 6
+Atomic, 15
+Super 10, 30
 Magnum, 3
 Extreme thunder, 3
 Flashlight, 50
-Phoenix, 38
-Bolero, 10
+Phoenix, 37
+Bolero, 9
 Circus, 90
 Bizarre, 90
 Goldfish, 10
@@ -16,7 +16,7 @@ Thunderbird, 50
 Commando, 10
 Shocker, 20
 Kamikaze, 50
-Gladiator, 30
+Gladiator, 28
 Crossfire, 40
 Black spider, 50
 Firestorm, 30
@@ -28,19 +28,19 @@ Vip blackline, 50
 Monster, 50
 Eagle, 50
 Monster pack, 50
-Nighthawk, 12
-Strobe, 43
+Nighthawk, 122
+Strobe, 432
 Thunderbolt, 32
-Nitro Bag, 64
+Nitro Bag, 643
 Big Bag, 54
 Top flight, 23
-Partymix, 5
-Stormlighter, 23
-Stjerneskudd, 99
+Partymix, 53
+Stormlighter, 20
+Stjerneskudd, 49
 Stjerneskuddmini, 49
 Tjuefemkroner, 50
 Tikroner, 41
 Glowsticks, 29
 Lyx fontene, 40
-Handfakkel, 8
+Handfakkel, 81
 Farge fontene, 10

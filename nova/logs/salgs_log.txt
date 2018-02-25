@@ -405,3 +405,15 @@
 25 Feb 2018 01:03
 ['Tnt', 'Tnt'] 198 kr
 
+25 Feb 2018 01:23
+['Bolero', 'Phoenix', 'Super 10'] 1938 kr
+
+25 Feb 2018 01:24
+['Atomic', 'Atomic', 'Super 10', 'Super 10'] 1096 kr
+
+25 Feb 2018 01:24
+['Stormlighter', 'Stormlighter', 'Stormlighter'] 147 kr
+
+25 Feb 2018 01:24
+['Gladiator', 'Gladiator'] 1598 kr
+

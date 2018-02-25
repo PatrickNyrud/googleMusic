@@ -4,7 +4,7 @@ import tkFont
 import time
 import os
 try:
-	from nova_config import nova_config
+	from nova_config import nova_config #lazy af
 except Exception as e:
 	pass
 from PIL import ImageTk
@@ -13,8 +13,15 @@ from PIL import ImageTk
 #The green area needs to be as close to the scrollbar for it to scroll
 #--------------------------FUCKING IMPORTANT--------------------------#
 
+#tkinter colos http://www.science.smith.edu/dftwiki/images/3/3d/TkInterColorCharts.png
+#Button for changing colors, or maybe in the config for a light and dark theme
+#If so ^^^^, make a file witch has the colors, and change if change theme
+
+#tkinter button icons https://www.flaticon.com/ done = check, reset = X
+
 #Change items_frame width when change sizes
 
+#Add title to program, maybe a logo too
 #Redo all the images, make em look better
 #Add miletones, such as 10000kr 20000kr osv.
 #Log when sold out
@@ -31,18 +38,17 @@ class main_frame:
 
 		self.root = tk.Tk()
 		self.root.geometry(str(self.x) + "x" + str(self.y))
+		#self.root.attributes("-fullscreen", True)
 
 		self.note = ttk.Notebook(self.root)
 
 		self.tab_sale = tk.Frame(self.note)
 		self.tab_config = tk.Frame(self.note)
 
-		self.note.add(self.tab_sale, text = "Sale")
-		self.note.add(self.tab_config, text = "Config")
+		self.note.add(self.tab_sale, text = "Sale" + (" " * (20-4))) #lazy af
+		self.note.add(self.tab_config, text = "Config" + (" " * (20-6))) #lazy af
 	
 		self.note.pack()
-
-		#self.tab_sale.bind("<Visibility>", self.on_visibility)
 
 		self.main_frame = tk.Frame(self.tab_sale, bg = "black")
 		self.main_frame.pack(fill = "both", expand = True)
@@ -75,10 +81,10 @@ class top_frame:
 		self.total_salg_sum = "total_salg_sum.txt"
 		self.total_salg_sum_dag = "total_salg_sum_" + self.now_date + ".txt"
 
-		self.total_salg_label = tk.Label(self.top_frame, text = "")
-		self.total_salg_dag_label = tk.Label(self.top_frame, text = "")
+		self.total_salg_label = tk.Label(self.top_frame, text = "", bg = "white")
+		self.total_salg_dag_label = tk.Label(self.top_frame, text = "", bg = "white")
 
-		self.time = tk.Label(self.top_frame, text = "")
+		self.time = tk.Label(self.top_frame, text = "", bg = "white")
 		self.time.place(relx = .5, rely = .5, anchor = "center")
 
 		self.total_salg_label.place(relx = .8, rely = .5, anchor = "center")
@@ -283,9 +289,9 @@ class items_frame():
 		self.checkout_frame.bind("<Configure>", self.onFrameConfigure)
 		self.checkout_frame.bind("<MouseWheel>", self.OnMouseWheel)
 
-		self.frame.bind("<Visibility>", self.draw_main_items)
+		self.frame.bind("<Visibility>", self.draw_init)
 
-	def draw_main_items(self, event):
+	def draw_init(self, event):
 		self.frame_list = []
 		self.label_list = []
 		self.lager_list = []
@@ -299,7 +305,7 @@ class items_frame():
 			widget.destroy()
 
 		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
-		self.place_frame(self.inventory_price_list)
+		self.main_draw_func(self.inventory_price_list)
 
 	def onFrameConfigure(self, event):
 		self.scrollbar_canvas.configure(scrollregion=self.scrollbar_canvas.bbox("all"))
@@ -316,7 +322,7 @@ class items_frame():
 
 		return self.inv_list
 
-	def place_frame(self, price_list):
+	def main_draw_func(self, price_list):
 		self.column = 4
 		self.item_in_frame = 5
 
@@ -325,14 +331,9 @@ class items_frame():
 		for row in range((len(price_list) / self.column) + 1):
 			try: #for loop is longer than list, therefore we need a try to escape the error
 				for column in range(self.column):
-					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
-					self.item_frame = tk.Canvas(self.checkout_frame, bg = "white", height = 250, width = 250, highlightthickness = 5, highlightbackground = "black")
-					self.item_frame.grid(row = row, column = column, padx = (57, 0), pady = (50, 0))
-					self.frame_list.append(self.item_frame)
-					#-------------------------------MAKE FUNC FOR THIS-------------------------------#
+					self.place_frame(row, column)
 					self.item_name = price_list[self.item_pos][0]
 					self.item_price = price_list[self.item_pos][1]
-
 					self.item_pos += 1
 					for x in range(self.item_in_frame):
 						if x == 0:
@@ -354,6 +355,12 @@ class items_frame():
 			except:
 				self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
 				self.t.place(relx = .5, rely = .5, anchor = "center")
+
+	def place_frame(self, rw, clm):
+		self.item_frame = tk.Canvas(self.checkout_frame, bg = "white", height = 250, width = 250, highlightthickness = 5, highlightbackground = "black")
+		self.item_frame.grid(row = rw, column = clm, padx = (57, 0), pady = (50, 0))
+		
+		self.frame_list.append(self.item_frame)
 
 	def place_labe_name(self, name, frame_pos):
 		self.tmp_label = tk.Label(self.frame_list[self.frame_position], font = self.text_font, bg = "white", text = self.item_name.upper())

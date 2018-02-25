@@ -32,11 +32,11 @@ Nighthawk, 239
 Strobe, 599
 Thunderbolt, 399
 Nitro Bag, 549
-Big Bag, 999
+Big Bag, 122
 Top flight, 999
 Partymix, 199
 Stormlighter, 49
-Stjerneskudd, 49
+Stjerneskudd, 25
 Stjerneskuddmini, 25
 Tjuefemkroner, 25
 Tikroner, 10
