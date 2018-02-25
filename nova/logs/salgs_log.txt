@@ -405,6 +405,153 @@
 25 Feb 2018 01:03
 ['Tnt', 'Tnt'] 198 kr
 
+<<<<<<< HEAD
 25 Feb 2018 01:15
 ['Atomic', 'Atomic'] 398 kr
 
+=======
+25 Feb 2018 01:23
+['Bolero', 'Phoenix', 'Super 10'] 1938 kr
+
+25 Feb 2018 01:24
+['Atomic', 'Atomic', 'Super 10', 'Super 10'] 1096 kr
+
+25 Feb 2018 01:24
+['Stormlighter', 'Stormlighter', 'Stormlighter'] 147 kr
+
+25 Feb 2018 01:24
+['Gladiator', 'Gladiator'] 1598 kr
+
+25 Feb 2018 15:48
+['Atomic'] 199 kr
+
+25 Feb 2018 15:49
+['Atomic', 'Atomic'] 398 kr
+
+25 Feb 2018 15:49
+['Atomic', 'Atomic'] 398 kr
+
+25 Feb 2018 15:49
+['Atomic', 'Atomic'] 398 kr
+
+25 Feb 2018 15:50
+['Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic'] 2786 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:50
+[] 0 kr
+
+25 Feb 2018 15:50
+[] 0 kr
+
+25 Feb 2018 15:50
+['Atomic'] 199 kr
+
+25 Feb 2018 15:51
+['Atomic'] 199 kr
+
+25 Feb 2018 15:51
+['Atomic'] 199 kr
+
+25 Feb 2018 15:51
+['Atomic'] 199 kr
+
+25 Feb 2018 15:51
+['Atomic', 'Atomic', 'Atomic'] 597 kr
+
+25 Feb 2018 15:51
+['Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic'] 995 kr
+
+25 Feb 2018 15:55
+['Atomic'] 199 kr
+
+25 Feb 2018 15:55
+['Atomic', 'Atomic'] 398 kr
+
+25 Feb 2018 15:55
+['Atomic', 'Atomic', 'Atomic'] 597 kr
+
+25 Feb 2018 15:55
+['Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic', 'Atomic'] 1592 kr
+
+25 Feb 2018 16:00
+['Atomic'] 199 kr
+
+25 Feb 2018 16:00
+['Atomic', 'Atomic'] 398 kr
+
+25 Feb 2018 16:00
+['Atomic'] 199 kr
+
+25 Feb 2018 16:02
+['Atomic'] 199 kr
+
+25 Feb 2018 16:02
+['Atomic'] 199 kr
+
+25 Feb 2018 16:02
+['Atomic'] 199 kr
+
+25 Feb 2018 16:02
+['Atomic'] 199 kr
+
+25 Feb 2018 16:41
+['Atomic', 'Atomic', 'Atomic'] 597 kr
+
+25 Feb 2018 16:41
+['Super 10'] 349 kr
+
+25 Feb 2018 16:41
+['Super 10'] 349 kr
+
+25 Feb 2018 16:41
+['Super 10'] 349 kr
+
+25 Feb 2018 16:42
+['Atomic'] 199 kr
+
+25 Feb 2018 16:42
+['Super 10'] 349 kr
+
+25 Feb 2018 16:43
+['Magnum', 'Magnum', 'Magnum', 'Extreme thunder', 'Extreme thunder', 'Extreme thunder'] 5844 kr
+
+25 Feb 2018 16:43
+['Magnum', 'Extreme thunder'] 1948 kr
+
+25 Feb 2018 16:43
+['Magnum', 'Magnum', 'Magnum'] 1347 kr
+
+25 Feb 2018 16:51
+['Monster single', 'Monster single', 'Monster single'] 147 kr
+
+25 Feb 2018 18:37
+[] 0 kr
+
+25 Feb 2018 18:52
+['Atomic 99', 'Atomic 99', 'Atomic 99', 'Atomic 99'] 396 kr
+
+>>>>>>> 570ea1a80ee84f6713096cdfaa6fa10c88bc80cf
