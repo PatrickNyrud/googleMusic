@@ -20,17 +20,6 @@ class nova_config:
 
 		self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
 		self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
-		
-		self.frame_list = []
-
-		self.name_list = []
-		self.price_list = []
-		self.price_name_list = []
-		self.inventory_list = []
-		self.inv_name_list = []
-		self.button_list = []
-
-		self.main_frame.focus_set()
 
 		self.text_font = tkFont.Font(family = "Helvetica", size = 12)
 
@@ -42,11 +31,32 @@ class nova_config:
 		self.scrollbar_canvas.create_window((4,4), window = self.main_frame, anchor="nw", tags="self.main_frame")
 
 		self.main_frame.bind("<Configure>", self.onFrameConfigure)
+		self.main_frame.bind("<MouseWheel>", self.OnMouseWheel)
+
+		self.frame.bind("<Visibility>", self.draw_main_items)
+
+
+	def draw_main_items(self, event):
+		self.frame_list = []
+		self.name_list = []
+		self.price_list = []
+		self.price_name_list = []
+		self.inventory_list = []
+		self.inv_name_list = []
+		self.button_list = []
+
+		self.main_frame.focus_set()
+
+		for widget in self.main_frame.winfo_children():
+			widget.destroy()
 
 		self.place_frames()
 
 	def onFrameConfigure(self, event):
 		self.scrollbar_canvas.configure(scrollregion=self.scrollbar_canvas.bbox("all"))
+
+	def OnMouseWheel(self,event):
+		self.scrollbar_canvas.yview_scroll(-1*(event.delta/120), "units")
 
 	def place_frames(self):
 		self.items_object = items_frame()
@@ -83,7 +93,8 @@ class nova_config:
 							self.place_button(self.button_list, self.frame_position, self.inv_list[self.frame_position][0])
 					self.frame_position += 1
 			except:
-				pass
+				self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE SOME SHIT HERE?")
+				self.t.place(relx = .5, rely = .5, anchor = "center")
 
 	def place_name_label(self, list_type, frame_pos, lbl_text, rw, col):
 		self.lbl_list_type = list_type

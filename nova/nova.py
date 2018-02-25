@@ -21,7 +21,6 @@ from PIL import ImageTk
 #Add monster single
 #Add nova for 12, 99kr
 #Add pictures to buttons?=
-
 #Redo the change amount func
 #See if can fix click minus button too fast checkout bugs out
 
@@ -43,6 +42,8 @@ class main_frame:
 	
 		self.note.pack()
 
+		#self.tab_sale.bind("<Visibility>", self.on_visibility)
+
 		self.main_frame = tk.Frame(self.tab_sale, bg = "black")
 		self.main_frame.pack(fill = "both", expand = True)
 		
@@ -58,6 +59,9 @@ class main_frame:
 
 		self.top_class.update_time()
 		self.root.mainloop()
+
+	def on_visibility(self, event):
+		print "focus"
 
 class top_frame:
 	def initialize(self, frame, rt):
@@ -266,13 +270,6 @@ class items_frame():
 		self.text_font = tkFont.Font(family = "Helvetica", size = 15)
 		self.amount_font = tkFont.Font(family = "Helvetica", size = 10)
 
-		self.frame_list = []
-		self.label_list = []
-		self.lager_list = []
-		self.add_button_func = []
-		self.minus_button_func = []
-		self.amount_list = []
-
 		self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
 		self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
 		
@@ -284,12 +281,31 @@ class items_frame():
 		self.scrollbar_canvas.create_window((4,4), window = self.checkout_frame, anchor="nw", tags="self.checkout_frame")
 
 		self.checkout_frame.bind("<Configure>", self.onFrameConfigure)
+		self.checkout_frame.bind("<MouseWheel>", self.OnMouseWheel)
+
+		self.frame.bind("<Visibility>", self.draw_main_items)
+
+	def draw_main_items(self, event):
+		self.frame_list = []
+		self.label_list = []
+		self.lager_list = []
+		self.add_button_func = []
+		self.minus_button_func = []
+		self.amount_list = []
+
+		self.checkout_frame.focus_set()
+
+		for widget in self.checkout_frame.winfo_children():
+			widget.destroy()
 
 		self.inventory_price_list = self.pic_price_file(self.log_folder, self.prices)
 		self.place_frame(self.inventory_price_list)
 
 	def onFrameConfigure(self, event):
 		self.scrollbar_canvas.configure(scrollregion=self.scrollbar_canvas.bbox("all"))
+
+	def OnMouseWheel(self,event):
+		self.scrollbar_canvas.yview_scroll(-1*(event.delta/120), "units")
 
 	def pic_price_file(self, dirr, file):
 		self.inv_list = []
@@ -336,7 +352,7 @@ class items_frame():
 							self.place_label_lager(self.item_name, self.frame_position)
 					self.frame_position += 1
 			except:
-				self.t = tk.Button(self.frame_list[self.frame_position], text = "REFRESH")
+				self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
 				self.t.place(relx = .5, rely = .5, anchor = "center")
 
 	def place_labe_name(self, name, frame_pos):
