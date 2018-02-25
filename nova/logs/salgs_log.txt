@@ -405,3 +405,6 @@
 25 Feb 2018 01:03
 ['Tnt', 'Tnt'] 198 kr
 
+25 Feb 2018 01:15
+['Atomic', 'Atomic'] 398 kr
+
