@@ -6,8 +6,6 @@ from nova import items_frame
 
 #Add pictures to buttons?=
 
-#Cant scroll after clicking inn on antall/price, focus changes. fix it
-
 class nova_config:
 	def __init__(self, frame):
 		self.frame = frame
@@ -86,6 +84,8 @@ class nova_config:
 			except:
 				self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE SOME SHIT HERE?")
 				self.t.place(relx = .5, rely = .5, anchor = "center")
+
+
 	def place_frame(self, rw, clm):
 		self.item_frame = tk.Canvas(self.main_frame, bg = "white", height = 180, width = 180, highlightthickness = 5, highlightbackground = "black")
 		self.item_frame.grid_propagate(False)
@@ -131,6 +131,7 @@ class nova_config:
 		self.price_get = self.price_list[pos]
 
 		self.button_list[pos].config(fg = "green")
+		self.main_frame.focus_set()
 		
 		self.change_num_file(name, int(self.price_get.get()), "priser.txt")
 		self.change_num_file(name, int(self.inv_get.get()), "lager.txt")
