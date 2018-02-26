@@ -1,13 +1,13 @@
-Atomic, 195
-Super 10, 344
-Magnum, 449
+Atomic, 191
+Super 10, 337
+Magnum, 447
 Extreme thunder, 1499
 Flashlight, 749
-Phoenix, 1190
-Bolero, 399
+Phoenix, 1188
+Bolero, 397
 Circus, 199
 Bizarre, 199
-Goldfish, 329
+Goldfish, 327
 Orion, 279
 Trapez, 549
 Passion, 349
@@ -15,16 +15,16 @@ Tnt, 99
 Thunderbird, 399
 Commando, 499
 Shocker, 599
-Kamikaze, 399
+Kamikaze, 397
 Gladiator, 799
 Crossfire, 599
-Black spider, 749
-Firestorm, 599
+Black spider, 75
+Firestorm, 596
 Hellfire, 999
 Aces High, 2499
-Kick ass, 1199
+Kick ass, 1197
 Super nova, 1499
-Vip blackline, 1999
+Vip blackline, 1997
 Monster, 479
 Monster single, 49
 Eagle, 249
@@ -44,4 +44,4 @@ Tikroner, 10
 Glowsticks, 5
 Lyx fontene, 69
 Handfakkel, 59
-Farge fontene, 99
+Farge fontene, 50
