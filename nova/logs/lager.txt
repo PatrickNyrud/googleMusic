@@ -1,6 +1,5 @@
 Atomic, 195
-Atomic 99, 99
-Super 10, 347
+Super 10, 344
 Magnum, 449
 Extreme thunder, 1499
 Flashlight, 749

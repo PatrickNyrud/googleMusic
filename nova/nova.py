@@ -32,6 +32,7 @@ from PIL import Image, ImageTk
 #------Redo------#
 #Redo the change amount func
 #Redo all the images, make em look better
+#Redo place funcs to return ei label or btn
 
 class main_frame:
 	def __init__(self):

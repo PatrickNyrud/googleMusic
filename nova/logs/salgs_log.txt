@@ -573,3 +573,6 @@
 26 Feb 2018 00:06
 ['Super 10', 'Super 10'] 698 kr
 
+26 Feb 2018 00:09
+['Super 10', 'Super 10', 'Super 10'] 1047 kr
+
