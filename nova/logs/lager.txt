@@ -1,48 +1,47 @@
-Atomic, 196
-Atomic 99, 0
-Super 10, 3
-Magnum, 3
-Extreme thunder, 3
-Flashlight, 50
-Phoenix, 37
-Bolero, 9
-Circus, 90
-Bizarre, 90
-Goldfish, 10
-Orion, 95
-Trapez, 50
-Passion, 10
-Tnt, 16
-Thunderbird, 50
-Commando, 10
-Shocker, 20
-Kamikaze, 50
-Gladiator, 28
-Crossfire, 40
-Black spider, 50
-Firestorm, 30
-Hellfire, 68
-Aces High, 32
-Kick ass, 50
-Super nova, 50
-Vip blackline, 50
-Monster, 47
-Monster single, 7
-Eagle, 50
-Monster pack, 50
-Nighthawk, 122
-Strobe, 432
-Thunderbolt, 32
-Nitro Bag, 643
-Big Bag, 54
-Top flight, 23
-Partymix, 53
-Stormlighter, 20
-Stjerneskudd, 49
-Stjerneskuddmini, 49
-Tjuefemkroner, 50
-Tikroner, 41
-Glowsticks, 29
-Lyx fontene, 40
-Handfakkel, 81
-Farge fontene, 10
+Atomic, 195
+Super 10, 344
+Magnum, 449
+Extreme thunder, 1499
+Flashlight, 749
+Phoenix, 1190
+Bolero, 399
+Circus, 199
+Bizarre, 199
+Goldfish, 329
+Orion, 279
+Trapez, 549
+Passion, 349
+Tnt, 99
+Thunderbird, 399
+Commando, 499
+Shocker, 599
+Kamikaze, 399
+Gladiator, 799
+Crossfire, 599
+Black spider, 749
+Firestorm, 599
+Hellfire, 999
+Aces High, 2499
+Kick ass, 1199
+Super nova, 1499
+Vip blackline, 1999
+Monster, 479
+Monster single, 49
+Eagle, 249
+Monster pack, 479
+Nighthawk, 239
+Strobe, 599
+Thunderbolt, 399
+Nitro Bag, 549
+Big Bag, 122
+Top flight, 999
+Partymix, 199
+Stormlighter, 49
+Stjerneskudd, 25
+Stjerneskuddmini, 25
+Tjuefemkroner, 25
+Tikroner, 10
+Glowsticks, 5
+Lyx fontene, 69
+Handfakkel, 59
+Farge fontene, 99

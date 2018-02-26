@@ -32,6 +32,7 @@ from PIL import Image, ImageTk
 #------Redo------#
 #Redo the change amount func
 #Redo all the images, make em look better
+#Redo place funcs to return ei label or btn
 
 class main_frame:
 	def __init__(self):
@@ -43,7 +44,7 @@ class main_frame:
 		#self.root.attributes("-fullscreen", True)
 
 		self.root.title("Nova")
-		self.root.iconbitmap("E:\\github\\googleMusic\\nova\\pics\\otherpic\\nova_logo.ico") #Need full dest for some reason
+		#self.root.iconbitmap("E:\\github\\googleMusic\\nova\\pics\\otherpic\\nova_logo.ico") #Need full dest for some reason
 
 		self.note = ttk.Notebook(self.root)
 
