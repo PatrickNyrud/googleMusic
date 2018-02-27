@@ -9,6 +9,8 @@ open tab split = s
 
 Insert mode = i
 
+Goto end of line and enter edit mode = A
+
 no wrap = set nowrap
 
 Delete word = dw
