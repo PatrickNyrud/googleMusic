@@ -1,3 +1,5 @@
+VIM COMMANDS-----------------------------------------
+
 Switch between tabs = gt
 Switch between split tab = CTRL + ww
 
@@ -30,7 +32,18 @@ Enter visual mode for entire line = V
 Enter visual mode = v
 
 Copy all the text = gg"*yG
+-------------------------------------------------------
 
+
+Linux console commands---------------------------------
+
+cp FILENAME1 FILENAME2
+
+mv nova/testfile.py nova/gamle_filer/
+
+-------------------------------------------------------
+
+.VIMRC FILE--------------------------------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on

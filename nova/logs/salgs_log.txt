@@ -615,3 +615,72 @@
 26 Feb 2018 22:07
 ['Super 10', 'Super 10'] 698 kr
 
+27 Feb 2018 15:04
+['Atomic', 'Atomic'] 398 kr
+
+27 Feb 2018 16:07
+['Super 10', 'Super 10'] 698 kr
+
+27 Feb 2018 17:25
+['Goldfish', 'Goldfish'] 658 kr
+
+27 Feb 2018 17:25
+['Shocker', 'Shocker'] 1198 kr
+
+27 Feb 2018 17:25
+['Magnum', 'Magnum'] 898 kr
+
+27 Feb 2018 17:25
+['Crossfire', 'Crossfire'] 1198 kr
+
+27 Feb 2018 17:25
+['Tnt', 'Tnt'] 198 kr
+
+27 Feb 2018 17:28
+['Super 10', 'Super 10', 'Super 10', 'Flashlight', 'Flashlight'] 2545 kr
+
+27 Feb 2018 17:28
+['Atomic', 'Atomic', 'Atomic'] 597 kr
+
+27 Feb 2018 17:28
+['Super 10', 'Super 10', 'Super 10', 'Magnum', 'Magnum'] 1945 kr
+
+27 Feb 2018 17:28
+['Atomic', 'Atomic'] 398 kr
+
+27 Feb 2018 17:33
+['Super 10', 'Phoenix', 'Phoenix', 'Flashlight', 'Flashlight'] 4227 kr
+
+27 Feb 2018 17:33
+['Atomic', 'Atomic', 'Super 10', 'Super 10'] 1096 kr
+
+27 Feb 2018 17:33
+['Super 10', 'Phoenix', 'Phoenix'] 2729 kr
+
+27 Feb 2018 17:33
+['Magnum', 'Magnum', 'Magnum'] 1347 kr
+
+27 Feb 2018 17:45
+['Super 10', 'Super 10', 'Atomic', 'Atomic'] 1096 kr
+
+27 Feb 2018 17:45
+['Phoenix', 'Phoenix', 'Phoenix'] 3570 kr
+
+27 Feb 2018 17:45
+['Super 10', 'Super 10', 'Super 10'] 1047 kr
+
+27 Feb 2018 17:45
+['Nitro Bag', 'Nitro Bag'] 1098 kr
+
+27 Feb 2018 17:45
+['Nitro Bag', 'Nitro Bag', 'Nitro Bag'] 1647 kr
+
+27 Feb 2018 17:45
+['Nighthawk', 'Nighthawk'] 478 kr
+
+27 Feb 2018 17:45
+['Eagle', 'Eagle'] 498 kr
+
+27 Feb 2018 18:07
+['Extreme thunder', 'Magnum', 'Magnum'] 2397 kr
+
