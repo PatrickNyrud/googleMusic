@@ -7,6 +7,7 @@ import nova_top
 import nova_checkout
 import nova_item
 import nova_config
+import nova_salg_log
 from PIL import Image, ImageTk
 
 #--------------------------FUCKING IMPORTANT--------------------------#
@@ -48,9 +49,11 @@ class main_frame:
 
         self.tab_sale = tk.Frame(self.note)
         self.tab_config = tk.Frame(self.note)
+        self.tab_salg_log = tk.Frame(self.note)
 
         self.note.add(self.tab_sale, text = "Sale" + (" " * (20-4))) #lazy af
         self.note.add(self.tab_config, text = "Config" + (" " * (20-6))) #lazy af
+        self.note.add(self.tab_salg_log, text = "Salg log" + (" " * (20-8)))
 
         self.note.pack()
 
@@ -58,6 +61,7 @@ class main_frame:
         self.main_frame.pack(fill = "both", expand = True)
         
         self.tab_config_start = nova_config.config(self.tab_config)
+        self.tab_salg_start = nova_salg_log.salg_log(self.tab_salg_log)
 
         self.top_class = nova_top.top_frame()
         self.checkout_class = nova_checkout.checkout_frame()
