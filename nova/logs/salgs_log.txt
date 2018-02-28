@@ -681,6 +681,12 @@
 27 Feb 2018 17:45
 ['Eagle', 'Eagle'] 498 kr
 
-27 Feb 2018 18:07
-['Extreme thunder', 'Magnum', 'Magnum'] 2397 kr
+['Atomic'] 199kr
+28 Feb 2018 15:44
+
+['Super 10', 'Magnum'] 798kr
+28 Feb 2018 15:44
+
+['Phoenix', 'Bolero', 'Bolero', 'Circus', 'Circus', 'Extreme thunder', 'Extreme thunder'] 5384kr
+28 Feb 2018 15:45
 
