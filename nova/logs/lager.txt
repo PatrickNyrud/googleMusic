@@ -1,38 +1,38 @@
-Atomic, 195
-Super 10, 344
-Magnum, 449
-Extreme thunder, 1499
-Flashlight, 749
-Phoenix, 1190
-Bolero, 399
+Atomic, 9
+Super 10, 20
+Magnum, 438
+Extreme thunder, 1498
+Flashlight, 119
+Phoenix, 1181
+Bolero, 397
 Circus, 199
 Bizarre, 199
-Goldfish, 329
+Goldfish, 325
 Orion, 279
 Trapez, 549
 Passion, 349
-Tnt, 99
+Tnt, 97
 Thunderbird, 399
 Commando, 499
-Shocker, 599
-Kamikaze, 399
+Shocker, 48
+Kamikaze, 397
 Gladiator, 799
-Crossfire, 599
-Black spider, 749
-Firestorm, 599
+Crossfire, 597
+Black spider, 75
+Firestorm, 596
 Hellfire, 999
 Aces High, 2499
-Kick ass, 1199
+Kick ass, 1197
 Super nova, 1499
-Vip blackline, 1999
+Vip blackline, 1997
 Monster, 479
 Monster single, 49
-Eagle, 249
+Eagle, 247
 Monster pack, 479
-Nighthawk, 239
+Nighthawk, 237
 Strobe, 599
 Thunderbolt, 399
-Nitro Bag, 549
+Nitro Bag, 544
 Big Bag, 122
 Top flight, 999
 Partymix, 199
@@ -44,4 +44,4 @@ Tikroner, 10
 Glowsticks, 5
 Lyx fontene, 69
 Handfakkel, 59
-Farge fontene, 99
+Farge fontene, 50
