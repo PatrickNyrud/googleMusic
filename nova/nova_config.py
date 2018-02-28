@@ -4,13 +4,14 @@ import tkFont
 import time
 import nova_item
 
+#Add focus border to be black not grey
 #Add pictures to buttons?=
 
 class config:
     def __init__(self, frame):
         self.frame = frame
-        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1700)
-        self.main_frame = tk.Frame(self.frame, bg = "red", width = 50, height = 50)
+        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "grey21", width = 1700)
+        self.main_frame = tk.Frame(self.frame, bg = "grey21", width = 50, height = 50)
 
         self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
         self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
@@ -87,20 +88,20 @@ class config:
 
 
     def place_frame(self, rw, clm):
-        self.item_frame = tk.Canvas(self.main_frame, bg = "white", height = 180, width = 180, highlightthickness = 5, highlightbackground = "black")
+        self.item_frame = tk.Canvas(self.main_frame, bg = "AntiqueWhite1", height = 180, width = 180, highlightthickness = 5, highlightbackground = "black")
         self.item_frame.grid_propagate(False)
-        self.item_frame.grid(row = rw, column = clm, padx = (57, 0), pady = (50, 0))
+        self.item_frame.grid(row = rw, column = clm, padx = (60, 0), pady = (50, 0))
         
         return self.item_frame
 
     def place_name_label(self, frame_pos, lbl_text, rw, col):
-        self.name_label = tk.Label(self.frame_list[frame_pos], font = self.text_font, text = lbl_text, bg = "white")
+        self.name_label = tk.Label(self.frame_list[frame_pos], font = self.text_font, text = lbl_text, bg = "AntiqueWhite1")
         self.name_label.place(relx = .5, rely = .15, anchor = "center")
 
         return self.name_label
 
     def place_label(self, frame_pos, lbl_text, rw, col, pdx, pdy):
-        self.generic_label = tk.Label(self.frame_list[frame_pos], font = self.text_font, text = lbl_text, bg = "white", anchor = "w")
+        self.generic_label = tk.Label(self.frame_list[frame_pos], font = self.text_font, text = lbl_text, bg = "AntiqueWhite1", anchor = "w")
         self.generic_label.grid(row = rw, column = col, padx = (pdx, 0), pady = (pdy, 0))
 
         return self.generic_label
@@ -113,7 +114,7 @@ class config:
         return self.entry
 
     def place_button(self, frame_pos, name):
-        self.btn = tk.Button(self.frame_list[frame_pos], font = self.text_font, text = "UPDATE", bg = "white", command = lambda : self.get_nums(frame_pos, name))
+        self.btn = tk.Button(self.frame_list[frame_pos], font = self.text_font, text = "UPDATE", bg = "ivory2", command = lambda : self.get_nums(frame_pos, name))
         self.btn.place(relx = .5, rely = .8, anchor = "center")
 
         return self.btn

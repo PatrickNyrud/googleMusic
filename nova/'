@@ -11,8 +11,8 @@ from PIL import Image, ImageTk
 class salg_log:
     def __init__(self, frame):
         self.frame = frame
-        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "grey21", width = 1700)
-        self.main_frame = tk.Frame(self.frame, width = 1500, bg = "grey21", height = self.file_len() * 40)
+        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1700)
+        self.main_frame = tk.Frame(self.frame, width = 1520, bg = "red", height = self.file_len() * 40)
 
         self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
         self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
@@ -53,7 +53,7 @@ class salg_log:
 
     def display_log(self):
         for j, line in enumerate(reversed(open("logs//salgs_log.txt").readlines())):
-            self.log_label = tk.Label(self.main_frame, text = line.strip(), font = self.text_font, bg = "grey21", fg = "cornsilk2")
+            self.log_label = tk.Label(self.main_frame, text = line.strip(), font = self.text_font, bg = "white")
             self.log_label.pack(fill = "both", expand = 1)
 
             self.log_label_list.append(self.log_label)

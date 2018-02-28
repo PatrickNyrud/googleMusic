@@ -8,13 +8,15 @@ from PIL import Image, ImageTk
 class items_frame():
     def initialize(self, frame, checkout_object):
         self.frame = frame
-        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1700)
-        self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "green", height = 1000 - 100) #self.y - topframe height
+        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "grey21", width = 1700)
+        self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "grey21", height = 1000 - 100) #self.y - topframe height
 
         self.log_folder = "logs//"
         self.pic_folder = "pics//"
         self.lager_file = "lager.txt"
         self.prices = "priser.txt"
+
+        self.in_frame_color = "AntiqueWhite1"
 
         self.checkout_object = checkout_object
 
@@ -105,13 +107,13 @@ class items_frame():
                 self.t.place(relx = .5, rely = .5, anchor = "center")
 
     def place_frame(self, rw, clm):
-        self.item_frame = tk.Canvas(self.checkout_frame, bg = "white", height = 250, width = 250, highlightthickness = 5, highlightbackground = "black")
-        self.item_frame.grid(row = rw, column = clm, padx = (57, 0), pady = (50, 0))
+        self.item_frame = tk.Canvas(self.checkout_frame, bg = self.in_frame_color, height = 250, width = 250, highlightthickness = 5, highlightbackground = "gray6")
+        self.item_frame.grid(row = rw, column = clm, padx = (42, 0), pady = (50, 0))
         
         return self.item_frame
 
     def place_label_name(self, name, frame_pos):
-        self.tmp_label = tk.Label(self.frame_list[self.frame_position], font = self.text_font, bg = "white", text = self.item_name.upper())
+        self.tmp_label = tk.Label(self.frame_list[self.frame_position], font = self.text_font, bg = self.in_frame_color, text = self.item_name.upper())
         self.tmp_label.place(relx = .5, rely = .1, anchor = "center")
         
         return self.tmp_label
@@ -119,13 +121,13 @@ class items_frame():
     def place_label_lager(self, name, frame_pos):
         self.label_text = self.inventory(name, False).strip()
 
-        self.label_var = tk.Label(self.frame_list[frame_pos], bg = "white", text = "P" + "\xc3\xa5".decode("utf-8") +" lager (" + self.label_text + ")")
+        self.label_var = tk.Label(self.frame_list[frame_pos], bg = self.in_frame_color, text = "P" + "\xc3\xa5".decode("utf-8") +" lager (" + self.label_text + ")")
         self.label_var.place(relx = .5, rely = .9, anchor = "center")
 
         return self.label_var
 
     def place_amount_label(self, name, frame_pos):
-        self.amount_var = tk.Label(self.frame_list[frame_pos], font = self.amount_font, bg = "white", text = "")
+        self.amount_var = tk.Label(self.frame_list[frame_pos], font = self.amount_font, bg = self.in_frame_color, text = "")
         self.amount_var.place(relx = .8, rely = .45, anchor = "center")
 
         return self.amount_var
@@ -162,7 +164,7 @@ class items_frame():
         return self.button_add_place
 
     def place_button_minus(self, name, price, frame_pos):
-        self.button_minus_place = tk.Button(self.frame_list[frame_pos], text = "-", width = 3, font = self.btn_font, bg = "white",  command = lambda : [self.change_amount(name, frame_pos, False), self.checkout_object.remove_from_checkout(name, price)])
+        self.button_minus_place = tk.Button(self.frame_list[frame_pos], text = "-", width = 3, font = self.btn_font, bg = "ivory2",  command = lambda : [self.change_amount(name, frame_pos, False), self.checkout_object.remove_from_checkout(name, price)])
         self.button_minus_place.place(relx = .8, rely = .67, anchor = "center")
 
         return self.button_minus_place

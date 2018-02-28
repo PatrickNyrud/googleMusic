@@ -18,6 +18,7 @@ from PIL import Image, ImageTk
 #Change items_frame width when change sizes
 #Edit all the with open to use variables such as self.logfolder
 #Set relief on frames, like sunken on items frame
+#Make the tabs bigger
 
 #------BUGS------#
 #See if can fix click minus button too fast checkout bugs out
@@ -40,8 +41,8 @@ class main_frame:
         self.y = 800
 
         self.root = tk.Tk()
-        self.root.geometry(str(self.x) + "x" + str(self.y))
-        #self.root.attributes("-fullscreen", True)
+        #self.root.geometry(str(self.x) + "x" + str(self.y))
+        self.root.attributes("-fullscreen", True)
 
         self.root.title("Nova")
         #self.root.iconbitmap("E:\\github\\googleMusic\\nova\\pics\\otherpic\\nova_logo.ico") #Need full dest for some reason
@@ -60,7 +61,7 @@ class main_frame:
 
         self.main_frame = tk.Frame(self.tab_sale, bg = "black")
         self.main_frame.pack(fill = "both", expand = True)
-        
+
         self.tab_salg_start = nova_salg_log.salg_log(self.tab_salg_log)
         self.tab_config_start = nova_config.config(self.tab_config)
 
