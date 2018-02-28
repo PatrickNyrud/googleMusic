@@ -8,46 +8,61 @@ from PIL import Image, ImageTk
 
 class salg_log:
     def __init__(self, frame):
-        self.log_label_list = []
         self.frame = frame
+        self.scrollbar_canvas = tk.Canvas(self.frame, bg = "pink", width = 1700)
+        self.main_frame = tk.Frame(self.frame, width = 1520, bg = "red", height = self.file_len() * 40)
 
-        self.canvas = tk.Canvas(self.frame, background="bisque", width=400, height=400)
-        self.canvas.pack(fill="both", expand=True)
-        self.canvas.config(scrollregion=self.canvas.bbox("ALL"))
-        self.canvas.grid_propagate(False)
-        self.canvas.bind("<ButtonPress-1>", self.on_press)
-        self.canvas.bind("<B1-Motion>", self.on_motion)
+        self.vsb = tk.Scrollbar(self.frame, orient="vertical", command=self.scrollbar_canvas.yview)
+        self.scrollbar_canvas.configure(yscrollcommand=self.vsb.set)
 
-        # the following two values cause the canvas to scroll
-        # one pixel at a time
-        self.canvas.configure(xscrollincrement=1, yscrollincrement=1)
+        self.text_font = tkFont.Font(family = "Helvetica", size = 20)
 
-        # finally, draw something on the canvas so we can watch it move
-        #for i in range(1000):
-            #x = random.randint(-1000, 1000)
-            #y = random.randint(-1000, 1000)
-            #color = random.choice(("red", "orange", "green", "blue", "violet"))
-            #self.canvas.create_oval(x, y, x+20, y+20, fill=color)
+        self.main_frame.pack(fill = "both", expand = True)
+    
+        self.main_frame.pack_propagate(False)
 
-        #self.mid_frame = tk.Frame(self.main_frame, bg = "pink")
-        #self.mid_frame.place(relx = .5, rely = .0, anchor = "center")
 
+        self.vsb.pack(side="right", fill="both")
+
+        self.scrollbar_canvas.pack(side = "right", fill = "y", expand = True)
+        self.scrollbar_canvas.create_window((4,4), window = self.main_frame, anchor="nw", tags="self.main_frame")
+
+        self.main_frame.bind("<Configure>", self.onFrameConfigure)
+        self.main_frame.bind("<MouseWheel>", self.OnMouseWheel)
+
+        self.frame.bind("<Visibility>", self.draw_init)
+
+
+    def onFrameConfigure(self, event):
+        self.scrollbar_canvas.configure(scrollregion=self.scrollbar_canvas.bbox("all"))
+
+    def OnMouseWheel(self,event):
+        self.scrollbar_canvas.yview_scroll(-1*(event.delta/120), "units")
+
+    def draw_init(self, event):
+        self.log_label_list = []
+
+        self.main_frame.focus_set()
+
+        for widget in self.main_frame.winfo_children():
+                widget.destroy()
+
+        self.display_log()
+
+    def display_log(self):
         for j, line in enumerate(reversed(open("logs//salgs_log.txt").readlines())):
-            tt = tk.Label(self.canvas, text = line, bg = "white")
-            tt.pack(side = "bottom")
+            self.log_label = tk.Label(self.main_frame, text = line.strip(), font = self.text_font, bg = "white")
+            self.log_label.pack(fill = "both", expand = 1)
 
-            self.log_label_list.append(tt)
+            self.log_label_list.append(self.log_label)
 
 
-    def on_press(self, event):
-        self.last_x = event.x
-        self.last_y = event.y
+    def file_len(self):
+        with open("logs//salgs_log.txt", "r") as f:
+            for j, x in enumerate(f):
+                pass
+        f.close()
+        
+        return j + 1
 
-    def on_motion(self, event):
-        delta_x = event.x - self.last_x
-        delta_y = event.y - self.last_y
-        self.last_x = event.x
-        self.last_y = event.y
 
-        #self.canvas.xview_scroll(-delta_x, "units")
-        self.canvas.yview_scroll(-delta_y, "units")

@@ -17,7 +17,7 @@ from PIL import Image, ImageTk
 #------Minor mix
 #Change items_frame width when change sizes
 #Edit all the with open to use variables such as self.logfolder
-#Move classes to different files
+#Set relief on frames, like sunken on items frame
 
 #------BUGS------#
 #See if can fix click minus button too fast checkout bugs out
@@ -26,6 +26,7 @@ from PIL import Image, ImageTk
 #Add nova for 12, 99kr
 #Add font to checkout
 #Add customer side
+#Add return cash
 #Add button for changing colors, or maybe in the config for a light and dark theme, a check box
 #If so ^^^^, make a file witch has the colors, and change if change theme
 #tkinter colos http://www.science.smith.edu/dftwiki/images/3/3d/TkInterColorCharts.png
@@ -48,20 +49,20 @@ class main_frame:
         self.note = ttk.Notebook(self.root)
 
         self.tab_sale = tk.Frame(self.note)
-        self.tab_config = tk.Frame(self.note)
         self.tab_salg_log = tk.Frame(self.note)
+        self.tab_config = tk.Frame(self.note)
 
         self.note.add(self.tab_sale, text = "Sale" + (" " * (20-4))) #lazy af
-        self.note.add(self.tab_config, text = "Config" + (" " * (20-6))) #lazy af
         self.note.add(self.tab_salg_log, text = "Salg log" + (" " * (20-8)))
+        self.note.add(self.tab_config, text = "Config" + (" " * (20-6))) #lazy af
 
         self.note.pack()
 
         self.main_frame = tk.Frame(self.tab_sale, bg = "black")
         self.main_frame.pack(fill = "both", expand = True)
         
-        self.tab_config_start = nova_config.config(self.tab_config)
         self.tab_salg_start = nova_salg_log.salg_log(self.tab_salg_log)
+        self.tab_config_start = nova_config.config(self.tab_config)
 
         self.top_class = nova_top.top_frame()
         self.checkout_class = nova_checkout.checkout_frame()

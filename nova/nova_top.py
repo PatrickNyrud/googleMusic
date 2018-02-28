@@ -45,7 +45,7 @@ class top_frame:
 
     def log_sale(self, items, dest, file, final_price):
         with open(dest + file, "a") as f:
-            f.write(str(items) + " " + str(final_price) + "kr\n" + str(time.strftime("%d %b %Y %H:%M")) + "\n\n")
+            f.write("\n\n" + str(items) + " " + str(final_price) + "kr\n" + str(time.strftime("%d %b %Y %H:%M")))
             #f.write(str(time.strftime("%d %b %Y %H:%M")) + "\n" +str(items) + " " + str(final_price) + " kr\n\n")
         f.close()
 
