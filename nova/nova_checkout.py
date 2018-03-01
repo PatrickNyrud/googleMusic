@@ -5,7 +5,9 @@ import time
 import os
 from PIL import Image, ImageTk
 
+#Move buttons to the bottom of checkout, always there statc
 #Change display tot sum from 1000 to 1 000
+#Add return cash, bind to ENTER
 
 class checkout_frame:
     def initialize(self, frame, items_object, top_object):
@@ -32,12 +34,19 @@ class checkout_frame:
 
         self.check_out_label = tk.Label(self.item_frame, bg = "grey21", fg = "cornsilk2", text = "0", font = self.text_font, width = self.label_width)
         self.check_out_label.grid(row = 0, column = 0, columnspan = 2, pady = (10, 50))
+   
+        self.return_label = tk.Label(self.item_frame, text = "", bg = "grey21", fg = "cornsilk2")
+        self.return_label.grid(row = 1, column = 0, columnspan = 2, pady = (40, 0))
+
+        self.return_entry = tk.Entry(self.item_frame, justify = "center", bg = "white", width = 35)
+        self.return_entry.grid(row = 2, column = 0, columnspan = 2)
+        self.return_entry.bind("<Return>", self.display_return_sum)
 
         self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
-        self.check_out_button.grid(row = 1, column = 0, pady = (40, 0))
+        self.check_out_button.grid(row = 3, column = 0, pady = (30, 0))
 
         self.reset_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "RESET",  command = lambda : self.reset())
-        self.reset_button.grid(row = 1, column = 1, pady = (40, 0))
+        self.reset_button.grid(row = 3, column = 1, pady = (30, 0))
 
         self.item_frame.grid_propagate(False)
         self.item_frame.pack(side = "left", fill = "y")
@@ -71,8 +80,10 @@ class checkout_frame:
 
         self.check_out_label.config(text = str(self.total_sum) + " Kr")
 
-        self.check_out_button.grid_configure(row = j + 2)
-        self.reset_button.grid_configure(row = j + 2)
+        self.return_label.grid_configure(row = j + 2)
+        self.return_entry.grid_configure(row = j + 3)
+        self.check_out_button.grid_configure(row = j + 4)
+        self.reset_button.grid_configure(row = j + 4)
 
     def remove_from_checkout(self, name, price):
         for widget in self.item_frame.winfo_children():
@@ -109,11 +120,22 @@ class checkout_frame:
 
             self.check_out_grid_list.append(self.tmp_text_label)
 
-        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE",  command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
-        self.check_out_button.grid(row = j + 2, column = 0, pady = (20, 0))
+        self.return_label = tk.Label(self.item_frame, text = "", bg = "grey21", fg = "cornsilk2")
+        self.return_label.grid(row = 1, column = 0, columnspan = 2, pady = (40, 0))
+
+        self.return_entry = tk.Entry(self.item_frame, justify = "center", bg = "white", width = 35)
+        self.return_entry.grid(row = 2, column = 0, columnspan = 2)
+        self.return_entry.bind("<Return>", self.display_return_sum)
+
+        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
+        self.check_out_button.grid(row = 3, column = 0, pady = (30, 0))
 
         self.reset_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "RESET",  command = lambda : self.reset())
-        self.reset_button.grid(row = j + 2, column = 1, pady = (20, 0))
+        self.reset_button.grid(row = 3, column = 1, pady = (30, 0))
+
+    def display_return_sum(self, event):
+        self.return_sum = int(self.return_entry.get()) - self.total_sum
+        self.return_label.config(text = str(self.return_sum) + " Tilbake")
 
     def check_out_done(self, final_price, items):
         self.top_object.log_sale(items, self.log_folder, self.salgs_log, final_price)

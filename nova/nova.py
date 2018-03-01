@@ -15,9 +15,6 @@ from PIL import Image, ImageTk
 #--------------------------FUCKING IMPORTANT--------------------------#
 
 #------Minor mix
-#Change items_frame width when change sizes
-#Edit all the with open to use variables such as self.logfolder
-#Set relief on frames, like sunken on items frame
 #Make the tabs bigger
 
 #------BUGS------#
@@ -25,12 +22,7 @@ from PIL import Image, ImageTk
 
 #------Addition------#
 #Add nova for 12, 99kr
-#Add font to checkout
 #Add customer side
-#Add return cash
-#Add button for changing colors, or maybe in the config for a light and dark theme, a check box
-#If so ^^^^, make a file witch has the colors, and change if change theme
-#tkinter colos http://www.science.smith.edu/dftwiki/images/3/3d/TkInterColorCharts.png
 
 #------Redo------#
 #Redo all the images, make em look better
@@ -41,11 +33,12 @@ class main_frame:
         self.y = 800
 
         self.root = tk.Tk()
-        #self.root.geometry(str(self.x) + "x" + str(self.y))
-        self.root.attributes("-fullscreen", True)
+        self.root.geometry(str(self.x) + "x" + str(self.y))
+        #self.root.attributes("-fullscreen", True)
 
         self.root.title("Nova")
-        #self.root.iconbitmap("E:\\github\\googleMusic\\nova\\pics\\otherpic\\nova_logo.ico") #Need full dest for some reason
+
+        self.root.iconbitmap(os.getcwd() + "\\pics\\otherpic\\nova_logo.ico")
 
         self.note = ttk.Notebook(self.root)
 

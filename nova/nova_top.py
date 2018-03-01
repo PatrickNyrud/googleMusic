@@ -5,6 +5,7 @@ import time
 import os
 from PIL import Image, ImageTk
 
+#Change the way logs happn, like Atomic x2, Super 10 x5 osv
 #Change so display sum shows like 50 000, 1 000, 14 000, 500 000 osv
 
 class top_frame:
@@ -58,12 +59,12 @@ class top_frame:
     def display_total_sold(self):#self.log_folder + self.total_salg_sum
         if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):
             with open(self.log_folder + self.total_salg_sum_dag, "w") as f:
-                f.write("0 Kr")
+                f.write("0")
             f.close()
-        else:
-            with open(self.log_folder + self.total_salg_sum_dag, "r+") as salg_dag, open(self.log_folder + self.total_salg_sum, "r") as salg_total:
-                self.total_salg_label.config(text = "Total solgt: " + salg_total.read() + " Kr")
-                self.total_salg_dag_label.config(text = "Total solgt idag: " + salg_dag.read() + " Kr")
-            salg_dag.close()
-            salg_total.close()
+        
+        with open(self.log_folder + self.total_salg_sum_dag, "r+") as salg_dag, open(self.log_folder + self.total_salg_sum, "r") as salg_total:
+            self.total_salg_label.config(text = "Total solgt: " + salg_total.read() + " Kr")
+            self.total_salg_dag_label.config(text = "Total solgt idag: " + salg_dag.read() + " Kr")
+        salg_dag.close()
+        salg_total.close()
 

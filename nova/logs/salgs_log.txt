@@ -937,3 +937,36 @@
 
 ['Atomic', 'Atomic', 'Atomic', 'Atomic'] 796kr
 28 Feb 2018 21:23
+
+['Stjerneskuddmini', 'Stjerneskuddmini', 'Stjerneskuddmini'] 75kr
+28 Feb 2018 21:36
+
+['Glowsticks', 'Glowsticks'] 10kr
+28 Feb 2018 21:36
+
+['Phoenix', 'Bolero', 'Magnum'] 2038kr
+28 Feb 2018 21:44
+
+['Atomic', 'Atomic'] 398kr
+28 Feb 2018 21:44
+
+['Atomic', 'Atomic'] 398kr
+28 Feb 2018 21:45
+
+['Atomic', 'Atomic'] 398kr
+28 Feb 2018 21:45
+
+['Magnum'] 449kr
+01 Mar 2018 17:57
+
+['Atomic', 'Flashlight', 'Flashlight'] 1697kr
+01 Mar 2018 19:18
+
+['Extreme thunder', 'Bolero', 'Bolero', 'Circus', 'Circus'] 2695kr
+01 Mar 2018 19:18
+
+['Super 10', 'Super 10', 'Phoenix', 'Phoenix'] 3078kr
+01 Mar 2018 19:21
+
+['Magnum', 'Bolero', 'Phoenix'] 2038kr
+01 Mar 2018 19:35

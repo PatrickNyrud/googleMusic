@@ -17,6 +17,8 @@ Delete word = dw
 Delete four words = d4w
 Delete line = D (need to be at start of line)
 
+Tab line back = < arrow left 
+
 Undo = u
 Redo = CTRL + r
 
@@ -39,9 +41,14 @@ Copy all the text = gg"*yG
 
 Linux console commands---------------------------------
 
+COPY FILES
 cp FILENAME1 FILENAME2
 
+MOVE FILES
 mv nova/testfile.py nova/gamle_filer/
+
+REMOVE ALL FILES
+rm /paht/to/dir/*
 
 -------------------------------------------------------
 

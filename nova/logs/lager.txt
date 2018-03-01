@@ -1,12 +1,12 @@
-Atomic, 6
-Super 10, 0
-Magnum, 421
-Extreme thunder, 1484
-Flashlight, 101
-Phoenix, 1133
-Bolero, 382
-Circus, 194
-Bizarre, 198
+Atomic, 53
+Super 10, 48
+Magnum, 39
+Extreme thunder, 13
+Flashlight, 58
+Phoenix, 53
+Bolero, 61
+Circus, 63
+Bizarre, 34
 Goldfish, 323
 Orion, 278
 Trapez, 548
@@ -37,8 +37,8 @@ Big Bag, 122
 Top flight, 999
 Partymix, 198
 Stormlighter, 49
-Stjerneskudd, 24
-Stjerneskuddmini, 25
+Stjerneskudd, 21
+Stjerneskuddmini, 22
 Tjuefemkroner, 25
 Tikroner, 10
 Glowsticks, 0
