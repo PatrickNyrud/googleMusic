@@ -1,4 +1,5 @@
 Atomic, 199
+Atomic, 99 
 Super 10, 349
 Magnum, 449
 Extreme thunder, 1499

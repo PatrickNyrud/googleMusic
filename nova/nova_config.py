@@ -4,9 +4,6 @@ import tkFont
 import time
 import nova_item
 
-#Add focus border to be black not grey
-#Add pictures to buttons?=
-
 class config:
     def __init__(self, frame):
         self.frame = frame
@@ -37,6 +34,7 @@ class config:
         self.price_list = []
         self.price_name_list = []
         self.inventory_list = []
+        self.only_inv_list = []
         self.inv_name_list = []
         self.button_list = []
 
@@ -85,10 +83,19 @@ class config:
             except:
                 self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE SOME SHIT HERE?")
                 self.t.place(relx = .5, rely = .5, anchor = "center")
+        
+        self.button_list[0].destroy()
+        self.button_list[1].destroy()
+        self.only_inv_list.append(self.place_only_inv(0, "Atomic"))
 
+    def place_only_inv(self, frame_pos, name):
+        self.only_inv = tk.Button(self.frame_list[frame_pos], bg = "ivory2", text = "UPDATE", font = self.text_font, command = lambda : self.edit_only_inv(frame_pos, name))
+        self.only_inv.place(relx = .5, rely = .8, anchor = "center")
+
+        return self.only_inv
 
     def place_frame(self, rw, clm):
-        self.item_frame = tk.Canvas(self.main_frame, bg = "AntiqueWhite1", height = 180, width = 180, highlightthickness = 5, highlightbackground = "black")
+        self.item_frame = tk.Canvas(self.main_frame, bg = "AntiqueWhite1", height = 180, width = 180, highlightthickness = 5, highlightbackground = "black", highlightcolor = "black")
         self.item_frame.grid_propagate(False)
         self.item_frame.grid(row = rw, column = clm, padx = (60, 0), pady = (50, 0))
         
@@ -127,6 +134,14 @@ class config:
         self.main_frame.focus_set()
         
         self.change_num_file(name, int(self.price_get.get()), "priser.txt")
+        self.change_num_file(name, int(self.inv_get.get()), "lager.txt")
+
+    def edit_only_inv(self, frame_pos, name):
+        self.inv_get = self.inventory_list[frame_pos]
+
+        self.only_inv_list[frame_pos].config(fg = "green")
+        self.main_frame.focus_set()
+
         self.change_num_file(name, int(self.inv_get.get()), "lager.txt")
 
     def change_num_file(self, name, change_sum, file):

@@ -6,8 +6,6 @@ import os
 from PIL import Image, ImageTk
 
 #Move buttons to the bottom of checkout, always there statc
-#Change display tot sum from 1000 to 1 000
-#Add return cash, bind to ENTER
 
 class checkout_frame:
     def initialize(self, frame, items_object, top_object):
@@ -42,7 +40,7 @@ class checkout_frame:
         self.return_entry.grid(row = 2, column = 0, columnspan = 2)
         self.return_entry.bind("<Return>", self.display_return_sum)
 
-        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
+        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out, self.final_string))
         self.check_out_button.grid(row = 3, column = 0, pady = (30, 0))
 
         self.reset_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "RESET",  command = lambda : self.reset())
@@ -127,7 +125,7 @@ class checkout_frame:
         self.return_entry.grid(row = 2, column = 0, columnspan = 2)
         self.return_entry.bind("<Return>", self.display_return_sum)
 
-        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out))
+        self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out, self.final_string))
         self.check_out_button.grid(row = 3, column = 0, pady = (30, 0))
 
         self.reset_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "RESET",  command = lambda : self.reset())
@@ -137,13 +135,13 @@ class checkout_frame:
         self.return_sum = int(self.return_entry.get()) - self.total_sum
         self.return_label.config(text = str(self.return_sum) + " Tilbake")
 
-    def check_out_done(self, final_price, items):
+    def check_out_done(self, final_price, remove_items, items):
         self.top_object.log_sale(items, self.log_folder, self.salgs_log, final_price)
         self.top_object.update_sum(self.log_folder, self.total_salg_sum, final_price)
         self.top_object.update_sum(self.log_folder, self.total_salg_sum_dag, final_price)
         self.top_object.display_total_sold()
 
-        for x in items:
+        for x in remove_items:
             self.items_object.inventory(x, True)
 
         self.reset()

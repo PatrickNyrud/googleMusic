@@ -1,0 +1,47 @@
+Atomic, 0
+Super 10, 0
+Magnum, 0
+Extreme thunder, 0
+Flashlight, 0
+Phoenix, 0
+Bolero, 0
+Circus, 0
+Bizarre, 0
+Goldfish, 0
+Orion, 0
+Trapez, 0
+Passion, 0
+Tnt, 0
+Thunderbird, 0
+Commando, 0
+Shocker, 0
+Kamikaze, 0
+Gladiator, 0
+Crossfire, 0
+Black spider, 0
+Firestorm, 0
+Hellfire, 0
+Aces High, 0
+Kick ass, 0
+Super nova, 0
+Vip blackline, 0
+Monster, 0
+Monster single, 0
+Eagle, 0
+Monster pack, 0
+Nighthawk, 0
+Strobe, 0
+Thunderbolt, 0
+Nitro Bag, 0
+Big Bag, 0
+Top flight, 0
+Partymix, 0
+Stormlighter, 0
+Stjerneskudd, 0
+Stjerneskuddmini, 0
+Tjuefemkroner, 0
+Tikroner, 0
+Glowsticks, 0
+Lyx fontene, 0
+Handfakkel, 0
+Farge fontene, 0 

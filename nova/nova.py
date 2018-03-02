@@ -15,13 +15,11 @@ from PIL import Image, ImageTk
 #--------------------------FUCKING IMPORTANT--------------------------#
 
 #------Minor mix
-#Make the tabs bigger
 
 #------BUGS------#
 #See if can fix click minus button too fast checkout bugs out
 
 #------Addition------#
-#Add nova for 12, 99kr
 #Add customer side
 
 #------Redo------#
@@ -33,8 +31,8 @@ class main_frame:
         self.y = 800
 
         self.root = tk.Tk()
-        self.root.geometry(str(self.x) + "x" + str(self.y))
-        #self.root.attributes("-fullscreen", True)
+        #self.root.geometry(str(self.x) + "x" + str(self.y))
+        self.root.attributes("-fullscreen", True)
 
         self.root.title("Nova")
 

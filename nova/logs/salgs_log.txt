@@ -970,3 +970,150 @@
 
 ['Magnum', 'Bolero', 'Phoenix'] 2038kr
 01 Mar 2018 19:35
+
+['Atomic', 'Atomic'] 398kr
+02 Mar 2018 10:10
+
+['Phoenix', 'Phoenix'] 2380kr
+02 Mar 2018 10:11
+
+['Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird', 'Thunderbird'] 14364kr
+02 Mar 2018 10:11
+
+['Atomic', 'Atomic', 'Phoenix', 'Phoenix', 'Magnum', 'Super 10'] 3576kr
+02 Mar 2018 10:21
+
+['Atomic x2', 'Super 10 x2', 'Phoenix x1'] 2286kr
+02 Mar 2018 10:23
+
+['Magnum', 'Magnum', 'Bolero', 'Bolero'] 1696kr
+02 Mar 2018 10:23
+
+['Atomic x2', 'Phoenix x2', 'Bolero x2'] 3576kr
+02 Mar 2018 10:24
+
+['Super 10 x2', 'Atomic x2'] 1096kr
+02 Mar 2018 10:25
+
+['Bolero x2', 'Circus x6'] 1992kr
+02 Mar 2018 10:25
+
+'Atomic x2', 'Flashlight x2'] 1896kr
+02 Mar 2018 10:28
+
+'Super 10 x1', 'Atomic x1', 'Flashlight x1' 1297kr
+02 Mar 2018 10:34
+
+Super 10 x1, Flashlight x1, Atomic x2 1496kr
+02 Mar 2018 10:34
+
+Bolero x2, Phoenix x1, Magnum x1, Super 10 x1, Flashlight x1, Goldfish x1 3864kr
+02 Mar 2018 10:34
+
+Super 10 x1, Phoenix x1, Flashlight x1 | 2288kr
+02 Mar 2018 10:36
+
+Super 10 x1, Phoenix x1, Flashlight x1 | 2288 kr
+02 Mar 2018 10:36
+
+Atomic x2 | 198 kr
+02 Mar 2018 10:54
+
+Atomic x3 | 297 kr
+02 Mar 2018 10:54
+
+Atomic x2 | 198 kr
+02 Mar 2018 10:54
+
+Atomic x3 | 297 kr
+02 Mar 2018 10:54
+
+Atomic x2 | 198 kr
+02 Mar 2018 10:55
+
+Atomic x2 | 198 kr
+02 Mar 2018 10:55
+
+Atomic x3 | 297 kr
+02 Mar 2018 10:55
+
+Atomic x4 | 796 kr
+02 Mar 2018 10:55
+
+Super 10 x2 | 698 kr
+02 Mar 2018 10:55
+
+Extreme thunder x3 | 4497 kr
+02 Mar 2018 10:55
+
+Atomic x2 | 398 kr
+02 Mar 2018 10:56
+
+Atomic x5 | 995 kr
+02 Mar 2018 10:56
+
+Atomic x3 | 597 kr
+02 Mar 2018 10:59
+
+Atomic x3 | 597 kr
+02 Mar 2018 10:59
+
+Atomic x2 | 398 kr
+02 Mar 2018 11:00
+
+Atomic x1 | 199 kr
+02 Mar 2018 11:00
+
+Atomic x1 | 199 kr
+02 Mar 2018 11:00
+
+Atomic x2 | 398 kr
+02 Mar 2018 11:00
+
+Atomic x3 | 297 kr
+02 Mar 2018 11:00
+
+Atomic x2 | 198 kr
+02 Mar 2018 11:06
+
+Atomic x2 | 198 kr
+02 Mar 2018 11:07
+
+Atomic x1 | 99 kr
+02 Mar 2018 11:07
+
+Atomic x2 | 398 kr
+02 Mar 2018 11:19
+
+Atomic x2 | 198 kr
+02 Mar 2018 11:35
+
+Atomic x2 | 398 kr
+02 Mar 2018 11:35
+
+Atomic x2 | 198 kr
+02 Mar 2018 11:35
+
+Atomic x2 | 198 kr
+02 Mar 2018 11:41
+
+Flashlight x2 | 1498 kr
+02 Mar 2018 11:43
+
+Phoenix x4 | 4760 kr
+02 Mar 2018 11:43
+
+Magnum x3 | 1347 kr
+02 Mar 2018 11:43
+
+Atomic x3, Extreme thunder x1 | 1996 kr
+02 Mar 2018 13:07
+
+Super 10 x3 | 1047 kr
+02 Mar 2018 13:07
+
+Super 10 x2 | 698 kr
+02 Mar 2018 13:07
+
+Super 10 x2 | 698 kr
+02 Mar 2018 13:07

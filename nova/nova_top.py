@@ -5,7 +5,6 @@ import time
 import os
 from PIL import Image, ImageTk
 
-#Change the way logs happn, like Atomic x2, Super 10 x5 osv
 #Change so display sum shows like 50 000, 1 000, 14 000, 500 000 osv
 
 class top_frame:
@@ -51,8 +50,7 @@ class top_frame:
 
     def log_sale(self, items, dest, file, final_price):
         with open(dest + file, "a") as f:
-            f.write("\n\n" + str(items) + " " + str(final_price) + "kr\n" + str(time.strftime("%d %b %Y %H:%M")))
-            #f.write(str(time.strftime("%d %b %Y %H:%M")) + "\n" +str(items) + " " + str(final_price) + " kr\n\n")
+            f.write("\n\n" + str(items).translate(None, "[]'") + " | " + str(final_price) + " kr\n" + str(time.strftime("%d %b %Y %H:%M")))
         f.close()
 
 

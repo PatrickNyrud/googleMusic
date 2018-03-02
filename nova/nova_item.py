@@ -106,6 +106,9 @@ class items_frame():
                 self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
                 self.t.place(relx = .5, rely = .5, anchor = "center")
 
+        self.atomic_99_label = tk.Label(self.frame_list[1], text = "(99)", font = self.text_font, bg = self.in_frame_color)
+        self.atomic_99_label.place(relx = .75,rely = .1, anchor = "center")
+
     def place_frame(self, rw, clm):
         self.item_frame = tk.Canvas(self.checkout_frame, bg = self.in_frame_color, height = 250, width = 250, highlightthickness = 5, highlightbackground = "gray6")
         self.item_frame.grid(row = rw, column = clm, padx = (42, 0), pady = (50, 0))
@@ -208,9 +211,5 @@ class items_frame():
         with open("logs//sold_out.txt", "a") as f:
             f.write("Sold out of " + name + " at " + self.time_date + "\n\n")
         f.close()
-
-
-if __name__ == "__main__":
-    strt = main_frame()
 
 
