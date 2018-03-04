@@ -1,15 +1,15 @@
-Atomic, 27
-Atomic, 27
-Super 10, 43
-Magnum, 32
-Extreme thunder, 11
-Flashlight, 50
-Phoenix, 40
-Bolero, 56
-Circus, 62
-Bizarre, 34
-Goldfish, 32
-Orion, 27
+Atomic, 17
+Atomic, 17
+Super 10, 38
+Magnum, 29
+Extreme thunder, 10
+Flashlight, 48
+Phoenix, 37
+Bolero, 55
+Circus, 61
+Bizarre, 33
+Goldfish, 31
+Orion, 26
 Trapez, 54
 Passion, 34
 Tnt, 96

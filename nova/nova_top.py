@@ -2,6 +2,7 @@ import Tkinter as tk
 from tkinter import ttk
 import tkFont
 import time
+import nova_excel_log
 import os
 from PIL import Image, ImageTk
 
@@ -53,6 +54,8 @@ class top_frame:
             f.write("\n\n" + str(items).translate(None, "[]'") + " | " + str(final_price) + " kr\n" + str(time.strftime("%d %b %Y %H:%M")))
         f.close()
 
+    def excel_log(self, items):
+        self.excel_object = nova_excel_log.excel_log(items)
 
     def display_total_sold(self):#self.log_folder + self.total_salg_sum
         if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):
