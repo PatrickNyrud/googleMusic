@@ -55,7 +55,8 @@ class top_frame:
         f.close()
 
     def excel_log(self, items):
-        self.excel_object = nova_excel_log.excel_log(items)
+        self.excel_pole = nova_excel_log.excel_log_pole(items)
+        self.excel_linear = nova_excel_log.excel_log_linear(items)
 
     def display_total_sold(self):#self.log_folder + self.total_salg_sum
         if not os.path.isfile(self.log_folder + self.total_salg_sum_dag):

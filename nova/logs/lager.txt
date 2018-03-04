@@ -1,10 +1,10 @@
 Atomic, 17
 Atomic, 17
-Super 10, 38
-Magnum, 29
+Super 10, 34
+Magnum, 14
 Extreme thunder, 10
 Flashlight, 48
-Phoenix, 37
+Phoenix, 36
 Bolero, 55
 Circus, 61
 Bizarre, 33
@@ -12,7 +12,7 @@ Goldfish, 31
 Orion, 26
 Trapez, 54
 Passion, 34
-Tnt, 96
+Tnt, 91
 Thunderbird, 36
 Commando, 49
 Shocker, 48
