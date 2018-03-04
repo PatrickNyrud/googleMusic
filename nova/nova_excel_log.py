@@ -90,6 +90,3 @@ class excel_log_linear:
         self.work_book.save(self.dest)
 
 
-
-if __name__ == "__main__":
-    excel_log_linear()
