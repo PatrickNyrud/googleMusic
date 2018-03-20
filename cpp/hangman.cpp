@@ -4,65 +4,66 @@
 #include <algorithm>
 using namespace std;
 
-bool checkIfRight(string, string);
-void runHangman(void);
-void testFunc(void);
+bool checkIfGuessed();
+void checkGuess(char);
+
+vector<char> rightWords;
+vector<char> wordsGuessed;
+string wordToGuess = "hello";
 
 int main(){
 	system("cls");
-	
-	testFunc();
-	
+	char guess;
+	bool done;
+
+	while(!done){
+		cin >> guess;
+		system("cls");
+		checkGuess(guess);
+
+		if(checkIfGuessed()){
+			done = true;
+			system("cls");
+			cout << "Youve won!" << endl;
+		}
+	}
 	return 0;
 }
 
-void testFunc(void){
-	vector<char> liste;
-	bool done = false;
-	char guess;
+bool checkIfGuessed(){
+	int check = 0;
 
-	while(! done){
-		cin >> guess;
-		if(find(liste.begin(), liste.end(), guess) != liste.end()){
-			cout << "Youve guessed " << guess << endl;
-		} else{
-			liste.push_back(guess);
-		}
-
-		for(int i = 0; i < liste.size(); i++){
-			cout << "at " << i << " is " << liste[i] << endl;
-		}
+	for(int i = 0; i < rightWords.size(); i++){
+		check++;
 	}
-}
-
-void runHangman(void){
-	string guess;
-	string word = "guess";
-	bool done = false;
-	int attempts = 1;
-
-	cout << "Guess the word" << endl << "> ";
-
-	while(! done){
-		cin >> guess;
-		if(checkIfRight(guess, word) == true){
-			system("cls");
-			done = true;
-			cout << "You got it in " << attempts << " attempts!" << endl;
-		} else{
-			system("cls");
-			cout << "Not right, guess again" << endl << "> ";
-		}
-		attempts++;
-	}
-
-
-}
-
-bool checkIfRight(string guess, string word){
-	if(guess == word){
+	if(check == wordToGuess.length()){
 		return true;
-	}else if(guess != word){
+	}else{
 		return false;
+	}
+}
+
+
+void checkGuess(char guess){
+	if(find(wordsGuessed.begin(), wordsGuessed.end(), guess) == wordsGuessed.end()){
+		for(int i = 0; i < wordToGuess.length(); i++){
+			if(wordToGuess[i] == guess){
+				cout << "Youve guessed right" << endl;
+				rightWords.push_back(guess);
+			}else{
+				cout << "Youve guessed wrong" << endl;
+			}
+		}	
+		wordsGuessed.push_back(guess);
+	}else{
+		cout << "Youve guessed " << guess << endl;
+	}
+	cout << endl << "Letters youve guessed" << endl;
+	for(int i = 0; i < wordsGuessed.size(); i++){
+		cout << wordsGuessed[i];
+	}
+	cout << endl << endl << "Right wordsGuessed guessed" << endl;
+	for(int i = 0; i < rightWords.size(); i++){
+		cout << rightWords[i];
 	}
 }
