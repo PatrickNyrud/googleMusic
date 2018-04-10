@@ -2,6 +2,7 @@ import Tkinter as tk
 from tkinter import ttk
 import tkFont
 import pirate_overview
+import os
 
 #To scale the window try width * 1.5 or some shit like that
 
@@ -48,6 +49,7 @@ class overview_window:
 
         self.checkout_frame.focus_set()
         
+        #Amount of movies
         self.widget_amount = 3
 
         for x in range(self.widget_amount):
@@ -87,13 +89,17 @@ class overview_window:
         return self.search_label
 
     def place_found_label(self, frame_pos):
-        self.found_label = tk.Label(self.widget_window_list[frame_pos], font = self.text_font, text = "Found: None")
+        self.found_label = self.pirate_func.get_found("star_wars_the_last_jedi")
+
+        self.found_label = tk.Label(self.widget_window_list[frame_pos], font = self.text_font, text = "Found: " + self.found_label)
         self.found_label.grid(row = 2, column = 0, sticky = "w", padx = (10, 0))
 
         return self.found_label
 
     def place_last_search_label(self, frame_pos):
-        self.last_search_label = tk.Label(self.widget_window_list[frame_pos], font = self.text_font, text = "Last search: 10/03/2018")
+        self.last_search_string = self.pirate_func.get_last_search("star_wars_the_last_jedi")
+
+        self.last_search_label = tk.Label(self.widget_window_list[frame_pos], font = self.text_font, text = "Last search: " + self.last_search_string)
         self.last_search_label.grid(row = 3, column = 0, sticky = "w", pady = (25, 0), padx = (10, 0))
 
         return self.last_search_label
@@ -119,3 +125,19 @@ class pirate_overview_funcs:
         f.close()
 
         return self.keyword_string
+
+    def get_found(self, name):
+        self.found_string = ""
+
+        self.list_found = os.listdir(self.movie_dirr + "//" + name + "//found//")
+        for x in self.list_found:
+            self.found_string += x.strip(".txt") + " "
+
+        return self.found_string
+
+    def get_last_search(self, name):
+        with open(self.movie_dirr + name + "//last_search.txt", "r") as f:
+            return f.readline()
+            
+
+
