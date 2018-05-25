@@ -2,6 +2,7 @@ import Tkinter as tk
 from tkinter import ttk
 import tkFont
 import pirate_overview
+import pirate_idle
 import os
 
 #To scale the window try width * 1.5 or some shit like that
@@ -22,6 +23,7 @@ class overview_window:
         self.checkout_frame.pack(side = "right")
 
         self.pirate_func = pirate_overview_funcs()
+        self.test_func = pirate_idle.idle_search()
 
         self.vsb.pack(side="right", fill="both")
 

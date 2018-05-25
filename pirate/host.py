@@ -63,7 +63,8 @@ class main:
 			x = x.replace(" ", "+")
 			url_link = "http://1337x.to/search/" + x + "/1/" #.rstrip("\n") is for removing the new line so the link properly works
 			log_write.write("\n\n" + time + " " + day + "\n" + url_link)
-			film_req = urllib2.Request(url_link, headers={'User-Agent' : "Magic Browser"}) 
+                        film_req = urllib2.Request("http://www.tv2.no", headers={'User-Agent' : "Magic Browser",
+                                                                      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}) 
 			film_read = urllib2.urlopen(film_req).read()
 			for k in keyword_list: #Check every keywords in the list again the movie
 				final_check = re.findall(k, film_read) 
