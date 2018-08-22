@@ -11,8 +11,8 @@ import decimal
 #
 ##########################
 
-x_screen = 3440
-y_screen = 1440
+x_screen = 1920
+y_screen = 970
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.init()
 
@@ -22,7 +22,7 @@ class start:
 		self.first = True
 		self.clock = pygame.time.Clock()
 
-		self.amout_of_rain = 450
+		self.amout_of_rain = 250
 
 		self.background_img = pygame.image.load("background.png").convert()
 		

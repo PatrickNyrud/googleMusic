@@ -31,8 +31,8 @@ class main_frame:
         self.y = 800
 
         self.root = tk.Tk()
-        self.root.geometry(str(self.x) + "x" + str(self.y))
-        #self.root.attributes("-fullscreen", True)
+        #self.root.geometry(str(self.x) + "x" + str(self.y))
+        self.root.attributes("-fullscreen", True)
 
         self.root.title("Nova")
 

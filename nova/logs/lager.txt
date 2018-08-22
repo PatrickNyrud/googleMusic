@@ -1,12 +1,12 @@
-Atomic, 12
-Atomic, 12
+Atomic, 16
+Atomic, 16
 Super 10, 29
 Magnum, 11
 Extreme thunder, 8
-Flashlight, 42
+Flashlight, 40
 Phoenix, 25
 Bolero, 54
-Circus, 61
+Circus, 59
 Bizarre, 33
 Goldfish, 31
 Orion, 26
@@ -19,19 +19,19 @@ Shocker, 45
 Kamikaze, 32
 Gladiator, 79
 Crossfire, 59
-Black spider, 74
-Firestorm, 58
+Black spider, 72
+Firestorm, 56
 Hellfire, 99
 Aces High, 24
 Kick ass, 1197
 Super nova, 1499
 Vip blackline, 1995
-Monster, 47
-Monster single, 49
+Monster, 45
+Monster single, 47
 Eagle, 247
 Monster pack, 47
 Nighthawk, 23
-Strobe, 59
+Strobe, 57
 Thunderbolt, 39
 Nitro Bag, 54
 Big Bag, 12
@@ -40,7 +40,7 @@ Partymix, 19
 Stormlighter, 49
 Stjerneskudd, 21
 Stjerneskuddmini, 22
-Tjuefemkroner, 25
+Tjuefemkroner, 24
 Tikroner, 10
 Glowsticks, 50
 Lyx fontene, 69
