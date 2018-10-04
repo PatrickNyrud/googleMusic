@@ -1,5 +1,5 @@
-Atomic, 16
-Atomic, 16
+Atomic, 14
+Atomic, 14
 Super 10, 29
 Magnum, 11
 Extreme thunder, 8
