@@ -1,0 +1,90 @@
+VIM COMMANDS-----------------------------------------
+
+Switch between tabs = gt
+Switch between split tab = CTRL + ww
+
+NERDTREE
+Open new tab = t
+open tab split = s
+
+Insert mode = i
+
+Goto end of line and enter edit mode = A
+
+no wrap = set nowrap
+
+Delete word = dw
+Delete four words = d4w
+Delete line = D (need to be at start of line)
+
+Tab line back = < arrow left 
+
+Undo = u
+Redo = CTRL + r
+
+Cut line = dd
+
+Copy entire line = yy
+
+Copy word = v to enter visual mode then y after marked
+
+Paste = p
+
+Edit multiple lines = CTRL + n, c to change text, I to insert at start, A to insert at end
+
+Enter visual mode for entire line = V
+Enter visual mode = v
+
+Copy all the text = gg"*yG
+-------------------------------------------------------
+
+
+Linux console commands---------------------------------
+
+COPY FILES
+cp FILENAME1 FILENAME2
+
+MOVE FILES
+mv nova/testfile.py nova/gamle_filer/
+
+REMOVE ALL FILES
+rm /paht/to/dir/*
+
+-------------------------------------------------------
+
+.VIMRC FILE--------------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+syntax on
+
+colorscheme gruvbox
+
+"let g:airline_theme='gruvbox'
+
+set nowrap
+
+let python_self_cls_highlight = 1
+
+set tabstop=4
+
+set t_Co=256
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'morhetz/gruvbox'
+
+Plugin 'kh3phr3n/python-syntax'
+
+Plugin 'terryma/vim-multiple-cursors'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
