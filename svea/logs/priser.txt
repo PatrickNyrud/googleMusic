@@ -1,48 +1,54 @@
-Atomic, 199
-Atomic, 99 
-Super 10, 349
-Magnum, 449
-Extreme thunder, 1499
-Flashlight, 749
-Phoenix, 1190
-Bolero, 399
-Circus, 199
-Bizarre, 199
-Goldfish, 329
-Orion, 279
-Trapez, 549
-Passion, 349
-Tnt, 99
-Thunderbird, 399
-Commando, 499
-Shocker, 599
-Kamikaze, 399
-Gladiator, 799
-Crossfire, 599
-Black spider, 749
-Firestorm, 599
-Hellfire, 999
-Aces High, 2499
-Kick ass, 1199
-Super nova, 1499
-Vip blackline, 1999
-Monster, 479
-Monster single, 49
-Eagle, 249
-Monster pack, 479
-Nighthawk, 239
-Strobe, 599
-Thunderbolt, 399
-Nitro Bag, 549
-Big Bag, 122
-Top flight, 999
-Partymix, 199
+Megabomb X, 197
+Bombard, 449
+Bomb Festival, 1499
+Tsar Bomba, 749
+Two in One, 749
+Bomb Extream, 1190
+Monster, 399
+Cleopatra, 199
+Golden Glory, 199
+Soft sky, 329
+Teaser, 279
+Lion, 549
+Icake, 349
+Explosive, 99
+Magic Mix, 399
+Fifty, 499
+Sleipner, 599
+Cocktail, 399
+Berserk, 799
+Loke, 599
+Bandit, 749
+Hades, 599
+Svea Fantasy, 1000
+Space Inferno, 999
+Pole Position, 2499
+Golden Explosive, 1199
+Sledghammer, 1499
+Knock Out, 1999
+Luxury, 479
+Lucky, 49
+Street Bang, 200
+Bizzy Bag, 200
+Big Bang, 200
+Avenger, 249
+Metro, 479
+Power Pack, 239
+Monster Bag, 599
+Massive, 399
+Eldorado, 549
+Triton, 122
+Monster 50, 999
+Monster 50 Single, 199
+Monster 35, 999
+Monster 35 Single, 199
 Stormlighter, 49
-Stjerneskudd, 25
+Stjerneskuddking, 25
 Stjerneskuddmini, 25
 Tjuefemkroner, 25
 Tikroner, 10
 Glowsticks, 5
 Lyx fontene, 69
 Handfakkel, 59
+Magnum Fakkel, 59
 Farge fontene, 99
