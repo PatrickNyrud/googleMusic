@@ -7,7 +7,7 @@ Flashlight, 749
 Phoenix, 1190
 Bolero, 399
 Circus, 199
-Bizarre, 199
+Bizarre, 1
 Goldfish, 329
 Orion, 279
 Trapez, 549
@@ -22,11 +22,12 @@ Crossfire, 599
 Black spider, 749
 Firestorm, 599
 Hellfire, 999
+Diablo, 1099
 Aces High, 2499
 Kick ass, 1199
 Super nova, 1499
 Vip blackline, 1999
-Monster, 479
+Monster, 199
 Monster single, 49
 Eagle, 249
 Monster pack, 479
@@ -34,15 +35,16 @@ Nighthawk, 239
 Strobe, 599
 Thunderbolt, 399
 Nitro Bag, 549
-Big Bag, 122
-Top flight, 999
+Big Bag, 999
+Top flight, 1
 Partymix, 199
-Stormlighter, 49
-Stjerneskudd, 25
-Stjerneskuddmini, 25
+Stormlighter, 29
+Stjerneskudd, 20
+Stjerneskuddmini, 20
+Airbomb, 25
 Tjuefemkroner, 25
 Tikroner, 10
 Glowsticks, 5
 Lyx fontene, 69
-Handfakkel, 59
+Handfakkel, 49
 Farge fontene, 99

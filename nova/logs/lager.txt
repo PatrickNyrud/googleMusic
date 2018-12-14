@@ -22,6 +22,7 @@ Crossfire, 59
 Black spider, 72
 Firestorm, 56
 Hellfire, 99
+Diablo, 4
 Aces High, 24
 Kick ass, 1197
 Super nova, 1499
@@ -38,8 +39,9 @@ Big Bag, 12
 Top flight, 99
 Partymix, 19
 Stormlighter, 49
-Stjerneskudd, 21
+Stjerneskudd, 22
 Stjerneskuddmini, 22
+Airbomb, 99
 Tjuefemkroner, 24
 Tikroner, 10
 Glowsticks, 50

@@ -12,7 +12,7 @@ class items_frame():
         self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "grey21", height = 1000 - 100) #self.y - topframe height
 
         self.log_folder = "logs//"
-        self.pic_folder = "pics//"
+        self.pic_folder = "pics//new_pics//"
         self.lager_file = "lager.txt"
         self.prices = "priser.txt"
 
@@ -159,7 +159,7 @@ class items_frame():
 
     def place_button_add(self, name, price, frame_pos):
         self.button_add_place = tk.Button(self.frame_list[frame_pos], bg = "white", text = "ADD", borderwidth = 2, command = lambda : [self.change_amount(name, frame_pos, True), self.checkout_object.add_to_checkout(name, price, frame_pos)])
-        self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + "_liten.png")
+        self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + ".png")
         self.button_add_place.config(image = self.photo, width = 150, height = 150)
         self.button_add_place.image = self.photo
         self.button_add_place.place(relx = .35, rely = .5, anchor = "center")
