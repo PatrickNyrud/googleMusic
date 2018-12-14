@@ -22,9 +22,6 @@ from PIL import Image, ImageTk
 #------Addition------#
 #Add customer side
 
-#------Redo------#
-#Redo all the images, make em look better
-
 class main_frame:
     def __init__(self):
         self.x = 1600

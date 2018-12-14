@@ -63,6 +63,8 @@ class excel_log_linear:
         try:
             self.write = self.work_sheet.cell(row = self.row, column = self.column)
             self.write.value = self.write.value + 1
+            self.write = self.work_sheet.cell(row = self.row, column = 49)
+            self.write.value = self.write.value + 1
         except:
             pass
 

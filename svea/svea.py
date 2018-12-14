@@ -15,6 +15,7 @@ from PIL import Image, ImageTk
 #--------------------------FUCKING IMPORTANT--------------------------#
 
 #------Minor mix
+#Fix excel logs
 
 #------BUGS------#
 #See if can fix click minus button too fast checkout bugs out
