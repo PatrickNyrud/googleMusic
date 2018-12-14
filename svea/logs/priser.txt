@@ -1,54 +1,54 @@
-Megabomb X, 199
+Megabomb X, 349
 Bombard, 449
-Bomb Festival, 1499
-Tsar Bomba, 749
-Two in One, 749
-Bomb Extream, 1190
-Monster, 399
-Cleopatra, 199
+Bomb Festival, 799
+Tsar Bomba, 1399
+Two in One, 599
+Bomb Extream, 1
+Monster, 499
+Cleopatra, 329
 Golden Glory, 199
-Soft sky, 329
-Teaser, 279
+Soft sky, 399
+Teaser, 379
 Lion, 549
 Icake, 349
-Explosive, 99
-Magic Mix, 399
+Explosive, 2999
+Magic Mix, 199
 Fifty, 499
-Sleipner, 599
-Cocktail, 399
-Berserk, 799
-Loke, 599
-Bandit, 749
-Hades, 599
-Svea Fantasy, 1000
-Space Inferno, 999
-Pole Position, 2499
-Golden Explosive, 1199
-Sledghammer, 1499
-Knock Out, 1999
-Luxury, 479
-Lucky, 49
-Street Bang, 200
-Bizzy Bag, 200
-Big Bang, 200
+Sleipner, 399
+Cocktail, 599
+Berserk, 1
+Loke, 1
+Bandit, 799
+Hades, 699
+Svea Fantasy, 1499
+Space Inferno, 1
+Pole Position, 1299
+Golden Explosive, 2999
+Sledghammer, 1199
+Knock Out, 2499
+Luxury, 999
+Lucky, 599
+Street Bang, 159
+Bizzy Bag, 279
+Big Bang, 449
 Avenger, 249
-Metro, 479
-Power Pack, 239
+Metro, 349
+Power Pack, 1
 Monster Bag, 599
-Massive, 399
-Eldorado, 549
-Triton, 122
-Monster 50, 999
-Monster 50 Single, 199
-Monster 35, 999
-Monster 35 Single, 199
-Stormlighter, 49
-Stjerneskuddking, 25
-Stjerneskuddmini, 25
+Massive, 599
+Eldorado, 749
+Triton, 999
+Monster 50, 499
+Monster 50 Single, 1
+Monster 35, 129
+Monster 35 Single, 1
+Stormlighter, 39
+Stjerneskuddking, 49
+Stjerneskuddmini, 20
 Tjuefemkroner, 25
 Tikroner, 10
 Glowsticks, 5
-Lyx fontene, 69
-Handfakkel, 59
-Magnum Fakkel, 59
-Farge fontene, 99
+Lyx fontene, 79
+Handfakkel, 49
+Magnum Fakkel, 49
+Farge fontene, 1

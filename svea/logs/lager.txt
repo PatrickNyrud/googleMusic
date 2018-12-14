@@ -4,14 +4,14 @@ Bomb Festival, 1499
 Tsar Bomba, 749
 Two in One, 749
 Bomb Extream, 1190
-Monster, 399
+Monster, 199
 Cleopatra, 199
 Golden Glory, 197
 Soft sky, 327
 Teaser, 279
 Lion, 549
 Icake, 349
-Explosive, 99
+Explosive, 1199
 Magic Mix, 399
 Fifty, 499
 Sleipner, 599
@@ -38,9 +38,9 @@ Monster Bag, 599
 Massive, 399
 Eldorado, 549
 Triton, 122
-Monster 50, 999
+Monster 50, 199
 Monster 50 Single, 199
-Monster 35, 999
+Monster 35, 199
 Monster 35 Single, 199
 Stormlighter, 49
 Stjerneskuddking, 25
