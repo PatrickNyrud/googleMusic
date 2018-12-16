@@ -1,4 +1,5 @@
 Megabomb X, 47
+Golden Glory Magic Mix, 997
 Bombard, 449
 Bomb Festival, 1499
 Tsar Bomba, 749
@@ -6,15 +7,15 @@ Two in One, 749
 Bomb Extream, 1190
 Monster, 199
 Cleopatra, 199
-Golden Glory, 197
+Golden Glory, 195
 Soft sky, 327
 Teaser, 279
 Lion, 549
 Icake, 349
 Explosive, 1199
-Magic Mix, 399
+Magic Mix, 397
 Fifty, 499
-Sleipner, 599
+Sleipner, 399
 Cocktail, 399
 Berserk, 799
 Loke, 599

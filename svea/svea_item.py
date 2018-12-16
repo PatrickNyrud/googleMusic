@@ -105,6 +105,9 @@ class items_frame():
             except:
                 pass
 
+        self.label_list[1].config(text = "Golden Glory/Magic Mix")
+        
+
 
     def place_frame(self, rw, clm):
         self.item_frame = tk.Canvas(self.checkout_frame, bg = self.in_frame_color, height = 250, width = 250, highlightthickness = 5, highlightbackground = "gray6")
