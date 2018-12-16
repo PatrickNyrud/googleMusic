@@ -106,9 +106,6 @@ class items_frame():
                 self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
                 self.t.place(relx = .5, rely = .5, anchor = "center")
 
-        self.atomic_99_label = tk.Label(self.frame_list[1], text = "(99)", font = self.text_font, bg = self.in_frame_color)
-        self.atomic_99_label.place(relx = .75,rely = .1, anchor = "center")
-
     def place_frame(self, rw, clm):
         self.item_frame = tk.Canvas(self.checkout_frame, bg = self.in_frame_color, height = 250, width = 250, highlightthickness = 5, highlightbackground = "gray6")
         self.item_frame.grid(row = rw, column = clm, padx = (42, 0), pady = (50, 0))
@@ -185,9 +182,9 @@ class items_frame():
             self.ch_remove = "'[]"
             for j, x in enumerate(self.inventory_num_list):
                 if x[0] in name:
-                    self.remove_inv_sum = self.inventory_num_list[j][1]
-                    if int(self.remove_inv_sum) > 0:
-                        self.new_sum = int(self.remove_inv_sum) - 1
+                    self.current_inv_sum = self.inventory_num_list[j][1]
+                    if int(self.current_inv_sum) > 0:
+                        self.new_sum = int(self.current_inv_sum) - 1
                         if self.new_sum == 0:
                             self.sold_out(name)
                         self.lager_list[j].config(text = "P" + "\xc3\xa5".decode("utf-8") +" lager (" + str(self.new_sum) + ")")

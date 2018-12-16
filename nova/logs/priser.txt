@@ -1,6 +1,7 @@
 Atomic, 199
-Atomic, 99 
+Atomic Meltdown, 199
 Super 10, 349
+Meltdown, 199
 Magnum, 449
 Extreme thunder, 1499
 Flashlight, 749

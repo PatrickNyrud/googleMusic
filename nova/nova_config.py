@@ -84,9 +84,7 @@ class config:
                 self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE SOME SHIT HERE?")
                 self.t.place(relx = .5, rely = .5, anchor = "center")
         
-        self.button_list[0].destroy()
-        self.button_list[1].destroy()
-        self.only_inv_list.append(self.place_only_inv(0, "Atomic"))
+
 
     def place_only_inv(self, frame_pos, name):
         self.only_inv = tk.Button(self.frame_list[frame_pos], bg = "ivory2", text = "UPDATE", font = self.text_font, command = lambda : self.edit_only_inv(frame_pos, name))

@@ -1,6 +1,7 @@
-Atomic, 14
-Atomic, 14
+Atomic, 999
+Atomic Meltdown, 999
 Super 10, 29
+Meltdown, 999
 Magnum, 11
 Extreme thunder, 8
 Flashlight, 37

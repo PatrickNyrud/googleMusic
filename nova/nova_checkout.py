@@ -140,7 +140,7 @@ class checkout_frame:
         self.top_object.update_sum(self.log_folder, self.total_salg_sum, final_price)
         self.top_object.update_sum(self.log_folder, self.total_salg_sum_dag, final_price)
         self.top_object.display_total_sold()
-        self.top_object.excel_log(remove_items)
+        #self.top_object.excel_log(remove_items)
 
         for x in remove_items:
             self.items_object.inventory(x, True)
