@@ -4,8 +4,10 @@ Super 10, 349
 Meltdown, 199
 Magnum, 449
 Extreme thunder, 1499
+Bombzilla, 1299
 Flashlight, 749
 Phoenix, 1190
+Brutal, 999
 Bolero, 399
 Circus, 199
 Bizarre, 1
@@ -23,13 +25,16 @@ Crossfire, 599
 Black spider, 749
 Firestorm, 599
 Hellfire, 999
+Dragonstep, 899
 Diablo, 1099
 Aces High, 2499
 Kick ass, 1199
 Super nova, 1499
 Vip blackline, 1999
-Monster, 199
+Monster, 479
 Monster single, 49
+Monster 50, 499
+Monster 50 Single, 99
 Eagle, 249
 Monster pack, 479
 Nighthawk, 239
