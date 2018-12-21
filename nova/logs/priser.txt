@@ -31,9 +31,9 @@ Aces High, 2499
 Kick ass, 1199
 Super nova, 1499
 Vip blackline, 1999
-Monster, 479
+Monster, 99
 Monster single, 49
-Monster 50, 499
+Monster 50, 99
 Monster 50 Single, 99
 Eagle, 249
 Monster pack, 479

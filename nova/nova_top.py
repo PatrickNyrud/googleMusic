@@ -51,7 +51,7 @@ class top_frame:
 
     def log_sale(self, items, dest, file, final_price):
         with open(dest + file, "a") as f:
-            f.write("\n\n" + str(items).translate(None, "[]'") + " | " + str(final_price) + " kr\n" + str(time.strftime("%d %b %Y %H:%M")))
+            f.write("\n\n" + str(items).translate(None, "[]'") + ", Total sum: " + str(final_price) + " kr\n" + str(time.strftime("%d %b %Y %H:%M")))
         f.close()
 
     def excel_log(self, items):

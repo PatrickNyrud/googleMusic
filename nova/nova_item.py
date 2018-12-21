@@ -9,7 +9,7 @@ class items_frame():
     def initialize(self, frame, checkout_object):
         self.frame = frame
         self.scrollbar_canvas = tk.Canvas(self.frame, bg = "grey21", width = 1700)
-        self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "grey21", height = 1000 - 100) #self.y - topframe height
+        self.checkout_frame = tk.Frame(self.scrollbar_canvas, bg = "grey21", height = 1000 - 100)#, highlightthickness = 5, highlightbackground = "gray6") #self.y - topframe height
 
         self.log_folder = "logs//"
         self.pic_folder = "pics//new_pics//"
@@ -106,9 +106,10 @@ class items_frame():
                 self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
                 self.t.place(relx = .5, rely = .5, anchor = "center")
 
+
     def place_frame(self, rw, clm):
         self.item_frame = tk.Canvas(self.checkout_frame, bg = self.in_frame_color, height = 250, width = 250, highlightthickness = 5, highlightbackground = "gray6")
-        self.item_frame.grid(row = rw, column = clm, padx = (42, 0), pady = (50, 0))
+        self.item_frame.grid(row = rw, column = clm, padx = (35, 0), pady = (50, 0))
         
         return self.item_frame
 
@@ -155,7 +156,7 @@ class items_frame():
             self.amount_list[int(x)].config(text = "")
 
     def place_button_add(self, name, price, frame_pos):
-        self.button_add_place = tk.Button(self.frame_list[frame_pos], bg = "white", text = "ADD", borderwidth = 2, command = lambda : [self.change_amount(name, frame_pos, True), self.checkout_object.add_to_checkout(name, price, frame_pos)])
+        self.button_add_place = tk.Button(self.frame_list[frame_pos], bg = "white", text = "ADD", borderwidth = 2, command = lambda : [self.change_amount(name, frame_pos, True), self.checkout_object.add_to_checkout(name, price, frame_pos, self.checkout_frame)])
         self.photo = ImageTk.PhotoImage(file = self.pic_folder + name + ".png")
         self.button_add_place.config(image = self.photo, width = 150, height = 150)
         self.button_add_place.image = self.photo

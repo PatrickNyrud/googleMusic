@@ -32,9 +32,9 @@ Kick ass, 9
 Super nova, 3
 Vip blackline, 1
 Monster, 100
-Monster single, 17
+Monster single, 100
 Monster 50, 100
-Monster 50 Single, 12
+Monster 50 Single, 100
 Eagle, 30
 Monster pack, 18
 Nighthawk, 24

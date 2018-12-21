@@ -49,7 +49,8 @@ class checkout_frame:
         self.item_frame.grid_propagate(False)
         self.item_frame.pack(side = "left", fill = "y")
 
-    def add_to_checkout(self, name, price, frame_pos):
+    def add_to_checkout(self, name, price, frame_pos, frame):
+        self.chk_frame = frame
         self.items_check_out.append(name)
         self.frame_pos_list.append(frame_pos)
         self.items_checked = []
@@ -119,17 +120,19 @@ class checkout_frame:
             self.check_out_grid_list.append(self.tmp_text_label)
 
         self.return_label = tk.Label(self.item_frame, text = "", bg = "grey21", fg = "cornsilk2")
-        self.return_label.grid(row = 1, column = 0, columnspan = 2, pady = (40, 0))
+        self.return_label.grid(row = j + 2, column = 0, columnspan = 2, pady = (40, 0))
 
         self.return_entry = tk.Entry(self.item_frame, justify = "center", bg = "white", width = 35)
-        self.return_entry.grid(row = 2, column = 0, columnspan = 2)
+        self.return_entry.grid(row = j + 3, column = 0, columnspan = 2)
         self.return_entry.bind("<Return>", self.display_return_sum)
 
         self.check_out_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "DONE", command = lambda : self.check_out_done(self.total_sum, self.items_check_out, self.final_string))
-        self.check_out_button.grid(row = 3, column = 0, pady = (30, 0))
+        self.check_out_button.grid(row = j + 4, column = 0, pady = (30, 0))
 
         self.reset_button = tk.Button(self.item_frame, bg = "ivory2", width = 10, height = 2, text = "RESET",  command = lambda : self.reset())
-        self.reset_button.grid(row = 3, column = 1, pady = (30, 0))
+        self.reset_button.grid(row = j + 4, column = 1, pady = (30, 0))
+
+        self.chk_frame.focus_set()
 
     def display_return_sum(self, event):
         self.return_sum = int(self.return_entry.get()) - self.total_sum
