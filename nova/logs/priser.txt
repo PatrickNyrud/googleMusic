@@ -6,48 +6,48 @@ Magnum, 449
 Extreme thunder, 1499
 Bombzilla, 1299
 Flashlight, 749
-Phoenix, 1190
+Phoenix, 1399
 Brutal, 999
 Bolero, 399
-Circus, 199
-Bizarre, 1
+Circus, 379
+Bizarre, 169
 Goldfish, 329
 Orion, 279
 Trapez, 549
 Passion, 349
 Tnt, 99
-Thunderbird, 399
+Thunderbird, 349
 Commando, 499
 Shocker, 599
 Kamikaze, 399
-Gladiator, 799
+Gladiator, 690
 Crossfire, 599
-Black spider, 749
+Black spider, 699
 Firestorm, 599
 Hellfire, 999
-Dragonstep, 899
-Diablo, 1099
+Dragonstep, 799
+Diablo, 1199
 Aces High, 2499
 Kick ass, 1199
 Super nova, 1499
 Vip blackline, 1999
-Monster, 99
+Monster, 199
 Monster single, 49
-Monster 50, 99
+Monster 50, 499
 Monster 50 Single, 99
 Eagle, 249
 Monster pack, 479
 Nighthawk, 239
-Strobe, 599
+Strobe, 649
 Thunderbolt, 399
-Nitro Bag, 549
+Nitro Bag, 599
 Big Bag, 999
-Top flight, 1
+Top flight, 790
 Partymix, 199
 Stormlighter, 29
-Stjerneskudd, 20
-Stjerneskuddmini, 20
-Airbomb, 25
+Stjerneskudd, 49
+Stjerneskuddmini, 25
+Airbomb, 59
 Tjuefemkroner, 25
 Tikroner, 10
 Glowsticks, 5

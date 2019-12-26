@@ -84,6 +84,11 @@ class checkout_frame:
         self.check_out_button.grid_configure(row = j + 4)
         self.reset_button.grid_configure(row = j + 4)
 
+    def rabatt_checkout(self, rabatt_amount):
+        self.total_sum -= int(rabatt_amount)
+
+        self.check_out_label.config(text = str(self.total_sum) + " Kr")
+
     def remove_from_checkout(self, name, price):
         for widget in self.item_frame.winfo_children():
             widget.destroy()

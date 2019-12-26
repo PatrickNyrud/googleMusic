@@ -1,56 +1,56 @@
-Atomic, 79
-Atomic Meltdown, 1000
-Super 10, 22
-Meltdown, 66
-Magnum, 30
-Extreme thunder, 2
-Bombzilla, 2
-Flashlight, 11
-Phoenix, 2
-Brutal, 2
-Bolero, 5
-Circus, 18
-Bizarre, 14
-Goldfish, 8
+Atomic, 0
+Atomic Meltdown, 937
+Super 10, 17
+Meltdown, 0
+Magnum, 17
+Extreme thunder, 0
+Bombzilla, 0
+Flashlight, 10
+Phoenix, 1
+Brutal, 1
+Bolero, 0
+Circus, 9
+Bizarre, 0
+Goldfish, 0
 Orion, 26
-Trapez, 10
-Passion, 18
-Tnt, 51
-Thunderbird, 2
-Commando, 36
-Shocker, 2
-Kamikaze, 24
-Gladiator, 8
-Crossfire, 12
-Black spider, 7
-Firestorm, 13
-Hellfire, 10
-Dragonstep, 4
-Diablo, 6
+Trapez, 8
+Passion, 6
+Tnt, 2
+Thunderbird, 0
+Commando, 14
+Shocker, 0
+Kamikaze, 6
+Gladiator, 0
+Crossfire, 7
+Black spider, 0
+Firestorm, 4
+Hellfire, 8
+Dragonstep, 0
+Diablo, 0
 Aces High, 1
 Kick ass, 9
-Super nova, 3
+Super nova, 1
 Vip blackline, 1
-Monster, 100
-Monster single, 100
-Monster 50, 100
-Monster 50 Single, 100
-Eagle, 30
-Monster pack, 18
-Nighthawk, 24
-Strobe, 5
-Thunderbolt, 19
-Nitro Bag, 8
-Big Bag, 4
+Monster, 65
+Monster single, 85
+Monster 50, 93
+Monster 50 Single, 94
+Eagle, 21
+Monster pack, 11
+Nighthawk, 3
+Strobe, 0
+Thunderbolt, 9
+Nitro Bag, 4
+Big Bag, 2
 Top flight, 10
-Partymix, 23
+Partymix, 7
 Stormlighter, 1000
-Stjerneskudd, 1000
-Stjerneskuddmini, 1000
-Airbomb, 21
-Tjuefemkroner, 1000
-Tikroner, 1000
-Glowsticks, 250
-Lyx fontene, 13
-Handfakkel, 29
-Farge fontene, 14
+Stjerneskudd, 547
+Stjerneskuddmini, 985
+Airbomb, 978
+Tjuefemkroner, 807
+Tikroner, 953
+Glowsticks, 95
+Lyx fontene, 12
+Handfakkel, 18
+Farge fontene, 0

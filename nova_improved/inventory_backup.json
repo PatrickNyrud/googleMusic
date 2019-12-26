@@ -1,0 +1,292 @@
+{
+  "firework": [
+    {
+      "price": "199",
+      "type": "Rakett",
+      "name": "Atomic",
+      "inventory": "10"
+    },
+    {
+      "price": "199",
+      "type": "Rakett",
+      "name": "Meltdown",
+      "inventory": "100"
+    },
+    {
+      "price": "199",
+      "type": "Rakett",
+      "name": "Atomic + Meltdown",
+      "inventory": "100"
+    },
+    {
+      "price": "349",
+      "type": "Rakett",
+      "name": "Super 10",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Rakett",
+      "name": "Magnum",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Rakett",
+      "name": "Flashlight",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Rakett",
+      "name": "Bombzilla",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Rakett",
+      "name": "Phoenix",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Rakett",
+      "name": "Extreme Thunder",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Tnt",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Bizarre",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Gladiator",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Passion",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Circus",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Goldfish",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Bolero",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Kamikaze",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Commando",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Crossfire",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Firestorm",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Black spider",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Hellfire",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Diablo",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Effektbatteri",
+      "name": "Kick ass",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Festbatteri",
+      "name": "Aces High",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mine",
+      "name": "Brutal",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "V-Shape",
+      "name": "Trapez",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "V-Shape",
+      "name": "Super Nova",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Lyx fontene",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Farge fonten",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Airbomb pack",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "35 Monster",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "35 Monster Single",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "50 Monster",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "50 Monster Single",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Nighthawk",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Monster Pack",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Ealge",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Thunderbolt",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Nitro Bag",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Strobe",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Familiepakke",
+      "name": "Big Bag",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Partymix",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Tjuefemkroner",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Tikroner",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Stjerneskudd",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Stjerneskudd Mini",
+      "inventory": "100"
+    },
+    {
+      "price": "449",
+      "type": "Mics",
+      "name": "Handfakkel",
+      "inventory": "100"
+    }
+  ]
+}

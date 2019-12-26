@@ -103,8 +103,14 @@ class items_frame():
                             self.lager_list.append(self.place_label_lager(self.item_name, self.frame_position)) 
                     self.frame_position += 1
             except:
-                self.t = tk.Label(self.frame_list[self.frame_position], bg = "white", text = "PLACE NOVA LOGO HERE?")
-                self.t.place(relx = .5, rely = .5, anchor = "center")
+                self.rabatt_label = tk.Label(self.frame_list[self.frame_position], font = self.text_font, bg = self.in_frame_color, text = "RABATT")
+                self.rabatt_label.place(relx = .5, rely = .1, anchor = "center")
+
+                self.rabatt_entry = tk.Entry(self.frame_list[self.frame_position], justify = "center", font = self.text_font, width = 15)
+                self.rabatt_entry.place(relx = .5, rely = .6, anchor = "center")
+
+                self.rabatt_button = tk.Button(self.frame_list[self.frame_position], text = "ADD", width = 10, height = 2, command = lambda : self.checkout_object.rabatt_checkout(self.rabatt_entry.get()))
+                self.rabatt_button.place(relx = .5, rely = .8, anchor = "center")
 
 
     def place_frame(self, rw, clm):
